@@ -1,0 +1,21 @@
+\usepackage{blindtext}
+\usepackage{titling}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\usepackage{graphicx}
+
+\setlength{\droptitle}{-3cm}
+
+\titleformat{\section}
+    {\normalfont\Large\bfseries}{}{0pt}{}
+
+\let\oldsection\section
+\renewcommand{\section}{
+  \renewcommand{\theequation}{\thesection.\arabic{equation}}
+  \oldsection}
+\let\oldsubsection\subsection
+\renewcommand{\subsection}{
+  \renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+  \oldsubsection}
