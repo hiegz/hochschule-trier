@@ -1,6 +1,8 @@
 \documentclass[10pt, a4paper, oneside]{article}
 \usepackage[ngerman]{babel}
 
+\usepackage{nccmath}
+
 \input{include/preamble}
 
 \title{Mathematische Grundlagen\\[5pt]Lösungen zu den Aufgaben 1, 4, 6 und 11}
@@ -75,7 +77,7 @@ M_2, M_1^{c(M)}, M_2^{c(M)}, M \setminus (M_1 \cup M_2)$$
                 teilerfremd}.
 
                 \textbf{L"osung}.
-                $$M = \{ (x_1, x_2) \in \mathbb{Z} \times \mathbb{N} : \text{ggT}(x_1, x_2) = 1\ \text{und}\ b \neq 0 \}$$
+                $$M = \{ (x_1, x_2) \in \mathbb{Z} \times \mathbb{N} : \text{ggT}(x_1, x_2) = 1\ \text{und}\ x_2 \neq 0 \}$$
 
             \item Welche allgemein bekannte Zahlen-Menge haben Sie gerade beschrieben?
 
@@ -136,7 +138,7 @@ bzw. widerlegen Sie diese durch ein Gegenbeispiel.
 
         \textbf{Beweis}.
         \begin{enumerate}[-]
-            \item Wenn $A \cap B$ gilt, bedeutet das, dass $A$ und $B$ keine gemeinsamen Elemente haben.
+            \item Wenn $A \cap B = \emptyset$ gilt, bedeutet das, dass $A$ und $B$ keine gemeinsamen Elemente haben.
             \item $C \subset A$ bedeutet, dass alle Elemente von $C$ auch in $A$ enthalten sind.
             \item $C \subset B$ bedeutet, dass alle Elemente von $C$ auch in $B$ enthalten sind.
         \end{enumerate}
@@ -151,28 +153,42 @@ bzw. widerlegen Sie diese durch ein Gegenbeispiel.
         keine \underline{nicht-leere} Menge $C$ mit $C \subset A$ und $C
         \subset B$ geben kann, ist also \textbf{wahr}.
 
+
     \item F"ur Mengen $M_1, M_2, M_3, C$ gilt $C \subset (M_1 \cup M_2 \cup
         M_3)^c$ genau dann, wenn f"ur alle $j = 1, 2, 3$ $C \cap M_j = \emptyset$
         gilt.
 
         \textbf{Beweis}.
-        \begin{enumerate}[-]
-            \item Wenn f"ur alle $j = 1, 2, 3$ $C \cap M_j = \emptyset$ gilt,
-                bedeutet das, dass $C$ keine gemeinsame Elemente mit den Mengen
-                $M_1$, $M_2$ und $M_3$ hat.
-            \item Die Menge $(M_1 \cup M_2 \cup M_3)^c$ besteht aus allen
-                Elemente, die in der Menge $C$ enthalten sind, aber in keiner
-                der Mengen $M_j$ liegen.
-        \end{enumerate}
 
-        Die Menge $C$ k"onnte nicht mehr eine Teilmenge von $(M_1 \cup M_2 \cup
-        M_3)^c$ sein, wenn sie zumindest ein gemeinsames Element mit einer der
-        Mengen $M_j$ h"atte, da das Komplement ihrer Vereinigung dann kleiner
-        als $C$ w"are. Daraus folgt, dass $C \subset (M_1 \cup M_2 \cup M_3)^c$
-        \underline{genau dann} gilt, wenn $C$ kein gemeinsames Element mit
-        einer der Mengen $M_j$ hat.
+        \begin{fleqn}
+            \begin{align*}
+                     &C \subset M^{c(C)} \\
+                \iff &C \subset C \setminus M \\
+            \implies &\forall_{x \in C} : x \in (C \setminus M) \\
+                \iff &\forall_{x \in C} : x \in \{y : y \in C, y \notin M \} \\
+            \implies &\forall_{x \in C} : x \notin M \\
+            \implies &C \cap M = \emptyset
+        \end{align*}
+        \end{fleqn}
 
-        Die Aussage ist also \textbf{richtig}.
+        \begin{fleqn}
+            \begin{align*}
+                     &x \in (M_1 \cup M_2 \cup M_3)^c \\
+                \iff &x \in (M_1^c \cap M_2^c \cap M_3^c) \\
+                \iff &(x \in M_1^c) \land (x \in M_2^c) \land (x \in M_3^c)
+            \end{align*}
+        \end{fleqn}
+
+        \begin{fleqn}
+            \begin{align*}
+                         &C \subset (M_1 \cup M_2 \cup M_3)^c \\
+                \implies &\forall_{x \in C} : x \in (M_1 \cup M_2 \cup M_3)^c \\
+                \implies &\forall_{x \in C} : (x \in M_1^c) \land (x \in M_2^c) \land (x \in M_3^c) \\
+                \implies &(C \subset M_1^c) \land (C \subset M_2^c) \land (C \subset M_3^c) \\
+                \implies &(C \subset M_1 = \emptyset) \land (C \subset M_2 = \emptyset) \land (C \subset M_3 = \emptyset)
+            \end{align*}
+        \end{fleqn}
+        
 \end{enumerate}
 
 \end{document}
