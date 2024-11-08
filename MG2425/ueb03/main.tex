@@ -33,15 +33,23 @@ Umkehrabbildung) erf"ullen.
 \begin{equation*}
     \begin{array}{rcccl}
         f_1^{-1} &:& \mathbb{R} \rightarrow \mathbb{R},\ 10x \mapsto x &\iff& x \mapsto \dfrac{x}{10} \text{,} \\[10pt]
-        f_1^{-1} &:& \mathbb{R} \rightarrow \mathbb{R},\ \dfrac{x}{10} \mapsto x &\iff& x \mapsto 10x \text{,} \\[10pt]
-        f_1^{-1} &:& X \rightarrow X,\ x^2 \mapsto x &\iff& x \mapsto \sqrt{x} \text{,} \\[10pt]
-        f_1^{-1} &:& X \rightarrow X,\ \sqrt{x} \mapsto x &\iff& x \mapsto x^2
+        f_2^{-1} &:& \mathbb{R} \rightarrow \mathbb{R},\ \dfrac{x}{10} \mapsto x &\iff& x \mapsto 10x \text{,} \\[10pt]
+        f_3^{-1} &:& X \rightarrow X,\ x^2 \mapsto x &\iff& x \mapsto \sqrt{x} \text{,} \\[10pt]
+        f_4^{-1} &:& X \rightarrow X,\ \sqrt{x} \mapsto x &\iff& x \mapsto x^2
     \end{array}
 \end{equation*}
 \begin{figure*}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{./assets/23-01.png}
 \end{figure*}
+\begin{equation*}
+    \begin{aligned}
+        f_1^{-1}(x) \circ f_1(x) &= f_1^{-1}(f_1(x)) = \dfrac{10x}{10} = x \quad \text{\underline{q.e.d.}} \\[10pt]
+        f_2^{-1}(x) \circ f_2(x) &= f_2^{-1}(f_2(x)) = 10 \cdot \dfrac{1}{10}x  = x \quad \text{\underline{q.e.d.}} \\[10pt]
+        f_3^{-1}(x) \circ f_3(x) &= f_3^{-1}(f_3(x)) = \sqrt{x^2} = |x| \quad \text{\underline{q.e.d.}} \quad (x \in \mathbb{R}^{+}_0) \\[10pt]
+        f_4^{-1}(x) \circ f_4(x) &= f_4^{-1}(f_4(x)) = (\sqrt{x})^2 = x \quad \text{\underline{q.e.d.}} \quad (x \in \mathbb{R}^{+}_0) \\[10pt]
+    \end{aligned}
+\end{equation*}
 
 \section{Aufgabe 28}
 
