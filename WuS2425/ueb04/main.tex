@@ -1,0 +1,186 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+
+\input{include/preamble}
+
+\title{Wahrscheinlichkeitstheorie und Statistik\\[10pt]\Large WiSe 2024/25\\[15pt]\Large L{\"o}sungen zu den Aufgaben 21, 22 und 30}
+\author{Volodymyr But}
+\date{Hochschule Trier}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+\sloppy
+
+\maketitle
+\vspace{25px}
+
+\section{Aufgabe 21}
+\setcounter{section}{21}
+In einer Lotterie werden 3 Kugeln aus 100 nummerierten Kugeln ohne Zurücklegen
+gezogen (ungeordnete Stichproben). Ein Tipp eines Teilnehmers der Lotterie
+bezeichne das Auswählen dreier unterschiedlicher Zahlen aus $\{1,...,100\}$
+(vor der Ziehung).
+\begin{enumerate}[(a)]
+    \item Geben Sie einen geeigneten Laplaceschen W-Raum an, der dieses
+        Experiment modelliert.
+    \item Nehmen Sie an, dass Sie drei (unterschiedliche) Tipps abgegeben haben.
+        Berechnen Sie mit dem W-Raum aus Teil (a) die Wahrscheinlichkeit, dass
+        einer Ihrer Tipps mit der Ziehung übereinstimmt.
+    \item Nehmen Sie an, dass Sie einen Tipp abgegeben haben. Berechnen Sie mit dem
+        W-Raum aus Teil (a) die Wahrscheinlichkeit, dass mindestens zwei der
+        Zahlen Ihres Tipps mit der Ziehung übereinstimmen.
+\end{enumerate}
+\textbf{L"osung.}
+\begin{enumerate}[(a)]
+    \item Wählt man aus 100 Kugeln 3 aus, ohne sie zurückzulegen und ohne auf
+        ihre Reihenfolge zu achten, dann gilt:
+        \begin{equation*}
+            |\Omega| = \binom{100}{3} = 161700 \quad\text{und}\quad p(\omega) = \dfrac{1}{|\Omega|} = \dfrac{1}{161700} = 6.18 \cdot 10^{-6} \quad (\forall_{\omega \in \Omega})
+        \end{equation*}
+    \item Sei $M \subset \Omega$ die Menge der drei unterschiedlichen Tipps, dann gilt:
+        \begin{equation*}
+            |M| = 3 \quad\text{und}\quad P(M) = \dfrac{|M|}{|\Omega|} = \dfrac{3}{161700} \approx 1.85 \cdot 10^{-5}
+        \end{equation*}
+        wobei $P(M)$ die Wahrscheinlichkeit ist, dass einer dieser Tipps mit der Ziehung "ubereinstimmt.
+    \pagebreak
+    \item Sei $X \sim \text{HV}(100, 3, 3)$ eine Zufallsvariable, die die
+        Anzahl der Zahlen in dem Tipp, die mit der Ziehung "ubereinstimmen.
+        Dann gilt:
+        \begin{equation}
+            P(X = k) = \dfrac{\binom{K}{k}\binom{N - K}{n - k}}{\binom{N}{n}}
+        \end{equation}
+        wo
+        \begin{enumerate}[-]
+            \item $N$ die Gesamtanzahl der Kugeln ist,
+            \item $K$ die Gesamtanzahl der Erfolge ist,
+            \item $n$ die Anzahl der Ziehungen ist,
+            \item $k$ die Anzahl der beobachteten Erfolge ist.
+        \end{enumerate}
+        \vspace{5pt}
+        Daher folgt:
+        \begin{equation*}
+            \begin{array}{rcccl}
+                P(X \geq 2) &=& P(X = 2) + P(X = 3) &=& \\[7.5pt]
+                            &=& \dfrac{\binom{3}{2}\binom{100 - 3}{3 - 2}}{\binom{100}{3}} + \dfrac{\binom{3}{3}\binom{100 - 3}{3 - 3}}{\binom{100}{3}} &\approx& \\[15pt]
+                      &\approx& 0.0017996 + 6.18 \cdot 10^{-6} &\approx& 0.0018058
+            \end{array}
+        \end{equation*}
+\end{enumerate}
+
+\section{Aufgabe 22}
+In einer Urne liegen 10 nummerierte Kugeln. In einem Experiment werden zwei
+Kugeln ohne Zurücklegen gezogen (ungeordnete Stichproben).
+\begin{enumerate}[(a)]
+    \item Geben Sie eine geeigneten Laplaceschen W-Raum an, der dieses
+        Experiment modelliert.
+    \item Berechnen Sie die Wahrscheinlichkeit, dass die Größere der gezogenen
+        Zahlen kleiner 6 ist. Definieren Sie dazu eine geeignete
+        Zufallsvariable und wenden Sie die Notation aus 6.10 bzw. 6.11 aus dem
+        Skript an.
+    \item Es bezeichne nun $(\Omega,P)$ Ihren W-Raum aus Teil (a) und es sei
+        $X:\Omega\to\{0,1\}$ für $(k_1,k_2)\in\Omega$ definiert durch
+        $X((k_1,k_2))=1$, falls entweder $k_1$ oder $k_2$ gleich 3 sind, und
+        $X((k_1,k_2))=0$ andernfalls. Bestimmen Sie die Zähldichte zu $P^X.$
+\end{enumerate}
+\textbf{L"osung.}
+\begin{enumerate}[(a)]
+    \item Wählt man ohne Zurücklegen und ohne Berücksichtigung der Reihenfolge
+        aus 10 Kugeln 2 aus, ergibt sich der Wahrscheinlichkeitsraum:
+        \begin{equation*}
+            |\Omega| = \binom{10}{2} = 45 \quad\text{und}\quad p(\omega) = \dfrac{1}{|\Omega|} = \dfrac{1}{45} = 0.02 \quad (\forall_{\omega \in \Omega})
+        \end{equation*}
+    \item Definieren wir die Zufallsvariable $X: \Omega \rightarrow \{2,...,10\}$ durch
+        \begin{equation*}
+            X(\Omega) := \{\max(\omega_1, \omega_2) : (\omega_1, \omega_2) \in \Omega\},
+        \end{equation*}
+        bezeichnet $\omega \in X(\Omega)$ die Gr"o{\ss}ere der beiden gezogenen
+        Zahlen. Dann entspricht der Wert von $P(X < 6)$ der Wahrscheinlichkeit,
+        dass sie kleiner als 6 ist. Ist $A := \{2,...,5\}$, dann gilt
+        gem"a{\ss} der Definition 3.10 und 3.11 aus dem Skript
+        \begin{equation*}
+            P(X < 6) := P(X^{-1}(A))
+        \end{equation*}
+        wobei $X^{-1}(A) := \{(\omega_1, \omega_2) \in \Omega : \max(\omega_1, \omega_2) < 6\}$.
+
+        Aus der Definition von $X^{-1}(A)$ folgt, dass
+        \begin{equation*}
+            \forall_{(\omega_1, \omega_2) \in X^{-1}(A)} : 1 \leq \min(\omega_1, \omega_2) < \max(\omega_1, \omega_2) < 6
+        \end{equation*}
+        Das bedeutet also, dass sowohl $\omega_1$ als auch $\omega_2$ mit $(\omega_1, \omega_2) \in X^{-1}(A)$ aus der Menge [1, 6)
+        ausgew"ahlt werden. Daher entsteht der Ereignisraum $P$ definiert durch:
+        \begin{equation*}
+            X^{-1}(A) = P\text{,} \quad P := \text{Ur}_2^5(oR, oZ)\text{,} \quad |P| = \binom{5}{2} = 10
+        \end{equation*}
+        Und da der W-Raum $(\Omega, p(\omega))$ gleichverteilt ist, gilt somit
+        \begin{equation*}
+            P(X < 6) = P(X^{-1}(A)) = \dfrac{|X^{-1}(A)|}{|\Omega|} = \dfrac{|P|}{|\Omega|} = \dfrac{10}{45} = \dfrac{2}{9} \approx 0.22
+        \end{equation*}
+    \item % W"ahlen wir zwei Kugel derart, dass eine von denen mit 3 nummeriert
+          % ist, ergibt sich ein Ereignisraum $M$:
+          % \begin{equation*}
+          %     M := \{3\} \times (\{1,...,10\} \setminus \{3\})\text{,} \quad |M| = 9 \quad \text{mit} \quad P(M) = \dfrac{|M|}{|\Omega|} = \dfrac{9}{45} = 0.2
+          % \end{equation*}
+        In der Aufgabestellung ist die Zufallsvariable $X: \Omega \rightarrow \{0, 1\}$ definiert durch:
+        \begin{align*}
+            X(\{(k_1, k_2)\}) &:= \begin{cases}
+                1\text{,}& \text{ falls } k_1 = 3 \lor k_2 = 3\text{,} \\
+                0\text{,}& \text{ sonst, }
+            \end{cases}  \\
+            \intertext{oder anders ausgedr"uckt als}
+            X(\{(k_1, k_2)\}) &:= \begin{cases}
+                1\text{,}& \text{ falls } (k_1, k_2) \in M \lor (k_2, k_1) \in M\text{,} \\
+                0\text{,}& \text{ sonst, }
+            \end{cases}
+        \end{align*}
+        wobei $M$ den Ereignisraum bezeichnet, der alle Ziehungen umfasst, in
+        denen eine von den beiden gezogenen Kugeln mit der Nummer 3 nummeriert
+        ist. Dies l"asst sich wie folgt darstellen:
+        \begin{equation*}
+            M := \{3\} \times (\{1,...,10\} \setminus \{3\})\text{,} \quad |M| = 9 \quad \text{mit} \quad P(M) = \dfrac{|M|}{|\Omega|} = \dfrac{9}{45} = 0.2
+        \end{equation*}
+        Daraus ergibt sich:
+        \begin{equation*}
+            \begin{array}{rccl}
+                &P^X(\{a\}) &=& \begin{cases}
+                    P(M)\text{,}& \text{ falls } a = 1, \\
+                    1 - P(M)\text{,}& \text{ falls } a = 0
+                \end{cases} \\[20pt]
+                p_x(a) := &P^X(\{a\}) &\implies& p_x(0) = 0.8, \quad p_x(1) = 0.2
+            \end{array}
+        \end{equation*}
+\end{enumerate}
+
+\pagebreak
+\section{Aufgabe 30}
+
+\begin{enumerate}[(a)]
+    \item Es sei $X\sim\mathcal{B}(n,p)$. Zeigen Sie mit Hilfe des binomischen
+        Satz (Math. Grundlagen), dass gilt $$\sum_{k=0}^nP(X=k)=1.$$
+    \item Es sei wie in Teil (a) $X\sim\mathcal{B}(n,p)$ und $k\in\{0,...,n\}$
+        fest. Für welchen Wert $p$ ist $P(X=k)$ maximal? (Hinweis: setzen
+        Sie $f(p):=P(X=k)$ und berechnen
+        Sie das Maximum von $f$).
+\end{enumerate}
+\textbf{L"osung.}
+\begin{enumerate}[(a)]
+    \item Binomischer Satz lautet: \textit{F"ur alle $a, b \in \mathbb{R}$ und alle $n \in \mathbb{N}_0$ gilt}
+        \begin{equation}
+            (a + b)^n = \sum_{\nu = 0}^n\binom{n}{\nu}a^{\nu}b^{n - \nu}
+        \end{equation}
+        Zu zeigen ist, dass
+        \begin{equation*}
+            \sum_{k=0}^nP(X=k)=1
+        \end{equation*}
+        Aus der Definition von der Binomialverteilung gilt:
+        \begin{equation*}
+            P(X = k) = \binom{n}{k}p^k(1 - p)^{n - k}
+        \end{equation*}
+        Daraus folgt:
+        \begin{align*}
+            \sum_{k=0}^nP(X=k) &= \binom{n}{0}p^0(1 - p)^{n} + \binom{n}{1}p^1(1 - p)^{n - 1} + ... + \binom{n}{k}p^k(1 - p)^{n - k} = \\[10pt]
+                               &= \sum_{k = 0}^n\binom{n}{k}p^k(1 - p)^{n - k} = (p + (1 - p))^n = 1^n = 1 \quad \text{\underline{q.e.d.}}
+        \end{align*}
+\end{enumerate}
+\end{document}
