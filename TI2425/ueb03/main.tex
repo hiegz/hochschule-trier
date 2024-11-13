@@ -1,0 +1,226 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+
+\input{include/preamble}
+
+\title{Technische Informatik\\[10pt]\Large{WiSe 2024/25}\\[15pt]\Large{L{\"o}sungen zum {\"U}bungsblatt 3}}
+\author{Volodymyr But}
+\date{Hochschule Trier}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+\sloppy
+
+\maketitle
+\vspace{25px}
+
+\section{Aufgabe 1}
+
+Welchen dezimalen Wert hat die hexadezimale Zahl 2AB,F.
+\begin{equation*}
+    2\text{AB,F}_{\text{hex}} = (16^2 \cdot 2) + (16^1 \cdot 10) + (16^0 \cdot
+    11) + (16^{-1} \cdot 15) = 683.9375_{\text{dezimal}}
+\end{equation*}
+
+\section{Aufgabe 2}
+
+Gegeben sind die Zahlen:
+\begin{align*}
+    0153_{\text{octal}} &= 001\ 101\ 011 \\[5pt]
+    0\text{x}153_{\text{hex}}  &= 0001\ 0101\ 0011 \\[5pt]
+    153_{\text{decimal}} &= 1001\ 1001
+\end{align*}
+\begin{enumerate}[(a)]
+    \item Geben Sie die Werte in dezimaler Schreibweise an.
+        \begin{align*}
+            0153_{\text{octal}} &= (8^3 \cdot 0) + (8^2 \cdot 1) + (8^1 \cdot
+            5) + (8^0 \cdot 3) = 107_{\text{dezimal}} \\[5pt]
+            0\text{x}153_{\text{hex}} &= (16^2 \cdot 1) + (16^1 \cdot 5) +
+            (16^0 \cdot 3) = 339_{\text{dezimal}}
+        \end{align*}
+    \item Welchen dezimalen Wert hat $153_{\text{dezimal}}$ in einem 6-er System?
+        \begin{equation*}
+            153_{\text{dezimal}} = 413_{6}
+        \end{equation*}
+    \item Welchen dezimalen Wert hat $153_{\text{dezimal}}$ in einem 4-er System?
+        \begin{equation*}
+            153_{\text{dezimal}} = 2121_{4}
+        \end{equation*}
+\end{enumerate}
+
+\section{Aufgabe 3}
+
+In C++ deklariert ein Programmierer gerne besonders strukturiert:
+\begin{verbatim}
+    int y = 120;
+    int x = 012;
+    int z = 222;
+\end{verbatim}
+Sehen Sie ein Problem?
+
+Auch wenn es so aussieht, als w"are der Wert von $x$ gleich 12, stimmt das
+nicht. In C++ werden numerische Konstanten, die mit einer Null beginnen, als
+Oktalzahlen interpretiert. Daher steht hier 012 nicht f"ur 12 im Dezimalsystem,
+sonder f"ur den Wert $8^1 \cdot 1 + 8^0 \cdot 2 = 10$.
+
+\section{Aufgabe 4}
+
+Konvertieren Sie die folgenden Dezimalzahlen nach BCD:
+\begin{enumerate}[(a)]
+    \item $35\hphantom{0}\hphantom{0} = 0011\ 0101$
+    \item $98\hphantom{0}\hphantom{0} = 1001\ 1000$
+    \item $170\hphantom{0}            = 0001\ 0111\ 0000$
+    \item $2469                       = 0010\ 0100\ 0110\ 1001$
+\end{enumerate}
+Konvertieren Sie folgende BCD Codes zu einer Dezimalzahl:
+\begin{enumerate}[(a)]
+    \item $0000\ 0000\ 1000\ 0110 = 86$
+    \item $0000\ 0011\ 0101\ 0001 = 351$
+    \item $1001\ 0100\ 0111\ 0000 = 9470$
+\end{enumerate}
+
+\section{Aufgabe 5}
+
+Wandeln Sie die beiden Dezimalzahlen 65 und 77 in die bin"are Darstellung um.
+Addieren Sie die Bein"aren von Hand durch untereinander schreiben.
+\begin{align*}
+    65 &= 1000001_2 \\[5pt]
+    77 &= 1001101_2
+\end{align*}
+Dann die beiden Bin"arzahlen miteinander addieren:
+\vspace{7.5pt}
+\begin{center}
+\opbinadd{1000001}{1001101}
+\end{center}
+\vspace{7.5pt}
+Daraus folgt:
+\begin{equation*}
+    65 + 77 = 10001110_2 = 142 \quad \text{\underline{q.e.d}}
+\end{equation*}
+
+\section{Aufgabe 6}
+
+Wandeln Sie folgende Dezimalzahlen in Bin"arzahlen um indem Sie jeweils die
+Summe der 2-er Potenzen bilden.
+\begin{enumerate}[(a)]
+    \item $10 = 8 + 2 = 2^3 + 2^1$
+    \item $17 = 16 + 1 = 2^4 + 2^0$
+    \item $24 = 16 + 8 = 2^4 + 2^3$
+    \item $48 = 32 + 16 = 2^5 + 2^4$
+    \item $93 = 64 + 16 + 8 + 4 + 1 = 2^6 + 2^4 + 2^3 + 2^2 + 2^0$
+    \item $125 = 64 + 32 + 16 + 8 + 4 + 1 = 2^6 + 2^5 + 2^4 + 2^3 + 2^2 + 2^0$
+    \item $186 = 128 + 32 + 16 + 8 + 2 = 2^7 + 2^5 + 2^4 + 2^3 + 2^1$
+    \item $0,32 = 2^{-2} + 2^{-4} + 2^{-7}$
+    \item $0,246 = 2^{-3} + 2^{-4} + 2^{-5} + 2^{-6} + 2^{-7} + 2^{-8}$
+\end{enumerate}
+
+\section{Aufgabe 7}
+
+Wandeln Sie die folgenden Dezimalzahlen in Bin"arzahlen um durch die Methode der
+wiederholten Division durch 2.
+\begin{enumerate}[(a)]
+    \item $15 = 1111_2$
+    \item $21 = 10101_2$
+    \item $28 = 11100_2$
+    \item $34 = 100010_2$
+    \item $40 = 101000_2$
+\end{enumerate}
+
+\section{Aufgabe 8}
+
+Wandeln Sie die Zahl $59_{10}$ um in
+\begin{enumerate}[(a)]
+    \item eine Bin"arzahl : $59_{10} = 111011_2$
+    \item eine Zahl in 4-er System : $59_{10} = 323_4$
+    \item eine Zahl in 8-er System : $59_{10} = 73_8$
+\end{enumerate}
+
+\section{Aufgabe 9}
+Wandeln Sie die folgenden Dezimalzahlen in Bin"arzahlen um. Wandeln Sie die
+letzte Dezimalzahl auch in eine Oktalzahl um.
+\begin{enumerate}[(a)]
+    \item $0,98 = 0,111110_2$
+    \item $0,347 = 0,010110_2$
+    \item $0,9028 = 0,111001_2 = 0,716167_8$
+\end{enumerate}
+
+\section{Aufgabe 10}
+Wandeln Sie die folgenden Hexadezimalzahlen in Bin"arzahlen um.
+\begin{enumerate}[(a)]
+    \item $38_{16} = 0011\ 1000_2$
+    \item $59_{16} = 0101\ 1001_2$
+    \item $\text{A}14_{16} = 1010\ 0001\ 0100_2$
+    \item $5\text{C}8_{16} = 0101\ 1100\ 1001_2$
+    \item $4100_{16} = 0100\ 0001\ 0000\ 0000_2$
+    \item $\text{FB}17_{16} = 1111\ 1011\ 0001\ 0111_2$
+    \item $8\text{A}9\text{D}_{16} = 1000\ 1010\ 1001\ 1101_2$
+\end{enumerate}
+
+\pagebreak
+\section{Aufgabe 11}
+Wandeln Sie die folgenden Hexadezimalzahlen in Dezimalzahlen um.
+\begin{enumerate}[(a)]
+    \item $23_{16} = 35_{10}$
+    \item $92_{16} = 146_{10}$
+    \item $1\text{A}_{16} = 26_{10}$
+    \item $8\text{D}_{16} = 141_{10}$
+    \item $\text{F}3_{16} = 243_{10}$
+    \item $\text{EB}_{16} = 235_{10}$
+    \item $5\text{C}2_{16} = 1474_{10}$
+    \item $700_{16} = 1792_{10}$
+\end{enumerate}
+
+\section{Aufgabe 12}
+Stellen Sie die Zahlen 10, 13, 18, 21, 25, 36, 44, 125, 156
+\begin{enumerate}[(a)]
+    \item in der BCD Form und daneben als Bin"arzahl dar.
+        \begin{equation*}
+            \begin{array}{rcrcl}
+                10_{10}  &=&       0001\ 0000_{\text{BCD}} &=& 1010_2 \\[5pt]
+                13_{10}  &=&       0001\ 0011_{\text{BCD}} &=& 1101_2 \\[5pt]
+                18_{10}  &=&       0001\ 1000_{\text{BCD}} &=& 10010_2 \\[5pt]
+                21_{10}  &=&       0010\ 0001_{\text{BCD}} &=& 10101_2 \\[5pt]
+                25_{10}  &=&       0010\ 0101_{\text{BCD}} &=& 11001_2 \\[5pt]
+                36_{10}  &=&       0011\ 0101_{\text{BCD}} &=& 100100_2 \\[5pt]
+                44_{10}  &=&       0100\ 0100_{\text{BCD}} &=& 101100_2 \\[5pt]
+                125_{10} &=& 0001\ 0010\ 0101_{\text{BCD}} &=& 1111101_2 \\[5pt]
+                156_{10} &=& 0001\ 0101\ 0110_{\text{BCD}} &=& 10011100_2 \\[5pt]
+            \end{array}
+        \end{equation*}
+    \item Wie viele Bits ben"otigt die Darstellung als Bin"arzahl im Vergleich
+        zur BCD Form?
+
+        Die Bin"ardarstellung der numerischen Zahlen braucht $\lfloor \log_2(n)
+        \rfloor + 1$, wobei $n$ die jeweilige Dezimalzahl bezeichnet. Im Vergleich
+        dazu brauch die BCD-Darstellung 4 bits pro Ziffer.
+\end{enumerate}
+
+\section{Aufgabe 13}
+
+\begin{enumerate}[(a)]
+    \item Jeder 7 Bit Block stellt ein ASCII Zeichen dar. Was bedeutet 1010100
+        1110010 1101001 1100101 1010010?
+        \begin{equation*}
+            1010100\ 1110010\ 1101001\ 1100101\ 1010010 =
+            \text{\say{TrieR}}
+        \end{equation*}
+    \item Nehmen Sie die ASCII Tabelle zur Hand und codieren Sie die 6 Zeichen
+        ”Hello.“ mit 7 Bit Bl"ocken.
+        \begin{equation*}
+            \text{\say{Hello.}} = 1001000\ 1100101\ 1101100\ 1101100\ 1101111\ 0101110
+        \end{equation*}
+    \item Zur Fehlererkennung bei der "Ubermittlung von \say{Hello.} erg"anzen Sie
+        den ASCII Code der Zeichen am Ende um ein 8. Bit als even parity bit.
+        \begin{equation*}
+            \text{\say{Hello.}} = 10010001\ 11001011\ 11011001\ 11011001\ 110111111\ 01011101
+        \end{equation*}
+    \item Erg"anzen Sie ebenso ein even parity bit bei Aufgabe (a).
+        \begin{equation*}
+            10101000\ 11100101\ 11010011\ 11001011\ 10100100 =
+            \text{\say{TrieR}}
+        \end{equation*}
+\end{enumerate}
+
+\end{document}

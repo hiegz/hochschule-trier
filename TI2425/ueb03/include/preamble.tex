@@ -1,0 +1,95 @@
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage[shortlabels]{enumitem}
+\usepackage{multirow}
+\usepackage{nccmath}
+\usepackage{rotating}
+\usepackage{makecell}
+\usepackage{multicol}
+\usepackage{capt-of}
+\usepackage{csquotes}
+\usepackage{amsfonts}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{xparse}
+\usepackage{xlop}
+\usepackage{dirtytalk}
+
+\captionsetup[table]{position=bottom}
+
+\titleformat{\section}
+    {\normalfont\Large\bfseries}{}{0pt}{}
+
+\let\oldsection\section
+\renewcommand{\section}{
+  \renewcommand{\theequation}{\thesection.\arabic{equation}}
+  \oldsection}
+\let\oldsubsection\subsection
+\renewcommand{\subsection}{
+  \renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+  \oldsubsection}
+
+\makeatletter
+\renewcommand{\maketitle}{
+    \bgroup
+    \centering
+    \par\LARGE\@title  \\[20pt]
+    \par\large\@author \\[10pt]
+    \par\large\@date
+    \par
+    \egroup
+}
+\makeatother
+
+\ExplSyntaxOn
+
+\NewDocumentCommand{\opbinadd}{mm}
+ {
+  \kartashuvit_binadd:nn { #1 } { #2 }
+ }
+
+\tl_new:N \l__kartashuvit_binadd_a_tl
+\tl_new:N \l__kartashuvit_binadd_b_tl
+\tl_new:N \l__kartashuvit_binadd_c_tl
+
+\cs_new_protected:Nn \kartashuvit_binadd:nn
+ {
+  \tl_set:Nx \l__kartashuvit_binadd_c_tl
+   {
+    \int_to_bin:n { \int_from_bin:n { #1 } + \int_from_bin:n { #2 } }
+   }
+  % pad the summands with \scan_stop:
+  \tl_set:Nx \l__kartashuvit_binadd_a_tl
+   {
+    \prg_replicate:nn
+     { \tl_count:N \l__kartashuvit_binadd_c_tl - \tl_count:n { #1 } }
+     { \scan_stop: }
+    #1
+   }
+  \tl_set:Nx \l__kartashuvit_binadd_b_tl
+   {
+    \prg_replicate:nn
+     { \tl_count:N \l__kartashuvit_binadd_c_tl - \tl_count:n { #2 } }
+     { \scan_stop: }
+    #2
+   }
+  \group_begin:
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{} c *{ \tl_count:N \l__kartashuvit_binadd_c_tl } { c } }
+  \tl_map_function:NN \l__kartashuvit_binadd_a_tl \__kartashuvit_binadd_tab:n \\
+  +
+  \tl_map_function:NN \l__kartashuvit_binadd_b_tl \__kartashuvit_binadd_tab:n \\
+  \midrule
+  \tl_map_function:NN \l__kartashuvit_binadd_c_tl \__kartashuvit_binadd_tab:n \\
+  \end{tabular}
+  \group_end:
+ }
+
+\cs_new:Nn \__kartashuvit_binadd_tab:n { & #1 }
+
+\ExplSyntaxOff
