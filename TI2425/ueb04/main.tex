@@ -1,0 +1,105 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+
+\input{include/preamble}
+
+\title{Technische Informatik\\[10pt]\Large{WiSe 2024/25}\\[15pt]\Large{L{\"o}sungen zum {\"U}bungsblatt 04}}
+\author{Volodymyr But\\[10pt]Hochschule Trier}
+\date{}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+\sloppy
+
+\maketitle
+\vspace{25px}
+
+\section{Aufgabe 1}
+
+\begin{enumerate}[(a)]
+    \item Auf welche beiden Arten kann die Zahl 0 im 1-er Komplement dargestellt werden?
+        \begin{equation*}
+            ...1111_{2} \quad\text{oder}\quad ...0000_{2}
+        \end{equation*}
+    \item Wie wird die 0 im 2-er Komplement dargestellt?
+        \begin{equation*}
+            ...0000_{2}
+        \end{equation*}
+\end{enumerate}
+
+\section{Aufgabe 2}
+
+Bestimmen Sie das 1-er Komplement der nachfolgenden Bin"arzahlen:
+\begin{enumerate}
+    \item $101 : \overline{101} = 010$
+    \item $110 : \overline{110} = 001$
+    \item $1010 : \overline{1010} = 0101$
+    \item $11010111 : \overline{11010111} = 00101000$
+    \item $1110101 : \overline{1110101} = 0001010$
+    \item $00001 : \overline{00001} = 11110$
+\end{enumerate}
+
+\section{Aufgabe 3}
+
+Bestimmen Sie das 2-er Komplement der folgenden Bin"arzahlen:
+\begin{enumerate}
+    \item $111 : \overline{00000111} + 1 = 11111001$
+    \item $1101 : \overline{00001101} + 1 = 11110011$
+    \item $10011 : \overline{00010011} + 1 = 11101101$
+    \item $00111101 : \overline{00111101} + 1 = 11000011$
+\end{enumerate}
+
+\section{Aufgabe 4}
+
+Wandeln Sie jedes Paar von Dezimalzahlen in ein Paar aus Bin"arzahlen um und
+addieren beide Summanden mit Hilfe des 2-er Komplements:
+\begin{enumerate}
+    \item 33 und 15 : $33_{10} + 15_{10} = 00100001_2 + 00001111_2 = 00110000_2 = 48_{10}$
+    \item 56 und $-27$ : $56_{10} + -27_{10} = 00111000_2 + 11100101_2 = 00011101_2 = 29_{10}$
+    \item $-46$ und 25 : $-46_{10} + 25_{10} = 11010010_2 + 00011001_2 = 11101011_2 = -21_{10}$
+    \item $-110$ und $-84$ : $\begin{aligned}[t]-110_{10} + -84_{10} &= 1111111110010010_2 + 1111111110101100_2 =\\&= 1111111100111110_2 = -194_{10}\end{aligned}$
+\end{enumerate}
+
+\section{Aufgabe 5}
+
+Wandeln Sie die dezimale Zahl $3,248 \cdot 10^4$ in eine single-precision
+bin"are Flie{\ss}kommazahl um.
+\begin{equation*}
+    3.248_{10} = 0\ 10000000\ 10011111101111100111011_2
+\end{equation*}
+
+\section{Aufgabe 6}
+
+Welchen dezimalen Wert hat die IEEE-754 Flie{\ss}kommazahl?
+\begin{align*}
+    0\ 01111110\ 10000000000000000000000_2 &= (-1)^0 \cdot (1.1_2) \cdot 2^{(126 - 127)} \\
+                                           &= 1.1_2 \cdot 2^{-1} = 0.11_2 = 0.75_{10}
+\end{align*}
+
+\section{Aufgabe 7}
+
+Welchen dezimalen Wert hat die IEEE-754 Flie{\ss}kommazahl?
+\begin{align*}
+    0\ 10000001\ 11000000000000000000000_2 &= (-1)^0 \cdot (1.11_2) \cdot 2^{(129 - 127)} \\
+                                           &= 1.11_2 \cdot 2^{2} = 111.0_2 = 7.0_{10}
+\end{align*}
+
+\section{Aufgabe 8}
+
+Stellen Sie den dezimalen Wert als IEEE-754 Fließkommazahl dar
+\begin{enumerate}[(a)]
+    \item $-0.75_{10} = 1\ 01111110\ 10000000000000000000000_2$
+    \item $0,375_{10} = 0\ 01111101\ 10000000000000000000000_2$
+    \item $98.7_{10} =  0\ 10000101\ 10001010110011001100110_2$
+\end{enumerate}
+
+\section{Aufgabe 9}
+
+Die gr"o{\ss}te (normalisierte) IEEE-754 Zahl bei 32-Bit Darstellung ist
+\begin{equation*}
+    (1 - 2^{-24}) \cdot 2^{128}
+\end{equation*}
+Erl"autern Sie bitte, wie Sie auf diesen Wert kommen.
+\end{document}
