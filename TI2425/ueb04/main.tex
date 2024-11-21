@@ -32,7 +32,7 @@
 \section{Aufgabe 2}
 
 Bestimmen Sie das 1-er Komplement der nachfolgenden Bin"arzahlen:
-\begin{enumerate}
+\begin{enumerate}[(a)]
     \item $101 : \overline{101} = 010$
     \item $110 : \overline{110} = 001$
     \item $1010 : \overline{1010} = 0101$
@@ -44,7 +44,7 @@ Bestimmen Sie das 1-er Komplement der nachfolgenden Bin"arzahlen:
 \section{Aufgabe 3}
 
 Bestimmen Sie das 2-er Komplement der folgenden Bin"arzahlen:
-\begin{enumerate}
+\begin{enumerate}[(a)]
     \item $111 : \overline{00000111} + 1 = 11111001$
     \item $1101 : \overline{00001101} + 1 = 11110011$
     \item $10011 : \overline{00010011} + 1 = 11101101$
@@ -55,7 +55,7 @@ Bestimmen Sie das 2-er Komplement der folgenden Bin"arzahlen:
 
 Wandeln Sie jedes Paar von Dezimalzahlen in ein Paar aus Bin"arzahlen um und
 addieren beide Summanden mit Hilfe des 2-er Komplements:
-\begin{enumerate}
+\begin{enumerate}[(a)]
     \item 33 und 15 : $33_{10} + 15_{10} = 00100001_2 + 00001111_2 = 00110000_2 = 48_{10}$
     \item 56 und $-27$ : $56_{10} + -27_{10} = 00111000_2 + 11100101_2 = 00011101_2 = 29_{10}$
     \item $-46$ und 25 : $-46_{10} + 25_{10} = 11010010_2 + 00011001_2 = 11101011_2 = -21_{10}$
@@ -67,7 +67,7 @@ addieren beide Summanden mit Hilfe des 2-er Komplements:
 Wandeln Sie die dezimale Zahl $3,248 \cdot 10^4$ in eine single-precision
 bin"are Flie{\ss}kommazahl um.
 \begin{equation*}
-    3.248_{10} = 0\ 10000000\ 10011111101111100111011_2
+    3.248_{10} \cdot 10^{4} = 0\ 10001101\ 11111011100000000000000_2
 \end{equation*}
 
 \section{Aufgabe 6}
@@ -102,4 +102,13 @@ Die gr"o{\ss}te (normalisierte) IEEE-754 Zahl bei 32-Bit Darstellung ist
     (1 - 2^{-24}) \cdot 2^{128}
 \end{equation*}
 Erl"autern Sie bitte, wie Sie auf diesen Wert kommen.
+\begin{align*}
+    0\ 11111110\ 11111111111111111111111 &= ((1 + 2^{-1} + 2^{-2} + ... + 2^{-23}) \cdot 2^{23}) : 2^{23} = \\
+                                         &= ((2^{23} + 2^{22} + ... 1) : 2^{23}) \cdot 2^{127} = ((2^{24} - 1) : 2^{23}) \cdot 2^{127} = \\
+                                         &= (2^1 - 2^{-23}) \cdot 2^{127} = (2^1 - 2^{-23}) \cdot 2^{127} \cdot \dfrac{2^{1}}{2^{1}} = \\
+                                         &= (\dfrac{2^1}{2^1} - \dfrac{2^{-23}}{2^1}) \cdot 2^{127} \cdot 2^1 = \\[5pt]
+                                         &= (1 - 2^{-24}) \cdot 2^{128}
+\end{align*}
+
+
 \end{document}
