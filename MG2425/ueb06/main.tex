@@ -1,0 +1,148 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+
+\input{include/preamble}
+
+\title{Mathematische Grundlagen\\[10pt]\Large{WiSe 2024/25}\\[15pt]\Large{L{\"o}sungen zu den Aufgaben 52, 53 und 54}}
+\author{Volodymyr But\\[15pt]Hochschule Trier}
+\date{}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+\sloppy
+
+\maketitle
+\vspace{25px}
+
+\section{Aufgabe 52}
+
+Welche der folgenden Beispiele ist eine Gruppe:
+
+\begin{enumerate}[(a)]
+    \item $(\mathbb{Z}, \cdot)$, wobei $\cdot$ die "ubliche Multiplikation bezeichne.
+        \begin{todolist}
+            \item[\done] $\forall x, y, z \in \mathbb{Z} : (x \cdot y) \cdot z = x \cdot (y \cdot z)$
+            \item[\done] $\forall x \in \mathbb{Z}, \exists e \in \mathbb{Z} : e \cdot x = x \ (e = 1)$
+            \item[\wontfix] $\forall x \in \mathbb{Z}, \exists x^{-1} \in \mathbb{Z} : x^{-1} \cdot x = e \ (x^{-1} = \dfrac{1}{x}, \dfrac{1}{x} \notin \mathbb{Z}, e = 1)$
+        \end{todolist}
+
+    \item $(M, +)$ mit $M$ die Menge der geraden ganzen Zahlen und $+$ der "ublichen Addition.
+        \begin{todolist}
+            \item[\done] $\forall x, y, z \in M : (x + y) + z = x + (y + z)$
+            \item[\done] $\forall x \in M, \exists e \in M : e + x = x \ (e = 0)$
+            \item[\done] $\forall x \in M, \exists x^{-1} \in M : x^{-1} + x = e \ (x^{-1} = -x, e = 0)$
+        \end{todolist}
+
+    \item $(\mathbb{R}^n, +)$, wobei $+$ die "ubliche Addition von Tupeln.
+        \begin{todolist}
+            \item[\done] $\forall x, y, z \in \mathbb{R}^n : (x + y) + z = x + (y + z)$
+            \item[\done] $\forall x \in \mathbb{R}^n, \exists e \in \mathbb{R}^n : e + x = x \ (e = (0_1,...,0_n))$
+            \item[\done] $\forall x \in \mathbb{R}^n, \exists x^{-1} \in \mathbb{R}^n : x^{-1} + x = e \ (x^{-1} = -x, e = (0_1,...,0_n))$
+        \end{todolist}
+\end{enumerate}
+
+\section{Aufgabe 53}
+
+\begin{enumerate}[(a)]
+    \item Was ist das neutrale Element der Gruppe $(S_n, \circ)$ f"ur ein gegebenes $n \in \mathbb{N}$ \\[5pt]
+        $\rightarrow$ Identische Abbildung $\text{id}_n$ auf die Menge $\mathbb{N}$.
+    \item Zeigen Sie, dass jedes $\sigma \in S_n$ ein inverses Element besitzt. \\[5pt]
+        --
+    \item Finden Sie ein Beispiel, das zeigt, dass $(S_4, \circ)$ nicht
+        kommutativ ist.
+        \begin{enumerate}[i)]
+            \item Sei $\sigma_1: \{1,...,4\} \rightarrow \{1,...,4\}$ eine Permutation definiert durch: \\[5pt]
+                $\begin{aligned}[t]
+                    \sigma_1(1) &= 4 \\
+                    \sigma_1(2) &= 3 \\
+                    \sigma_1(3) &= 2 \\
+                    \sigma_1(4) &= 1
+                 \end{aligned}$
+            \item Sei $\sigma_2: \{1,...,4\} \rightarrow \{1,...,4\}$ eine Permutation definiert durch: \\[5pt]
+                $\begin{aligned}[t]
+                    \sigma_2(1) &= 2 \\
+                    \sigma_2(2) &= 4 \\
+                    \sigma_2(3) &= 3 \\
+                    \sigma_2(4) &= 1
+                 \end{aligned}$
+        \end{enumerate}
+        Dann ist die Aussage
+        \begin{equation*}
+            \sigma_1 \circ \sigma_2 = \sigma_2 \circ \sigma_1
+        \end{equation*}
+        offensichtlich falsch, weil gilt:
+        \begin{equation*}
+            \sigma_1(\sigma_2(1)) = \sigma_1(2) = 3 \neq 1 = \sigma_2(4) = \sigma_2(\sigma_1(1))
+        \end{equation*}
+        Daraus folgt, dass die Gruppe $(S_4, \circ)$ nicht
+        kommutativ ist, was zu zeigen war.
+\end{enumerate}
+
+\section{Aufgabe 54}
+
+Es sei $(G, *)$ eine Gruppe. Zeigen Sie das Folgende:
+\begin{enumerate}[(a)]
+    \item F"ur alle $x, y \in G$ gilt $(x * y)^{-1} = y^{-1} * x^{-1}$ \\[5pt]
+        Sei $A = ((x * y)^{-1} = y^{-1} * x^{-1})$. Dann gilt $\lnot A = ((x * y)^{-1} \neq y^{-1} * x^{-1})$.
+
+        \textbf{Beweis.} Wir nehmen an, dass die Aussage $\lnot A = wahr$ gilt.
+        Daraus folgt:
+        \begin{equation*}
+            \begin{array}{rrcll}
+                        &(x * y)^{-1} &\neq& y^{-1} * x^{-1} &| * x * y \\[5pt]
+                \implies&(x * y)^{-1} * (x * y) &\neq& y^{-1} * x^{-1} * x * y \\[5pt]
+                \implies&e &\neq& y^{-1} * e * y \\[5pt]
+                \implies&e &\neq& y^{-1} * y \\[5pt]
+                \implies&e &\neq& e
+            \end{array}
+        \end{equation*}
+        Da aber sicher gilt $(e \neq e) = falsch$, haben wir unser Widerspruch
+        erzeugt, und es muss somit $\lnot A = falsch$ gelten.
+    \item Die Gruppe ist genau dann kommutativ, wenn f"ur alle $x, y \in G$
+        gilt $x * y * x^{-1} * y^{-1} = e$ \\[5pt]
+        \textbf{Beweis.}
+        Eine Gruppe $G$ hei{\ss}t kommutativ, wenn $\forall x, y \in G$ gilt:
+            \begin{equation*}
+                x * y = y * x
+            \end{equation*}
+        \begin{enumerate}[i)]
+            \item Wenn $(x * y) = (y * x)$ gilt, folgt
+                \begin{equation*}
+                    \begin{array}{rrcll}
+                                 &e &=& e &| * x * x^{-1} * y * y^{-1}\\[5pt]
+                        \implies &e * x * x^{-1} * y * y^{-1} &=& e * x * x^{-1} * y * y^{-1} & \\[5pt]
+                        \implies &x * x^{-1} * y * y^{-1} &=& e \\[5pt]
+                        \implies &x * y * x^{-1} * y^{-1} &=& e
+                    \end{array}
+                \end{equation*}
+                Somit gilt f"ur alle $x, y \in G$
+                $$(x * y) = (y * x) \Rightarrow x * y * x^{-1} * y^{-1} = e$$
+
+            \pagebreak
+            \item Wenn $x * y * x^{-1} * y^{-1} = e$ gilt, folgt
+                \begin{equation*}
+                    \begin{array}{rrcll}
+                                 &x * y * x^{-1} * y^{-1} &=& e &| * y \\[5pt]
+                        \implies &x * y * x^{-1} * y^{-1} * y &=& e * y \\[5pt]
+                        \implies &x * y * x^{-1} &=& y &| * x \\[5pt]
+                        \implies &x * y * x^{-1} * x &=& y * x \\[5pt]
+                        \implies &x * y &=& y * x
+                    \end{array}
+                \end{equation*}
+                Somit gilt f"ur alle $x, y \in G$
+                $$x * y * x^{-1} * y^{-1} = e \Rightarrow (x * y) = (y * x)$$
+        \end{enumerate}
+        Aus i) und ii) entsteht die folgende Aussageformel:
+        \begin{gather*}
+            ((x * y) = (y * x) \Rightarrow (x * y * x^{-1} * y^{-1} = e))\ \land \\
+            \land\ ((x * y * x^{-1} * y^{-1} = e) \Rightarrow (x * y) = (y * x))
+        \end{gather*}
+        oder
+        \begin{equation*}
+            (x * y) = (y * x) \Leftrightarrow (x * y * x^{-1} * y^{-1} = e) \quad \text{\underline{q.e.d.}}
+        \end{equation*}
+\end{enumerate}
+
+\end{document}
