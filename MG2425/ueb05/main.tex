@@ -140,9 +140,38 @@ y \in M$. Zeigen Sie, dass dann entweder $[x]_R = [y]_R$ oder $[x]_R \cap [y]_R
 
 Zu zeigen ist, dass die Aussage
 \begin{align*}
-    (R \subset M \times M) \land (x, y \in M) \Rightarrow [x]_R = [y]_R \lor ([x]_R \neq [y]_R \land [x]_R \cap [y]_R = \emptyset)
+    (R \subset M \times M) \land (x, y \in M) \Rightarrow ([x]_R = [y]_R) \xor ([x]_R \cap [y]_R = \emptyset)
 \end{align*}
 gilt.
+\begin{table*}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        $A$ & $B$ & $A \xor B$ \\
+        \hline
+        $w$ & $w$ & $f$ \\
+        \hline
+        $w$ & $f$ & $w$ \\
+        \hline
+        $f$ & $w$ & $w$ \\
+        \hline
+        $f$ & $f$ & $f$ \\
+        \hline
+    \end{tabular}
+\end{table*}
+
+Beweis:
+\begin{equation*}
+    \begin{array}{rrcrcl}
+                         &([x]_R = [y]_R) &\xor&           ([x]_R \cap [y]_R    = \emptyset) &\overset{!}{=}& w \\[5pt]
+        \iff             &([x]_R = [y]_R) &\lor&           ([x]_R \cap [y]_R    = \emptyset) &\land& \\[5pt]
+             &\land\ \lnot([x]_R = [y]_R) &\lor&      \lnot([x]_R \cap [y]_R    = \emptyset) &\overset{!}{=}& w \\[5pt]
+        \iff &\lnot([x]_R \neq [y]_R)     &\lor&           ([x]_R \cap [y]_R    = \emptyset) &\land& \\[5pt]
+             &\land\ \lnot([x]_R = [y]_R) &\lor&           ([x]_R \cap [y]_R \neq \emptyset) &\overset{!}{=}& w \\[5pt]
+        \iff             &([x]_R \neq [y]_R) &\Rightarrow& ([x]_R \cap [y]_R    = \emptyset) &\land& \\[5pt]
+                  &\land\ ([x]_R = [y]_R)    &\Rightarrow& ([x]_R \cap [y]_R \neq \emptyset) &=& w
+     \end{array}
+\end{equation*}
 
 \section{Aufgabe 45}
 
