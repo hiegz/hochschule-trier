@@ -1,0 +1,264 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+
+\input{include/preamble}
+
+\title{Technische Informatik\\[10pt]\Large{WiSe 2024/25}\\[15pt]\Large{L{\"o}sung zum {\"U}bungsblatt 5}}
+\author{Volodymyr But\\[10pt]Hochschule Trier}
+\date{}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+
+\maketitle
+\vspace{25px}
+
+\section{Aufgabe 1}
+
+\begin{enumerate}[(a)]
+    \item Welchen dezimalen Wert hat die angegebene IEEE-754 Flie{\ss}kommazahl?
+        \begin{equation*}
+            1\ 10000010\ 10000000000000000000000
+        \end{equation*}
+        \begin{enumerate}[1.]
+            \item Zeichen: $-\ (1)$
+            \item Exponent: $10000010_2 - 127 = 130 - 127 = 3$ (also $2^3$)
+            \item $(-1)^1 \cdot 1.1 \cdot 2^3 = -1100_2 = -12$
+        \end{enumerate}
+
+    \item Der Wert dieser Zahl wird mit $(-16)_10$ multipliziert. Wie sieht die
+        entstandene Zahl in IEEE-754 (32-bit) Notation aus.
+        \begin{enumerate}[1.]
+            \item $(-12) \cdot (-16) = 192 = 11000000_2$
+            \item $11000000 = 1.1 \cdot 2^7$
+            \item Exponent: $127 + 7 = 134 = 10000110_2$
+            \item Zeichen: $+\ (0)$
+        \end{enumerate}
+        \begin{equation*}
+            0\ 10000110\ 10000000000000000000000
+        \end{equation*}
+\end{enumerate}
+
+\section{Aufgabe 2}
+
+Die gr"oste positive darstellbare Flie{\ss}kommazahl in IEEE-754 (32-Bit) Notation ist:
+\begin{equation*}
+    0\ 11111110\ 11111111111111111111111
+\end{equation*}
+\begin{enumerate}[(a)]
+    \item Der Exponent hat dabei den Wert $2^n$. Denken Sie an den Bias-Wert.
+        Wie gro{\ss} ist $n$?
+        \begin{equation*}
+            n = 11111110_2 - 127_{10} = 127
+        \end{equation*}
+    \item Bestimmen Sie den dezimalen Wert dieser Fließkommazah.
+        \begin{align*}
+            1.11111111111111111111111 \cdot 2^{127} &=   (1 + 2^{-1} + 2^{-2} + ... + 2^{-23}) \cdot 2^{127} = \\
+                                                    &= (((1 + 2^{-1} + 2^{-2} + ... + 2^{-23}) \cdot 2^{23}) : 2^{23}) \cdot 2^{127} = \\
+                                                    &=  ((2^{23} + 2^{22} + ... + 1) : 2^{23}) \cdot 2^{127} = ((2^{24} - 1) : 2^{23}) \cdot 2^{127} = \\
+                                                    &=   (2^1 - 2^{-23}) \cdot 2^{127} = (2^1 - 2^{-23}) \cdot 2^{127} \cdot \dfrac{2^{1}}{2^{1}} = \\
+                                                    &=   (\dfrac{2^1}{2^1} - \dfrac{2^{-23}}{2^1}) \cdot 2^{127} \cdot 2^1 = \\[5pt]
+                                                    &=   (1 - 2^{-24}) \cdot 2^{128}
+        \end{align*}
+\end{enumerate}
+
+\section{Aufgabe 3}
+
+Die kleinste darstellbare positive denormalisierte Flie{\ss}kommazahl ($\neq
+0$) in IEEE-754 (32-Bit) Notation ist:
+\begin{equation*}
+    0\ 00000000\ 00000000000000000000001
+\end{equation*}
+\begin{enumerate}[(a)]
+    \item Wie gro{\ss} ist der Wert des Exponenten als 2-er Potenz? \\
+        Bei denormalisierter Darstellung ist der Exponent immer gleich $2^{-126}$.
+    \item Wie lautet der (dezimale) Wert der Mantisse?
+        \begin{equation*}
+            0.00000000000000000000001_2 = 2^{-23}
+        \end{equation*}
+    \item Weisen Sie nach, dass diese Flie{\ss}kommazahl den Wert $2^{-149}$ hat.
+        \begin{align*}
+            0.00000000000000000000001 \cdot 2^{-126} &= (0 + 2^{-23}) \cdot 2^{-126} = \\
+                                                     &= 2^{-23} \cdot 2^{-126} = \\
+                                                     &= 2^{-23 - 126} = 2^{-149}
+        \end{align*}
+\end{enumerate}
+
+\section{Aufgabe 4}
+
+Die kleinste positive normalisierte Flie{\ss}kommazahl in IEEE-754 (32-Bit) Notation ist.
+\begin{equation*}
+    0\ 00000001\ 00000000000000000000000
+\end{equation*}
+\begin{enumerate}[(a)]
+    \item Wie gro{\ss} ist der Wert des Exponenten als 2-er Potenz?
+        \begin{equation*}
+            1 - 127 = -126 \text{, also  } 2^{-126}
+        \end{equation*}
+    \item Wie lautet der (dezimale) Wert der Mantisse?
+        \begin{equation*}
+            00000000000000000000000_2 = 0_{10}
+        \end{equation*}
+    \item Welchen Wert hat diese Flie{\ss}kommazahl? Sie d"urfen den Wert als
+        2-er Potenz notieren.
+        \begin{equation*}
+            1 \cdot 2^{-126}
+        \end{equation*}
+\end{enumerate}
+
+\section{Aufgabe 5}
+
+Die gr"o{\ss}te positive denormalisierte Fließkommazahl in IEEE-754 (32-Bit)
+Notation ist:
+\begin{equation*}
+    0\ 00000000\ 11111111111111111111111
+\end{equation*}
+\begin{enumerate}[(a)]
+    \item Wie gro{\ss} ist der Wert des Exponenten als 2-er Potenz? \\
+        Bei denormalisierter Darstellung ist der Exponent immer gleich $2^{-126}$.
+    \item Notieren Sie den Wert der Mantisse in der Form ($1 - 2^k$).
+        \begin{align*}
+            0.11111111111111111111111_2 &= (2^{-1} + 2^{-2} + ... + 2^{-23}) = \\
+                                        &= ((2^{-1} + 2^{-2} + ... + 2^{-23}) \cdot 2^{23}) : 2^{23} = \\
+                                        &= (2^{22} + 2^{21} + ... + 1) : 2^{23} = \\
+                                        &= (2^23 - 1) : 2^{23} = \\
+                                        &= (1 - 2^{-23})
+        \end{align*}
+    \item Bestimmen Sie nun den dezimalen Wert der Flie{\ss}kommazahl.
+        \begin{align*}
+            0.11111111111111111111111_2 \cdot 2^{-126} &= (1 - 2^{-23}) \cdot 2^{-126} = \\
+                                                       &= (2^{-126} - 2^{-149})
+        \end{align*}
+\end{enumerate}
+
+\section{Aufgabe 6}
+
+Konvertieren Sie die Dezimalzahl $1.2077 \cdot 10^4$ in eine bin"are,
+single-precison Flie{\ss}kommazahl.
+\begin{equation*}
+    (12077)_{10} = (0010111100101101)_2 = 1.0111100101101_2 \cdot 2^{13}
+\end{equation*}
+In der IEEE-754 (32-Bit) Notation sieht diese Zahl folgenderma{\ss}en aus:
+\begin{equation*}
+    0\ 10001100\ 01111001011010000000000
+\end{equation*}
+
+\section{Aufgabe 7}
+
+Die angegebene IEEE-754 Darstellung repr"asentiert den dezimalen Wert $(20.00)_{10}$
+\begin{equation*}
+    0\ 10000011\ 01000000000000000000000
+\end{equation*}
+Modifizieren Sie diese bitte so, dass der dezimale Wert durch $(-8)_{10}$
+dividiert wird.
+\begin{equation*}
+    0\ 10000000\ 01000000000000000000000
+\end{equation*}
+
+\section{Aufgabe 8}
+
+Wie gro{\ss} ist die Differenz (als 2-er Potenz) zwischen der gr"o{\ss}ten
+positiven normalisierten Flie{\ss}kommazahl in IEEE-754 (32-Bit) Notation und der
+zweitgr"o{\ss}ten Fließkommazahl?
+\begin{enumerate}
+    \item $\begin{aligned}[t]
+            0\ 11111110\ 11111111111111111111111 &= (1 - 2^{-24}) \cdot 2^{128}
+        \end{aligned}$
+    \item $\begin{aligned}[t]
+            0\ 11111110\ 11111111111111111111110 &= (1 + 2^{-1} + ... + 2^{-22}) \cdot 2^{127} \\
+                                                 &= (2 - 2^{-22}) \cdot 2^{127} \\
+                                                 &= (1 - 2^{-23}) \cdot 2^{128}
+        \end{aligned}$
+\end{enumerate}
+\begin{align*}
+    (1 - 2^{-24}) \cdot 2^{128} - (1 - 2^{-23}) \cdot 2^{128} &= (1 - 2^{-24}) - (1 - 2^{-23}) = \\
+                                                              &= 2^{-23} - 2^{-24}
+\end{align*}
+
+\section{Aufgabe 9}
+
+Wie gro{\ss} ist die Differenz (als 2-er Potenz) zwischen der zweitkleinsten
+positiven normalisierten Flie{\ss}kommazahl in IEEE-754 (32-Bit) Notation und
+der kleinsten positiven normalisierten?
+\begin{enumerate}
+    \item $\begin{aligned}[t]
+            0\ 00000001\ 00000000000000000000000 &= 1 \cdot 2^{-126}
+        \end{aligned}$
+    \item $\begin{aligned}[t]
+            0\ 00000001\ 00000000000000000000001 &= (1 + 2^{-23}) \cdot 2^{-126}
+        \end{aligned}$
+\end{enumerate}
+\begin{align*}
+    (1 + 2^{-23}) \cdot 2^{-126} - 1 \cdot 2^{-126} &= 1 + 2^{-23} - 1 = \\
+                                                    &= 2^{-23}
+\end{align*}
+
+\section{Aufgabe 10}
+
+Wie gro{\ss} ist die Differenz (als 2-er Potenz) zwischen der gr"o{\ss}ten
+positiven denormalisierten Flie{\ss}kommazahl in IEEE-754 (32-Bit) Notation und
+der zweitgr"o{\ss}ten denormalisierten Flie{\ss}kommazahl?
+\begin{enumerate}
+    \item $\begin{aligned}[t]
+            0\ 00000000\ 11111111111111111111111 &= (2^{-1} + 2^{-2} + ... + 2^{-23}) \cdot 2^{-126} = \\
+                                                 &= (((2^{-1} + 2^{-2} + ... + 2^{-23}) \cdot 2^{23}) : 2^{23}) \cdot 2^{-126} = \\
+                                                 &= ((2^{22} + 2^{21} + ... + 1) : 2^{23}) \cdot 2^{-126} = \\
+                                                 &= ((2^23 - 1) : 2^{23}) \cdot 2^{-126} = \\
+                                                 &= (1 - 2^{-23}) \cdot 2^{-126}
+        \end{aligned}$
+    \item $\begin{aligned}[t]
+            0\ 00000000\ 11111111111111111111110 &= (2^{-1} + 2^{-2} + ... + 2^{-22}) \cdot 2^{-126} = \\
+                                                 &= (((2^{-1} + 2^{-2} + ... + 2^{-22}) \cdot 2^{22}) : 2^{22}) \cdot 2^{-126} = \\
+                                                 &= ((2^{21} + 2^{20} + ... + 1) : 2^{22}) \cdot 2^{-126} = \\
+                                                 &= ((2^22 - 1) : 2^{22}) \cdot 2^{-126} = \\
+                                                 &= (1 - 2^{-22}) \cdot 2^{-126}
+        \end{aligned}$
+\end{enumerate}
+\begin{align*}
+    (1 - 2^{-23}) \cdot 2^{-126} - (1 - 2^{-22}) \cdot 2^{-126} &= 1 - 2^{-23} - 1 + 2^{-22} = \\
+                                                                &= 2^{-22} - 2^{-23}
+\end{align*}
+
+\section{Aufgabe 11}
+
+Wie gro{\ss} ist die Differenz (als 2-er Potenz) zwischen der zweitkleinsten
+positiven denormalisierten Flie{\ss}kommazahl in IEEE-754 (32-Bit) Notation und
+der kleinsten positiven denormalisierten Flie{\ss}kommazahl?
+\begin{enumerate}
+    \item $\begin{aligned}[t]
+            0\ 00000000\ 00000000000000000000001 &= 2^{-23} \cdot 2^{-126}
+        \end{aligned}$
+    \item $\begin{aligned}[t]
+            0\ 00000000\ 00000000000000000000010 &= 2^{-22} \cdot 2^{-126}
+        \end{aligned}$
+\end{enumerate}
+\begin{align*}
+     (2^{-22} \cdot 2^{-126}) - (2^{-23} \cdot 2^{-126}) &= 2^{-22} - 2^{-23}
+\end{align*}
+
+\pagebreak
+\section{Aufgabe 12}
+
+Wie gro{\ss} ist die Differenz (als 2-er Potenz) zwischen der kleinsten
+positiven normalisierten Flie{\ss}kommazahl in IEEE-754 (32-Bit) Notation und
+der gr"o{\ss}ten positiven denormalisierten Flie{\ss}kommazahl.
+\begin{enumerate}
+    \item $\begin{aligned}[t]
+            0\ 00000001\ 00000000000000000000000 &= 1 \cdot 2^{-126}
+        \end{aligned}$
+    \item $\begin{aligned}[t]
+            0\ 00000000\ 11111111111111111111111 &= (2^{-1} + 2^{-2} + ... + 2^{-23}) \cdot 2^{-126} = \\
+                                                 &= (((2^{-1} + 2^{-2} + ... + 2^{-23}) \cdot 2^{23}) : 2^{23}) \cdot 2^{-126} = \\
+                                                 &= ((2^{22} + 2^{21} + ... + 1) : 2^{23}) \cdot 2^{-126} = \\
+                                                 &= ((2^23 - 1) : 2^{23}) \cdot 2^{-126} = \\
+                                                 &= (1 - 2^{-23}) \cdot 2^{-126}
+        \end{aligned}$
+\end{enumerate}
+\begin{align*}
+    (1 \cdot 2^{-126}) - (1 - 2^{-23}) \cdot 2^{-126} &= 1 - 1 + 2^{-23} \\
+                                                      &= 2^{-23}
+\end{align*}
+
+\end{document}
