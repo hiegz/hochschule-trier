@@ -215,7 +215,20 @@ Booleschen Algebra.
 
 Minimieren Sie folgenden $SOP$ Ausdruck mit einem Karnaugh Diagramm:
 \begin{equation*}
-    A \cdot \overline{B} \cdot C + \overline{A} \cdot B \cdot C + \overline{A} \cdot B \cdot C + \overline{A} \cdot \overline{B} \cdot C + \overline{A} \cdot \overline{B} \cdot \overline{C} + A \cdot \overline{B} \cdot \overline{C}
+    A \cdot \overline{B} \cdot C + \overline{A} \cdot B \cdot C + \overline{A} \cdot \overline{B} \cdot C + \overline{A} \cdot \overline{B} \cdot \overline{C} + A \cdot \overline{B} \cdot \overline{C}
+\end{equation*}
+\vspace*{-\baselineskip}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \diagbox{C}{AB} & 00 & 01 & 10 & 11 \\ \hline
+                           0 & 1  & 0  & 1  & 0  \\ \hline
+                           1 & 1  & 1  & 1  & 0  \\ \hline
+    \end{tabular}
+\end{table}
+\begin{equation*}
+    \overline{B} + \overline{A}BC
 \end{equation*}
 
 \section{Aufgabe 19}
@@ -225,4 +238,19 @@ Minimieren Sie folgenden $SOP$ Ausdruck mit einem Karnaugh Diagramm:
     \overline{B} \cdot \overline{C} \cdot \overline{D} + \overline{A} \cdot B \cdot \overline{C} \cdot \overline{D} + A \cdot B \cdot \overline{C} \cdot \overline{D} \ +\ &\overline{A} \cdot \overline{B} \cdot C \cdot D + A \cdot \overline{B} \cdot C \cdot D + \overline{A} \cdot \overline{B} \cdot C \cdot \overline{D} \\
                                                                                                                                                                                                                             +\ &\overline{A} \cdot B \cdot C \cdot \overline{D} + A \cdot B \cdot C \cdot \overline{D} + A \cdot \overline{B} \cdot C \cdot \overline{D}
 \end{align*}
+\vspace*{-\baselineskip}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+       \diagbox{CD}{AB} & 00 & 01 & 10 & 11 \\ \hline
+                          00 & 1  & 1  & 1  & 1  \\ \hline
+                          01 & 0  & 0  & 0  & 0  \\ \hline
+                          10 & 1  & 1  & 1  & 1  \\ \hline
+                          11 & 1  & 0  & 1  & 0  \\ \hline
+    \end{tabular}
+\end{table}
+\begin{equation*}
+    \overline{D} + \overline{B}CD
+\end{equation*}
 \end{document}
