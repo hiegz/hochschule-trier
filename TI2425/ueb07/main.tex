@@ -1,0 +1,89 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+
+\input{include/preamble}
+
+\title{Technische Informatik\\[10pt]\Large{WiSe 2024/25}\\[15pt]\Large{L{\"o}sungen zum {\"U}bungsblatt 7}}
+\author{Volodymyr But\\[10pt]Hochschule Trier}
+\date{}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+
+\maketitle
+\vspace{25px}
+
+\section{Aufgabe 1}
+
+Erstellen Sie mit Logisim:
+
+\begin{enumerate}[(a)]
+    \item ein Multiplexer mit 2 Eing"angen und 1 Steuerleitung. Nutzen Sie dazu ein NOT, zwei AND und ein OR Gatter.
+
+        Siehe 1-a.circ
+
+    \item einen S-R Latch.
+
+        Siehe 1-b.circ
+
+    \item einen gated S-R Latch.
+
+        Siehe 1-c.circ
+\end{enumerate}
+
+\section{Aufgabe 2}
+
+Realisieren Sie eine OR Logik: $Y = A + B$
+
+Siehe 2.circ
+
+\section{Aufgabe 3}
+
+\begin{enumerate}[(a)]
+    \item Erl"autern Sie den Unterschied zwischen einem D Latch und einem S-R Latch.
+
+        S-R Latch:
+        \begin{itemize}[$\rightarrow$]
+            \item Zwei Eing"ange: S (Set) und R (Reset)
+            \item Kann in einen ung"ultigen Zustand ($\text{S} = 1$ $\text{R} = 1$) geraten.
+            \item Speicher Daten basierend auf den Set- und Reset-Signalen.
+        \end{itemize}
+
+        D Latch:
+        \begin{itemize}[$\rightarrow$]
+            \item Ein Eingang f"ur die Daten (D) und ein Steuer-Eingang (E).
+            \item Kein ung"ultiger Zustand.
+            \item Der Ausgang folgt dem D-Eingang, solange E-Eingang aktiv ist,
+                und beh"alt den letzten Zustand, wenn E-Eingang inaktiv ist.
+        \end{itemize}
+
+    \item Welchen Vorteil hat ein gated S-R Latch gegen"uber einem S-R Latch?
+
+        Bei einem gated S-R Latch ermöglicht der Enable-Eingang eine präzisere Steuerung darüber, wann
+        das Latch auf die Eingänge S und R reagieren soll.
+\end{enumerate}
+
+\section{Aufgabe 4}
+
+--
+
+\section{Aufgabe 5}
+\begin{enumerate}[(a)]
+    \item Zeichnen Sie ein S-R Flip-flop mit 2 NOR und 2 AND Gattern. Die
+        Flankenerzeugung k"onnen Sie als Blackbox einzeichnen oder mit 3
+        Negierern und einem AND eine aufsteigende Taktflanke anlegen.
+
+        Danach bauen Sie das S-R Flip-flop um zu einem J-K Flip-flop.
+
+        Siehe 5-a-1.circ und 5-a-2.txt
+
+    \item Welchen Vorteil hat das J-K gegen"uber einem S-R Flip-flop?
+
+        J-K Flip-Flop vermeidet den ungültigen Zustand, der im S-R Flip-Flop
+        auftreten kann, und führt stattdessen zu einer umschaltenden (toggle)
+        Funktion, wenn beide Eingänge J und K gleichzeitig auf 1 sind
+\end{enumerate}
+
+\end{document}
