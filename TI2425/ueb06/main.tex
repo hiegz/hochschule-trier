@@ -222,13 +222,13 @@ Minimieren Sie folgenden $SOP$ Ausdruck mit einem Karnaugh Diagramm:
     \centering
     \begin{tabular}{|c|c|c|c|c|}
         \hline
-        \diagbox{C}{AB} & 00 & 01 & 10 & 11 \\ \hline
-                           0 & 1  & 0  & 1  & 0  \\ \hline
-                           1 & 1  & 1  & 1  & 0  \\ \hline
+        \diagbox{C}{AB} & 00 & 01 & 11 & 10 \\ \hline
+                      0 & 1  & 0  & 0  & 1  \\ \hline
+                      1 & 1  & 1  & 0  & 1  \\ \hline
     \end{tabular}
 \end{table}
 \begin{equation*}
-    \overline{B} + \overline{A}BC
+    \overline{B} + \overline{A}C
 \end{equation*}
 
 \section{Aufgabe 19}
@@ -243,14 +243,14 @@ Minimieren Sie folgenden $SOP$ Ausdruck mit einem Karnaugh Diagramm:
     \centering
     \begin{tabular}{|c|c|c|c|c|}
         \hline
-       \diagbox{CD}{AB} & 00 & 01 & 10 & 11 \\ \hline
-                          00 & 1  & 1  & 1  & 1  \\ \hline
-                          01 & 0  & 0  & 0  & 0  \\ \hline
-                          10 & 1  & 1  & 1  & 1  \\ \hline
-                          11 & 1  & 0  & 1  & 0  \\ \hline
+       \diagbox{CD}{AB} & 00 & 01 & 11 & 10 \\ \hline
+                     00 & 1  & 1  & 1  & 1  \\ \hline
+                     01 & 0  & 0  & 0  & 0  \\ \hline
+                     11 & 1  & 0  & 0  & 1  \\ \hline
+                     10 & 1  & 1  & 1  & 1  \\ \hline
     \end{tabular}
 \end{table}
 \begin{equation*}
-    \overline{D} + \overline{B}CD
+    \overline{D} + \overline{B}C
 \end{equation*}
 \end{document}
