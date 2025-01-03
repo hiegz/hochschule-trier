@@ -1,0 +1,29 @@
+\section{Aufgabe 24}
+\setcounter{section}{24}
+
+Es seien $f : X \rightarrow Y$ eine Abbildung und $A, B \subset Y$. Zeigen Sie,
+dass folgendes gilt:
+\begin{equation*}
+    \begin{gathered}
+        f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)\text{,}\\
+        f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)
+    \end{gathered}
+\end{equation*}
+
+\begin{equation*}
+    \begin{aligned}
+        f^{-1}(A \cap B) &= \{x \in X : f(x) \in \{A \cap B\}\} = \\
+                         &= \{x \in X : f(x) \in A \text{ und } f(x) \in B\} = \\
+                         &= \{x \in X : f(x) \in A\} \cap \{x \in X : f(x) \in B\} = \\
+                         &= f^{-1}(A) \cap f^{-1}(B) \quad \text{\underline{q.e.d.}}
+    \end{aligned}
+\end{equation*}
+
+\begin{equation*}
+    \begin{aligned}
+        f^{-1}(A \cup B) &= \{x \in X : f(x) \in \{A \cup B\}\} = \\
+                         &= \{x \in X : f(x) \in A \text{ oder } f(x) \in B\} = \\
+                         &= \{x \in X : f(x) \in A\} \cup \{x \in X : f(x) \in B\} = \\
+                         &= f^{-1}(A) \cup f^{-1}(B) \quad \text{\underline{q.e.d.}}
+    \end{aligned}
+\end{equation*}

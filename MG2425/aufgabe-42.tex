@@ -1,0 +1,34 @@
+\section{Aufgabe 42}
+
+Es sei $M := \{(x_1, x_2) \in \mathbb{R}^2 : x_1 \neq 0\}$, und $R \subset M
+\times M$ eine Relation definiert durch $R := \{((x_1, x_2), (y_1, y_2)) \in M
+\times M : x_2/x_1 = y_2/y_1\}$. Zeigen Sie, dass die Relation $R$ transitiv
+ist.
+
+Eine Relation $R$ hei{\ss}t transitiv, wenn
+\begin{equation*}
+    \forall x,y,z \in M \text{ gilt} : (x, y) \in R \land (y, z) \in R \implies (x, z) \in R
+\end{equation*}
+Seien $((x_1, x_2), (y_1, y_2)) \in R$ und $((y_1, y_2), (z_1, z_2)) \in R$.
+Dann gilt:
+\begin{align*}
+    &\left(((x_1, x_2), (y_1, y_2)) \in R \Leftrightarrow \dfrac{x_2}{x_1} = \dfrac{y_2}{y_1}\right)
+    \land
+    \left(((y_1, y_2), (z_1, z_2)) \in R \Leftrightarrow \dfrac{y_2}{y_1} = \dfrac{z_2}{z_1}\right) \\[5pt]
+    \iff&
+    ((x_1, x_2), (y_1, y_2)) \in R \land ((y_1, y_2), (z_1, z_2)) \in R
+    \Leftrightarrow
+    \dfrac{x_2}{x_1} = \dfrac{y_2}{y_1} \land \dfrac{y_2}{y_1} = \dfrac{z_2}{z_1}
+\end{align*}
+Und wenn $\dfrac{x_2}{x_1} = \dfrac{y_2}{y_1} \land \dfrac{y_2}{y_1} =
+\dfrac{z_2}{z_1} \Rightarrow \dfrac{x_2}{x_1} = \dfrac{z_2}{z_1}$ gilt, gilt auch
+\begin{align*}
+    &((x_1, x_2), (y_1, y_2)) \in R \land ((y_1, y_2), (z_1, z_2)) \in R
+    \Rightarrow
+    \dfrac{x_2}{x_1} = \dfrac{z_2}{z_1} \\[5pt]
+    \iff&
+    ((x_1, x_2), (y_1, y_2)) \in R \land ((y_1, y_2), (z_1, z_2)) \in R
+    \Rightarrow
+    ((x_1, x_2), (z_1, z_2)) \in R
+\end{align*}
+Daher ist die Relation $R$ transitiv, was zu beweisen war.

@@ -1,0 +1,62 @@
+\section{Aufgabe 36}
+\setcounter{section}{36}
+
+Nehmen Sie an, dass Sie folgende Aussagen durch einen Widerspruchsbeweis
+belegen m"ochten.
+\begin{enumerate}[a)]
+    \item \textit{Es gibt keine gr"o{\ss}te Primzahl}.
+
+        Hier ist
+        \begin{equation*}
+            A = (\text{es gibt keine gr"o{\ss}te Primzahl})
+            \quad\text{und}\quad
+            \lnot A = (\text{es gibt eine gr"o{\ss}te Primzahl})
+        \end{equation*}
+        Wir nehmen an, dass $\lnot A = wahr$ gilt. Sei $p$ diese gr"o{\ss}te
+        Primzahl und seien $1 < p_1 < p_2 < ... < p_n = p$ alle Primzahlen.
+        Dann ist $q = p_1 \cdot p_2 \cdot ... \cdot p_n + 1$ eine Primzahl.
+        Wenn also $\lnot A = wahr$ gilt, folgt
+        \begin{equation*}
+            C = (q \leq p) = wahr.
+        \end{equation*}
+        Da aber sicher gilt $C = falsch$, haben wir den Widerspruch erzeugt,
+        und es muss somit $\lnot A = falsch$ gelten.
+    \item \textit{F"ur jedes $a \in [0, \infty)$ gibt es mindestens ein $x_0 \in \mathbb{R}$ sodass $x_0^3 - ax_0 = 0$.}
+
+        Hier ist
+        \begin{equation*}
+            A = (\forall_{a \in [0, \infty)}, \exists_{x_0 \in \mathbb{R}} : x_0^3 - ax_0 = 0)
+            \quad\text{und}\quad
+            \lnot A = (\exists_{a_0 \in [0, \infty)}, \forall_{x \in \mathbb{R}} : x^3 - a_0x \neq 0)
+        \end{equation*}
+
+        \pagebreak
+        Wir nehmen an, dass $\lnot A = wahr$ gilt. Sei $a_0 := 0$ und $x_0 := 1$, dann gilt
+        \begin{equation*}
+            C = (0^3 - 0 \cdot 0 \neq 0) = wahr
+        \end{equation*}
+        Da aber sicher gilt $C = falsch$, haben wir den Widerspruch erzeugt,
+        und es muss somit $\lnot A = falsch$ gelten.
+    \item \textit{F"ur jedes Paar $(x_1, x_2)$, $(y_1, y_2) \in \mathbb{R}^2$ gilt:}
+        \begin{equation*}
+            \sqrt{(x_1 + y_1)^2 + (x_2 + y_2)^2} \leq \sqrt{x_1^2 + x_2^2} + \sqrt{y_1^2 + y_2^2}
+        \end{equation*}
+        Hier ist
+        \begin{equation*}
+            A = \left(\forall_{(x_1, x_2), (y_1, y_2) \in \mathbb{R}^2} : \sqrt{(x_1 + y_1)^2 + (x_2 + y_2)^2} \leq \sqrt{x_1^2 + x_2^2} + \sqrt{y_1^2 + y_2^2}\right)
+        \end{equation*}
+        und
+        \begin{equation*}
+            \lnot A = \left(\exists_{(x_1, x_2), (y_1, y_2) \in \mathbb{R}^2} : \sqrt{(x_1 + y_1)^2 + (x_2 + y_2)^2} > \sqrt{x_1^2 + x_2^2} + \sqrt{y_1^2 + y_2^2}\right)
+        \end{equation*}
+        Wir nehmen an, dass $\lnot A = wahr$ gilt. Dann folgt aus der obigen Aussage:
+        \begin{equation*}
+            \begin{array}{rcl}
+                C &=& (\sqrt{(x_1 + y_1)^2 + (x_2 + y_2)^2} > \sqrt{x_1^2 + x_2^2} + \sqrt{y_1^2 + y_2^2}) = wahr \\
+                  &\vdots& \\
+                C &=& ((x_1y_2 + x_2y_1)^2 < 0) = wahr
+            \end{array}
+        \end{equation*}
+        Da aber sicher gilt $C = falsch$, haben wir den Widerspruch erzeugt,
+        und es muss somit $\lnot A = falsch$ gelten.
+\end{enumerate}

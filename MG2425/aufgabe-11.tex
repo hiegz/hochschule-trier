@@ -1,0 +1,40 @@
+\section{Aufgabe 11}
+\setcounter{section}{11}
+
+Pr"ufen Sie die folgenden Aussagen auf ihre G"ultigkeit, und beweisen Sie diese
+bzw. widerlegen Sie diese durch ein Gegenbeispiel.
+
+\begin{enumerate}[(a)]
+    \item F"ur zwei Mengen $A,B$ mit $A \cap B = \emptyset$ gilt, es gibt keine
+        Menge $C$ mit $C \subset A$ und $C \subset B$.
+        \begin{align*}
+                     &A \cap B = \emptyset \implies \lnot\exists C : C \subset A, C \subset B \\
+            \iff     &\exists C : C \subset A, C \subset B \implies A \cap B \neq \emptyset \\[10pt]
+                     &\exists C : C \subset A, C \subset B \\
+            \iff     &\exists C : \forall x \in C : x \in A, x \in B \\ 
+            \implies &\exists a \in A : a \in B \land \exists b \in B : b \in A \implies A \cap B \neq \emptyset \\[10pt]
+            \iff     &A \cap B = \emptyset \implies \lnot\exists C : C \subset A, C \subset B
+        \end{align*}
+
+    \item F"ur Mengen $M_1, M_2, M_3, C$ gilt $C \subset (M_1 \cup M_2 \cup
+        M_3)^c$ genau dann, wenn f"ur alle $j = 1, 2, 3$ $C \cap M_j = \emptyset$
+        gilt.
+        \begin{align*}
+                 &C \subset M^{c(C)} \\
+            \iff &C \subset C \setminus M \\
+            \implies &\forall_{x \in C} : x \in (C \setminus M) \\
+            \iff &\forall_{x \in C} : x \in \{y : y \in C, y \notin M \} \\
+            \implies &\forall_{x \in C} : x \notin M \\
+            \implies &C \cap M = \emptyset \\
+            \\
+                 &x \in (M_1 \cup M_2 \cup M_3)^c \\
+            \iff &x \in (M_1^c \cap M_2^c \cap M_3^c) \\
+            \iff &(x \in M_1^c) \land (x \in M_2^c) \land (x \in M_3^c) \\
+            \\
+                     &C \subset (M_1 \cup M_2 \cup M_3)^c \\
+            \implies &\forall_{x \in C} : x \in (M_1 \cup M_2 \cup M_3)^c \\
+            \implies &\forall_{x \in C} : (x \in M_1^c) \land (x \in M_2^c) \land (x \in M_3^c) \\
+            \implies &(C \subset M_1^c) \land (C \subset M_2^c) \land (C \subset M_3^c) \\
+            \implies &(C \subset M_1 = \emptyset) \land (C \subset M_2 = \emptyset) \land (C \subset M_3 = \emptyset)
+        \end{align*}
+\end{enumerate}

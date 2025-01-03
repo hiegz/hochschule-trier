@@ -1,0 +1,113 @@
+\section{Aufgabe 33}
+\setcounter{section}{33}
+
+Zeigen Sie mittels Wahrheitstabelle das Folgende:
+\begin{enumerate}[a)]
+    \item $F_1(A, B) := B \Rightarrow A$ und $F_2(A, B) := \lnot A \Rightarrow
+        \lnot B$ sind gleichwertig ($F_1 \Leftrightarrow F_2$)
+    \begin{table*}[h]
+        \centering
+        \begin{minipage}{.29\linewidth}
+            \centering
+            \begin{tabular}{|c|c|c|}
+                \hline
+                $A$ & $B$ & $F_1(A, B)$ \\
+                \hline
+                $w$ & $w$ & $w$ \\
+                \hline
+                $w$ & $f$ & $w$ \\
+                \hline
+                $f$ & $w$ & $f$ \\
+                \hline
+                $f$ & $f$ & $w$ \\
+                \hline
+            \end{tabular}
+        \end{minipage}%
+        \begin{minipage}{.29\linewidth}
+            \centering
+            \begin{tabular}{|c|c|c|}
+                \hline
+                $A$ & $B$ & $F_2(A, B)$ \\
+                \hline
+                $w$ & $w$ & $w$ \\
+                \hline
+                $w$ & $f$ & $w$ \\
+                \hline
+                $f$ & $w$ & $f$ \\
+                \hline
+                $f$ & $f$ & $w$ \\
+                \hline
+            \end{tabular}
+        \end{minipage}  \\[15pt]
+        \begin{minipage}{1\linewidth}
+            \centering
+            \begin{tabular}{|c|c|c|}
+                \hline
+                $F_1(A, B)$ & $F_2(A, B)$ & $F_1(A, B) \Leftrightarrow F_2(A, B)$ \\
+                \hline
+                $w$ & $w$ & $w$ \\
+                \hline
+                $w$ & $w$ & $w$ \\
+                \hline
+                $f$ & $f$ & $w$ \\
+                \hline
+                $w$ & $w$ & $w$ \\
+                \hline
+            \end{tabular}
+        \end{minipage}
+    \end{table*}
+    \item $F_3(A, B) := \lnot (A \land B)$ und $F_4(A, B) := \lnot A \lor \lnot
+        B$ sind gleichwertig ($F_3 \Leftrightarrow F_4$)
+    \begin{table*}[h]
+        \centering
+        \begin{minipage}{.29\linewidth}
+            \centering
+            \begin{tabular}{|c|c|c|}
+                \hline
+                $A$ & $B$ & $F_3(A, B)$ \\
+                \hline
+                $w$ & $w$ & $f$ \\
+                \hline
+                $w$ & $f$ & $w$ \\
+                \hline
+                $f$ & $w$ & $w$ \\
+                \hline
+                $f$ & $f$ & $w$ \\
+                \hline
+            \end{tabular}
+        \end{minipage}%
+        \begin{minipage}{.29\linewidth}
+            \centering
+            \begin{tabular}{|c|c|c|}
+                \hline
+                $A$ & $B$ & $F_4(A, B)$ \\
+                \hline
+                $w$ & $w$ & $f$ \\
+                \hline
+                $w$ & $f$ & $w$ \\
+                \hline
+                $f$ & $w$ & $w$ \\
+                \hline
+                $f$ & $f$ & $w$ \\
+                \hline
+            \end{tabular}
+        \end{minipage}  \\[15pt]
+        \begin{minipage}{1\linewidth}
+            \centering
+            \begin{tabular}{|c|c|c|}
+                \hline
+                $F_3(A, B)$ & $F_4(A, B)$ & $F_3(A, B) \Leftrightarrow F_4(A, B)$ \\
+                \hline
+                $f$ & $f$ & $w$ \\
+                \hline
+                $w$ & $w$ & $w$ \\
+                \hline
+                $w$ & $w$ & $w$ \\
+                \hline
+                $w$ & $w$ & $w$ \\
+                \hline
+            \end{tabular}
+        \end{minipage}
+    \end{table*}
+\end{enumerate}
+Somit ist die Gleichwertigkeit der Aussagen bewiesen.

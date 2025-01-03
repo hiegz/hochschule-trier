@@ -1,0 +1,78 @@
+\section{Aufgabe 39}
+
+Der Graph einer Abbildung $f: X \rightarrow Y$ ist laut Definition eine
+Teilmenge von $X \times Y$ und damit eine Relation. Pr"ufen Sie welche
+Eigenschaften aus Definition 3.3 (im Skript) auf
+\begin{itemize}
+    \item den Graph einer beliebigen Abbildung,
+    \item den Graph einer injektiven Abbildung,
+    \item den Graph einer surjektiven Abbildung
+\end{itemize}
+zutreffen.
+\begin{enumerate}
+    \item Sei $f: X \rightarrow Y$ eine Abbildung definiert durch $f(X) :=
+        \{x^2 : x \in X\} (\subset Y)$ und $G := \{(x, f(x)) : x \in X\}
+        (\subset X \times Y)$ der Graph dieser Abbildung. Diese sind durch die
+        folgende Tabelle dargestellt:
+        \begin{table*}[h]
+            \centering
+            \begin{tabular}{c|c|c}
+                $X$ & $Y$ & $G$ \\
+                \hline
+                -2 & 4 & (-2, 4) \\
+                -1 & 1 & (-1, 1) \\
+                0  & 0 & (0,  0) \\
+                1  & 1 & (1,  1) \\
+                2  & 4 & (2,  4) \\
+                   & 5 &
+            \end{tabular}
+        \end{table*}\\
+        Der Graph $G$ hei{\ss}t also:
+        \begin{itemize}
+            \item \textbf{linkstotal}, weil gilt: $\forall x \in X, \exists y \in Y : (x, y) \in G$
+            \item \textbf{rechtseindeutig}, weil gilt: $\forall x \in X$ und $\forall y,z \in Y : (x, y) \in G \land (x, z) \in G \Rightarrow y = z$
+        \end{itemize}
+    \item Sei $f: X \rightarrow Y$ eine Abbildung definiert durch $f(X) :=
+        \{x + 1 : x \in X\} (\subset Y)$ und $G := \{(x, f(x)) : x \in X\}
+        (\subset X \times Y)$ der Graph dieser Abbildung. Diese sind durch die
+        folgende Tabelle dargestellt:
+        \begin{table*}[h]
+            \centering
+            \begin{tabular}{c|c|c}
+                $X$ & $Y$ & $G$ \\
+                \hline
+                0  & 1 & (0,  1) \\
+                1  & 2 & (1,  2) \\
+                2  & 3 & (2,  3) \\
+                   & 4 &
+            \end{tabular}
+        \end{table*}
+
+        Der Graph $G$ hei{\ss}t also:
+        \begin{itemize}
+            \item \textbf{linkstotal}, weil gilt: $\forall x \in X, \exists y \in Y : (x, y) \in G$
+            \item \textbf{rechtseindeutig}, weil gilt: $\forall x \in X$ und $\forall y,z \in Y : (x, y) \in G \land (x, z) \in G \Rightarrow y = z$
+            \item \textbf{linkseindeutig}, weil gilt: $\forall y \in Y$ und $\forall x,z \in X : (x, y) \in G \land (z, y) \in G \Rightarrow x = z$
+        \end{itemize}
+    \item Sei $f: X \rightarrow Y$ eine Abbildung definiert durch $f(X) :=
+        \{x + 1 : x \in X\} (\subset Y)$ und $G := \{(x, f(x)) : x \in X\}
+        (\subset X \times Y)$ der Graph dieser Abbildung. Diese sind durch die
+        folgende Tabelle dargestellt:
+        \begin{table*}[h]
+            \centering
+            \begin{tabular}{c|c|c}
+                $X$ & $Y$ & $G$ \\
+                \hline
+                0  & 1 & (0,  1) \\
+                1  & 2 & (1,  2) \\
+                2  & 3 & (2,  3) \\
+            \end{tabular}
+        \end{table*} \\
+        Der Graph $G$ hei{\ss}t also:
+        \begin{itemize}
+            \item \textbf{linkstotal}, weil gilt: $\forall x \in X, \exists y \in Y : (x, y) \in G$
+            \item \textbf{rechtstotal}, weil gilt: $\forall y \in Y, \exists x \in X: (x, y) \in G$
+            \item \textbf{rechtseindeutig}, weil gilt: $\forall x \in X$ und $\forall y,z \in Y : (x, y) \in G \land (x, z) \in G \Rightarrow y = z$
+            \item \textbf{linkseindeutig}, weil gilt: $\forall y \in Y$ und $\forall x,z \in X : (x, y) \in G \land (z, y) \in G \Rightarrow x = z$
+        \end{itemize}
+\end{enumerate}

@@ -1,0 +1,36 @@
+\section{Aufgabe 53}
+
+\begin{enumerate}[(a)]
+    \item Was ist das neutrale Element der Gruppe $(S_n, \circ)$ f"ur ein gegebenes $n \in \mathbb{N}$ \\[5pt]
+        $\rightarrow$ Identische Abbildung $\text{id}_n$ auf die Menge $\mathbb{N}$.
+    \item Zeigen Sie, dass jedes $\sigma \in S_n$ ein inverses Element besitzt. \\[5pt]
+        --
+    \item Finden Sie ein Beispiel, das zeigt, dass $(S_4, \circ)$ nicht
+        kommutativ ist.
+        \begin{enumerate}[i)]
+            \item Sei $\sigma_1: \{1,...,4\} \rightarrow \{1,...,4\}$ eine Permutation definiert durch: \\[5pt]
+                $\begin{aligned}[t]
+                    \sigma_1(1) &= 4 \\
+                    \sigma_1(2) &= 3 \\
+                    \sigma_1(3) &= 2 \\
+                    \sigma_1(4) &= 1
+                 \end{aligned}$
+            \item Sei $\sigma_2: \{1,...,4\} \rightarrow \{1,...,4\}$ eine Permutation definiert durch: \\[5pt]
+                $\begin{aligned}[t]
+                    \sigma_2(1) &= 2 \\
+                    \sigma_2(2) &= 4 \\
+                    \sigma_2(3) &= 3 \\
+                    \sigma_2(4) &= 1
+                 \end{aligned}$
+        \end{enumerate}
+        Dann ist die Aussage
+        \begin{equation*}
+            \sigma_1 \circ \sigma_2 = \sigma_2 \circ \sigma_1
+        \end{equation*}
+        offensichtlich falsch, weil gilt:
+        \begin{equation*}
+            \sigma_1(\sigma_2(1)) = \sigma_1(2) = 3 \neq 1 = \sigma_2(4) = \sigma_2(\sigma_1(1))
+        \end{equation*}
+        Daraus folgt, dass die Gruppe $(S_4, \circ)$ nicht
+        kommutativ ist, was zu zeigen war.
+\end{enumerate}

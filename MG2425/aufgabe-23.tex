@@ -1,0 +1,23 @@
+\section{Aufgabe 23}
+\setcounter{section}{23}
+
+Bestimmen Sie die inverse Abbildung zu folgenden Funktionen
+\begin{equation*}
+    \begin{aligned}
+        f_1 &: \mathbb{R} \rightarrow \mathbb{R},\ x \mapsto 10x \text{,} \\[5pt]
+        f_2 &: \mathbb{R} \rightarrow \mathbb{R},\ x \mapsto \dfrac{1}{10}x \text{,} \\[5pt]
+        f_3 &: X \rightarrow X,\ x \mapsto x^2 \text{,} \\[5pt]
+        f_4 &: X \rightarrow X,\ x \mapsto \sqrt{x} \text{,}
+    \end{aligned}
+\end{equation*}
+wobei $X = \{x \in \mathbb{R} : x \geq 0 \}$. Rechnen Sie dazu auch nach, dass
+die Umkehrabbildungen jeweils die Bedingungen aus der Definition (der
+Umkehrabbildung) erf"ullen.
+\begin{equation*}
+    \begin{array}{rccccl}
+        f_1^{-1} &:& \mathbb{R} \rightarrow \mathbb{R},\ 10x \mapsto x           &\iff& x \mapsto \dfrac{x}{10} \text{,} & f_1^{-1}(x) \circ f_1(x) = x \\[10pt]
+        f_2^{-1} &:& \mathbb{R} \rightarrow \mathbb{R},\ \dfrac{x}{10} \mapsto x &\iff& x \mapsto 10x           \text{,} & f_2^{-1}(x) \circ f_2(x) = x \\[10pt]
+        f_3^{-1} &:& X \rightarrow X,\ x^2 \mapsto x                             &\iff& x \mapsto \sqrt{x}      \text{,} & f_3^{-1}(x) \circ f_3(x) = x \\[10pt]
+        f_4^{-1} &:& X \rightarrow X,\ \sqrt{x} \mapsto x                        &\iff& x \mapsto x^2           \text{,} & f_4^{-1}(x) \circ f_4(x) = x
+    \end{array}
+\end{equation*}

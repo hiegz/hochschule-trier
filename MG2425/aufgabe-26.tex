@@ -1,0 +1,36 @@
+\section{Aufgabe 26}
+\setcounter{section}{26}
+
+Untersuchen Sie folgende Abbildungen auf Injektivität
+
+\begin{enumerate}[(a)]
+    \item $f : \mathbb{R} \rightarrow \mathbb{R}$, $f(x) = x^4 - 1$,
+        \begin{equation*}
+            \begin{array}{rcl}
+                f(x_1) &=& f(x_2) \quad (x_1 \neq x_2) \\[5pt]
+                x_1^4 - 1 &=& x_2^4 - 1 \\[5pt]
+                x_1^4 &=& x_2^4 \\[5pt]
+                |x_1| &=& |x_2| \quad \text{\underline{q.e.d.}}
+            \end{array}
+        \end{equation*}
+
+    \item $f : \mathbb{N} \rightarrow \mathbb{R}$, $f(x) = 4x^2$,
+        \begin{equation*}
+            \begin{array}{rcl}
+                f(x_1) &=& f(x_2) \quad (x > 0, x_1 \neq x_2) \\[5pt]
+                4x_1^2 &=& 4x_2^2 \\[5pt]
+                x_1^2 &=& x_2^2 \implies \emptyset
+            \end{array}
+        \end{equation*}
+
+    \item $f : \mathbb{R} \setminus \{2\} \rightarrow \mathbb{R}$, $f(x) = \dfrac{3}{(2 - x)^2}$.
+        \begin{equation*}
+            \begin{array}{rcl}
+                f(x_1) &=& f(x_2) \quad (x \neq 2, x_1 \neq x_2) \\[5pt]
+                \dfrac{3}{(2 - x_1)^2} &=& \dfrac{3}{(2 - x_2)^2} \\[10pt]
+                (2 - x_1)^2 &=& (2 - x_2)^2 \\[5pt]
+                |2 - x_1| &=& |2 - x_2| \\[5pt]
+                |x_1| &=& |x_2| \quad \text{\underline{q.e.d.}}
+            \end{array}
+        \end{equation*}
+\end{enumerate}
