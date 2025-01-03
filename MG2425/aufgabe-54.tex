@@ -1,0 +1,63 @@
+\section{Aufgabe 54}
+
+Es sei $(G, *)$ eine Gruppe. Zeigen Sie das Folgende:
+\begin{enumerate}[(a)]
+    \item F"ur alle $x, y \in G$ gilt $(x * y)^{-1} = y^{-1} * x^{-1}$ \\[5pt]
+        Sei $A = ((x * y)^{-1} = y^{-1} * x^{-1})$. Dann gilt $\lnot A = ((x * y)^{-1} \neq y^{-1} * x^{-1})$.
+
+        \textbf{Beweis.} Wir nehmen an, dass die Aussage $\lnot A = wahr$ gilt.
+        Daraus folgt:
+        \begin{equation*}
+            \begin{array}{rrcll}
+                        &(x * y)^{-1} &\neq& y^{-1} * x^{-1} &| * x * y \\[5pt]
+                \implies&(x * y)^{-1} * (x * y) &\neq& y^{-1} * x^{-1} * x * y \\[5pt]
+                \implies&e &\neq& y^{-1} * e * y \\[5pt]
+                \implies&e &\neq& y^{-1} * y \\[5pt]
+                \implies&e &\neq& e
+            \end{array}
+        \end{equation*}
+        Da aber sicher gilt $(e \neq e) = falsch$, haben wir unser Widerspruch
+        erzeugt, und es muss somit $\lnot A = falsch$ gelten.
+    \item Die Gruppe ist genau dann kommutativ, wenn f"ur alle $x, y \in G$
+        gilt $x * y * x^{-1} * y^{-1} = e$ \\[5pt]
+        \textbf{Beweis.}
+        Eine Gruppe $G$ hei{\ss}t kommutativ, wenn $\forall x, y \in G$ gilt:
+            \begin{equation*}
+                x * y = y * x
+            \end{equation*}
+        \begin{enumerate}[i)]
+            \item Wenn $(x * y) = (y * x)$ gilt, folgt
+                \begin{equation*}
+                    \begin{array}{rrcll}
+                                 &e &=& e &| * x * x^{-1} * y * y^{-1}\\[5pt]
+                        \implies &e * x * x^{-1} * y * y^{-1} &=& e * x * x^{-1} * y * y^{-1} & \\[5pt]
+                        \implies &x * x^{-1} * y * y^{-1} &=& e \\[5pt]
+                        \implies &x * y * x^{-1} * y^{-1} &=& e
+                    \end{array}
+                \end{equation*}
+                Somit gilt f"ur alle $x, y \in G$
+                $$(x * y) = (y * x) \Rightarrow x * y * x^{-1} * y^{-1} = e$$
+
+            \item Wenn $x * y * x^{-1} * y^{-1} = e$ gilt, folgt
+                \begin{equation*}
+                    \begin{array}{rrcll}
+                                 &x * y * x^{-1} * y^{-1} &=& e &| * y \\[5pt]
+                        \implies &x * y * x^{-1} * y^{-1} * y &=& e * y \\[5pt]
+                        \implies &x * y * x^{-1} &=& y &| * x \\[5pt]
+                        \implies &x * y * x^{-1} * x &=& y * x \\[5pt]
+                        \implies &x * y &=& y * x
+                    \end{array}
+                \end{equation*}
+                Somit gilt f"ur alle $x, y \in G$
+                $$x * y * x^{-1} * y^{-1} = e \Rightarrow (x * y) = (y * x)$$
+        \end{enumerate}
+        Aus i) und ii) entsteht die folgende Aussageformel:
+        \begin{gather*}
+            ((x * y) = (y * x) \Rightarrow (x * y * x^{-1} * y^{-1} = e))\ \land \\
+            \land\ ((x * y * x^{-1} * y^{-1} = e) \Rightarrow (x * y) = (y * x))
+        \end{gather*}
+        oder
+        \begin{equation*}
+            (x * y) = (y * x) \Leftrightarrow (x * y * x^{-1} * y^{-1} = e) \quad \text{\underline{q.e.d.}}
+        \end{equation*}
+\end{enumerate}

@@ -1,0 +1,27 @@
+\section{Aufgabe 51}
+
+\begin{enumerate}
+    \item Geben Sie zu jedem Element in $\mathbb{Z}_p \setminus \{[0]_p\}$ das
+        inverse Element bez"uglich der Multiplikation (in
+        Standardrepr"asentation) an, f"ur $p = 5$.
+        \begin{equation*}
+            \begin{array}{rclcl}
+                \mathbb{Z}_5 \setminus \{[0]_5\} &=& \{1, 2, 3, 4\}&& \\[10pt]
+                [1]_5 \cdot [1]_5 &=& [1]_5 &:& [1]_5 \\[5pt]
+                [2]_5 \cdot [3]_5 &=& [6]_5 = [1]_5 &:& [3]_5 \\[5pt]
+                [3]_5 \cdot [2]_5 &=& [6]_5 = [1]_5 &:& [2]_5 \\[5pt]
+                [4]_5 \cdot [4]_5 &=& [16]_5 = [1]_5 &:& [4]_5
+            \end{array}
+        \end{equation*}
+    \item Zeigen Sie, dass $[p - 1]^{-1}_p = [p - 1]_p$ gilt.
+        \begin{equation*}
+            \begin{array}{rrcl}
+                    &[p - 1]_p \cdot [x]_p &=& [1]_p \\[5pt]
+                \iff&([p]_p - [1]_p) \cdot [x]_p &=& [1]_p \\[5pt]
+                \iff&([0]_p - [1]_p) \cdot [x]_p &=& [1]_p \\[5pt]
+                \iff&[-1]_p \cdot [x]_p &=& [1]_p \\[5pt]
+                \iff&[x]_p &=& [-1]_p \\[5pt]
+                \iff&[x]_p &=& [p - 1]_p \quad \text{\underline{q.e.d.}}
+             \end{array}
+        \end{equation*}
+\end{enumerate}

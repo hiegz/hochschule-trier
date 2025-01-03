@@ -1,0 +1,65 @@
+\section{Aufgabe 44}
+
+Es sei $M$ eine Menge, $R \subset M \times M$ eine "Aquivalenzrelation und $x,
+y \in M$. Zeigen Sie, dass dann entweder $[x]_R = [y]_R$ oder $[x]_R \cap [y]_R
+= \emptyset$ gilt.
+
+Zu zeigen ist, dass die Aussage
+\begin{align*}
+    (R \subset M \times M) \land (x, y \in M) \Rightarrow ([x]_R = [y]_R) \xor ([x]_R \cap [y]_R = \emptyset)
+\end{align*}
+gilt.
+
+Die Aussage $(R \subset M \times M) \land (x, y \in M)$ ist immer wahr laut der
+Aufgabenstellung. Es bleibt also nur noch zu beweisen, dass der rechte Teil
+der Implikation auch gilt.
+\begin{equation*}
+    \begin{array}{rrcrcl}
+                         &([x]_R = [y]_R) &\xor&           ([x]_R \cap [y]_R    = \emptyset) &\overset{!}{=}& w \\[15pt]
+        \iff             &([x]_R = [y]_R) &\lor&           ([x]_R \cap [y]_R    = \emptyset) &\land& \\[5pt]
+             &\land\ \lnot([x]_R = [y]_R) &\lor&      \lnot([x]_R \cap [y]_R    = \emptyset) &\overset{!}{=}& w \\[5pt]
+        \iff &\lnot([x]_R \neq [y]_R)     &\lor&           ([x]_R \cap [y]_R    = \emptyset) &\land& \\[5pt]
+             &\land\ \lnot([x]_R = [y]_R) &\lor&           ([x]_R \cap [y]_R \neq \emptyset) &\overset{!}{=}& w \\[5pt]
+        \iff             &([x]_R \neq [y]_R) &\Rightarrow& ([x]_R \cap [y]_R    = \emptyset) &\land& \\[5pt]
+                  &\land\ ([x]_R = [y]_R)    &\Rightarrow& ([x]_R \cap [y]_R \neq \emptyset) &\overset{!}{=}& w
+     \end{array}
+\end{equation*}
+Dies bringt zwei weitere Implikationen:
+\begin{enumerate}[i)]
+    \item $[x]_R \neq [y]_R \Rightarrow ([x]_R \cap [y]_R = \emptyset)$ : wenn
+        "Aquivalenzklassen $[x]_R$ und $[y]_R$ ungleich sind, dann sind sie
+        komplett unterschiedlich.
+
+        Nehmen wir an, dass die Aussage $([x]_R \cap [y]_R = \emptyset)$ nicht wahr ist.
+        Dann gilt
+        \begin{equation*}
+            \begin{array}{rc}
+                        &[x]_R \cap [y]_R \neq \emptyset \Leftrightarrow (\exists_{z \in M} : z \in [x]_R \land z \in [y]_R)  \\[5pt]
+                \implies& (x, z) \in R \land (y, z) \in R \Rightarrow (x, y) \in R
+            \end{array}
+        \end{equation*}
+        Daraus folgt, dass $x$ und $y$ miteinander verbunden sind und geh"oren
+        daher zur gleichen "Aquivalenzklassen. Das hei{\ss}t
+        \begin{equation*}
+            \begin{array}{rlcl}
+                      &\phantom{\lnot}[x]_R \cap [y]_R \neq \emptyset &\implies& \phantom{\lnot}[x]_R = [y]_R \\[5pt]
+                \iff  &\lnot[x]_R \cap [y]_R =    \emptyset &\implies& \lnot[x]_R \neq [y]_R \\[5pt]
+                \iff  &\phantom{\lnot}[x]_R \neq [y]_R                &\implies& \phantom{\lnot}[x]_R \cap [y]_R =    \emptyset \quad \text{\underline{q.e.d.}}
+            \end{array}
+        \end{equation*}
+    \item $[x]_R = [y]_R \Rightarrow ([x]_R \cap [y]_R \neq \emptyset)$ : wenn
+        "Aquivalenzklassen $[x]_R$ und $[y]_R$ gleich sind, dann bilden sie
+        eine nicht-leere Schnittmenge.
+
+        Die Aussage ist allgemein f"ur alle Mengen richtig und braucht keinen
+        formellen Beweis.
+\end{enumerate}
+
+Daraus folgt:
+\begin{equation*}
+    \begin{array}{rrcrcl}
+        \iff             &([x]_R \neq [y]_R) &\Rightarrow& ([x]_R \cap [y]_R    = \emptyset) &\land& \\[5pt]
+                  &\land\ ([x]_R = [y]_R)    &\Rightarrow& ([x]_R \cap [y]_R \neq \emptyset) &=& w
+     \end{array}
+\end{equation*}
+was zu beweisen war $\square$

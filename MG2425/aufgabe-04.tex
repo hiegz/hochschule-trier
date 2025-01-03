@@ -1,0 +1,51 @@
+\section{Aufgabe 4}
+\setcounter{section}{4}
+
+\begin{enumerate}[(a)]
+    \item \begin{enumerate}[i)]
+            \item Finden Sie ein \textbf{Gegenbeispiel}, das zeigt, dass
+                folgende Aussage allgemein \textbf{nicht} gilt: Seien
+                $M,M_1,M_2$ nicht-leere Mengen, sodass $M_1 \subset M$,
+                $M_2 \subset M$, $M_1 \cap M_2 = \emptyset$. Dann gilt auch
+                $M_1 \cup M_2 = M$
+
+                Es seien $M := \{ 1, 2, 3, 4, 5, 6, 7, 8, 9 \}$, $M_1 := \{1,
+                2, 3, 4\}$, $M_2 := \{6, 7, 8, 9\}$. Dann gilt:
+                $$M_1 \subset M, \quad M_2 \subset M, \quad M_1 \cap M_2 = \emptyset$$
+                Dann gilt $M_1 \cup M_2 \neq M$, weil
+                $$M_1 \cup M_2 = \{ 1, 2, 3, 4, 6, 7, 8, 9 \} \neq \{1, 2, 3, 4, \textbf{5}, 6, 7, 8, 9\} = M $$
+                Die Aussage aus der Aufgabenstellung ist somit falsch.
+
+            \item Geben Sie au{\ss}erdem ein Beispiel an, f"ur das die Aussage gilt.
+
+                Es seien $M := \{ 1, 2, 3, 4, 5, 6, 7, 8, 9 \}$, $M_1 := \{1,
+                2, 3, 4\}$, $M_2 := \{\textbf{5}, 6, 7, 8, 9\}$. Dann gilt:
+                $$M_1 \subset M, \quad M_2 \subset M, \quad M_1 \cap M_2 = \emptyset$$
+                wie auch
+                $$M_1 \cup M_2 = \{1, 2, 3, 4, \textbf{5}, 6, 7, 8, 9\} = M$$
+
+            \item Verbinden Sie $M, M_1, M_2$ mithilfe der
+                Komplement-Mengeoperation zu einer Formel, die f"ur den Fall
+                aus ii) gilt.
+
+                Anhand des Beispiels aus ii) lässt sich feststellen, dass wenn
+                $M,M_1,M_2$ nicht-leere Mengen sind, sodass $$M_1 \subset M,
+                \quad M_2 \subset M, \quad M_1 \cap M_2 = \emptyset$$ gilt die
+                Aussage $M_1 \cup M_2 = M$ nur wenn $$M_1^{c(M)} = M_2
+                \quad\text{oder}\quad M_2^{c(M)} = M_1$$
+        \end{enumerate}
+    \item \begin{enumerate}[i)]
+            \item  Schreiben Sie die folgende Menge in der beschreibenden Mengenschreibweise:
+                Die Menge aller geordneter zwei-Tupel, wobei die erste
+                Komponente eine ganze Zahl und die zweite Komponente eine n
+                nat"urliche Zahl ungleich 0 ist und die beiden Zahlen sind
+                teilerfremd.
+
+                $$M = \{ (x_1, x_2) \in \mathbb{Z} \times \mathbb{N} : \text{ggT}(x_1, x_2) = 1\ \text{und}\ x_2 \neq 0 \}$$
+
+            \item Welche allgemein bekannte Zahlen-Menge haben Sie gerade beschrieben?
+
+                Die Menge aller vereinfachten Brüche
+        \end{enumerate}
+\end{enumerate}
+

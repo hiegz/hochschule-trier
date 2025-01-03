@@ -1,0 +1,82 @@
+\section{Aufgabe 35}
+\setcounter{section}{35}
+
+Zeigen Sie mittels Wahrheitstabelle, dass $F_1(A, B, C) := A \Rightarrow (B
+\lor C)$ und $F_2(A, B, C) := \lnot(A \land \lnot(B \lor C))$ gleichwertig sind
+($F_1 \Leftrightarrow F_2$)
+
+\begin{table*}[h]
+    \centering
+    \begin{minipage}{.4\linewidth}
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            $A$ & $B$ & $C$ & $F_1(A, B, C)$ \\
+            \hline
+            $w$ & $w$ & $w$ & $w$ \\
+            \hline
+            $w$ & $w$ & $f$ & $w$ \\
+            \hline
+            $w$ & $f$ & $w$ & $w$ \\
+            \hline
+            $f$ & $w$ & $w$ & $w$ \\
+            \hline
+            $w$ & $f$ & $f$ & $f$ \\
+            \hline
+            $f$ & $f$ & $w$ & $w$ \\
+            \hline
+            $f$ & $w$ & $f$ & $w$ \\
+            \hline
+            $f$ & $f$ & $f$ & $w$ \\
+            \hline
+        \end{tabular}
+    \end{minipage}%
+    \begin{minipage}{.4\linewidth}
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            $A$ & $B$ & $C$ & $F_2(A, B, C)$ \\
+            \hline
+            $w$ & $w$ & $w$ & $w$ \\
+            \hline
+            $w$ & $w$ & $f$ & $w$ \\
+            \hline
+            $w$ & $f$ & $w$ & $w$ \\
+            \hline
+            $f$ & $w$ & $w$ & $w$ \\
+            \hline
+            $w$ & $f$ & $f$ & $f$ \\
+            \hline
+            $f$ & $f$ & $w$ & $w$ \\
+            \hline
+            $f$ & $w$ & $f$ & $w$ \\
+            \hline
+            $f$ & $f$ & $f$ & $w$ \\
+            \hline
+        \end{tabular}
+    \end{minipage}  \\[15pt]
+    \begin{minipage}{1\linewidth}
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            $F_1(A, B, C)$ & $F_2(A, B, C)$ & $F_1(A, B, C) \Leftrightarrow F_2(A, B, C)$ \\
+            \hline
+            $w$ & $w$ & $w$ \\
+            \hline
+            $w$ & $w$ & $w$ \\
+            \hline
+            $w$ & $w$ & $w$ \\
+            \hline
+            $w$ & $w$ & $w$ \\
+            \hline
+            $f$ & $f$ & $w$ \\
+            \hline
+            $w$ & $w$ & $w$ \\
+            \hline
+            $w$ & $w$ & $w$ \\
+            \hline
+            $w$ & $w$ & $w$ \\
+            \hline
+        \end{tabular}
+    \end{minipage}
+\end{table*}

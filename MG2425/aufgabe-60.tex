@@ -1,0 +1,14 @@
+\section{Aufgabe 60}
+\begin{enumerate}[(a)]
+    \item $\begin{aligned}[t]
+            \prod_{i = 1}^{n} (a_i \cdot b_{n - i + 1}) &= a_1 \cdot b_{n} \cdot a_2 \cdot b_{n - 1} \cdot ... \cdot a_{n} \cdot b_{1} = (a_1 \cdot a_2 \cdot ... \cdot a_n) \cdot (b_1 \cdot b_2 \cdot ... \cdot b_n) = \\
+                                                        &= \prod_{i = 1}^n(a_i) \cdot \prod_{i = 1}^2(b_i) \quad \text{\underline{q.e.d.}}
+        \end{aligned}$
+    \item $\begin{aligned}[t]
+            \sum_{i = 0}^n((a_i + b_i)^2) &= (a_1 + b_1)^2 + (a_2 + b_2)^2 + ... + (a_n + b_n)^2 = \\
+                                          &= (a_1^2 + 2a_1b_1 + b_1^2) + (a_2^2 + 2a_2b_2 + b_2^2) + ... + (a_n^2 + 2a_nb_n + b_n^2) = \\[5pt]
+                                          &= (a_1^2 + a_2^2 + ... + a_n^2) + 2(a_1b_1 + a_2b_2 + ... + a_nb_n) + (b_1^2 + b_2^2 + ... + b_n^2) = \\[5pt]
+                                          &= \sum_{i = 1}^n(a_i^2) + 2\sum_{i = 1}^n(a_ib_i) + \sum_{i = 1}^n(b_i^2) = \\[5pt]
+                                          &= \sum_{i = 1}^n(a_i^2 + 2a_ib_i + b_i^2) \neq (\sum_{i = 1}^n(a_i) + \sum_{i = 1}^n(b_i))^2
+        \end{aligned}$
+\end{enumerate}
