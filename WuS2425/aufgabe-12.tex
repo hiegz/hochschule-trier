@@ -1,0 +1,44 @@
+\section{Aufgabe 12}
+\setcounter{section}{12}
+
+Ein mittelgroßes Unternehmen hat die folgenden monatlichen Gehaltsdaten (in
+Tausend Euro) von 30 Mitarbeitern registriert:
+
+\begin{align*}
+        55, 60, 45, 40, 42, 48, 52, 50, 46, 44&,\\
+        58, 60, 43, 41, 42, 57, 55, 46, 50, 40&,\\
+    42, 45, 60, 55, 58, 57, 300, 290, 310, 320&
+\end{align*}
+
+Die letzten vier Werte stellen die Geh"alter der Top-Manager dar und sind
+deutlich h"oher als die der "ubrigen Mitarbeiter.
+
+\begin{enumerate}[1.]
+    \item Berechnen Sie das arithmetische Mittle der Geh"alter.
+
+        $$\bar{x} = \dfrac{1}{n}\sum_{k=1}^nx_k = \dfrac{2511}{30} = 83.7$$
+
+    \item Bestimmen Sie den Median der Geh"alter.
+
+        $$\widetilde{x} = \dfrac{1}{2}(x_{n/2} + x_{n/2 + 1}) = \dfrac{1}{2}(50 + 50) = 50$$
+
+    \item Ermitteln Sie das 0,25-Quantil und das 0,75-Quantil.
+
+        $$Q_{0.25} = x_8 = 44$$
+        $$Q_{0.75} = x_{22} = 58$$
+
+    \item Berechnen Sie das 0,1-getrimmte Mittel, um den Einfluss der Ausreißer
+        zu mindern.
+
+        $$\bar{x_{\alpha}} = \dfrac{1}{24}\sum_{k = 4}^{27}x_k = \dfrac{1}{24} \cdot 1460 = 60.833$$
+
+    \item Bestimmen Sie die empirische Varianz und die Standardabweichung.
+
+        $$s^2 = \dfrac{1}{n - 1}\sum_{k=1}^n(x_k - \bar{x})^2 = 7592,61$$
+        $$\sigma = \sqrt{s^2} = 87.14$$
+
+    \item Berechnen Sie die Spannweite der Geh"alter.
+
+        $$\max_{1 \leq j \leq n}x_j - \min_{1 \leq j \leq n}x_j = 320 - 40 = 280$$
+
+\end{enumerate}

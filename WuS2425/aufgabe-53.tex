@@ -1,0 +1,35 @@
+\section{Aufgabe 53}
+\setcounter{section}{53}
+
+Gegeben ist eine Urne, die vier Kugeln enth"alt. Die Kugeln sind mit den Zahlen
+1, 2, 3, 4 nummeriert. Es werden zwei Kugeln gleichzeitig und zuf"allig aus der
+Urne gezogen, und anschlie{\ss}end werden die Nummern der beiden gezogenen
+Kugeln addiert.
+\begin{enumerate}
+    \item Bestimmen Sie die m"oglichen Werte, die die Summe der gezogenen
+        Kugelnummern annehmen kann, und berechnen Sie die Wahrscheinlichkeit
+        f"ur jede dieser Summen.
+
+        Sei $X : \Omega \rightarrow \mathbb{R}$ die Zufallsvariable, die die
+        Summe der beiden gezogenen Kugelnummern annehmt, und $(\Omega, P)$ ein
+        W-Raum, dann gilt:
+        \begin{equation*}
+            |\Omega| = \binom{4}{2} = 6 \quad\text{und}\quad P = \dfrac{1}{6}
+        \end{equation*}
+        \begin{table*}[h]
+            \centering
+            \begin{tabular}{c|c}
+                $x_i$ & $P(X = x_i)$ \\
+                \hline
+                3 & 0.16 \\
+                4 & 0.16 \\
+                5 & 0.33 \\
+                6 & 0.16 \\
+                7 & 0.16 \\
+            \end{tabular}
+        \end{table*}
+    \item Berechnen Sie den Erwartungswert der Summe der gezogenen Kugelnummern.
+        \begin{equation*}
+            E(X) = \dfrac{1}{6} \cdot (3 + 4 + 6 + 7) + \dfrac{1}{3} \cdot 5 = 5
+        \end{equation*}
+\end{enumerate}

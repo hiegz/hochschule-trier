@@ -1,0 +1,70 @@
+\section{Aufgabe 35}
+\setcounter{section}{35}
+
+Ein neues Online-Lernprogramm soll getestet werden, der laut Anbieter dazu
+f"uhren, dass 70\% der Sch"uler eine Verbesserung in ihren Testergebnissen
+erzielen. Eine Stichprobe von $n = 40$ Sch"ulern wird zuf"allig ausgew"ahlt und
+mit dem Programm geschult. Gegeben sei, dass in der Stichprobe 32 von 40
+Sch"ulern eine Verbesserung ihrer Testergebnisse erzielen.
+
+Bestimmen Sie bei einem Signifikanzniveau von $\alpha = 0.05$ f"ur jede
+Teilfrage, ob die jeweilige Nullhypothese $H_0$ abgelehnt wird.
+
+\begin{enumerate}[(a)]
+    \item Wir nehmen an, dass das Programm tats"achlich eine Erfolgsquote von
+        70\% besitzt.
+        \begin{enumerate}[i)]
+            \item Nullhypothese $H_0$ : $p = 0.7$
+            \item Alternativhypothese $H_1$ : $p \neq 0.7$
+        \end{enumerate}
+        Wir w"ahlen dann das gr"o{\ss}tm"ogliche $k_0, k_1 \in \{0,...,40\}$,
+        sodass
+        \begin{equation*}
+            P(X \leq k_0) + P(X \geq n - k_1) \leq \alpha
+        \end{equation*}
+        Es ergibt sich damit
+        \begin{equation*}
+            A := \{0,...,21\} \cup \{34,...,40\} \quad \text{Ablehnungsbereich}
+        \end{equation*}
+        Daraus folgt mit $T(X) = 32$
+        \begin{equation*}
+            T(X) \notin A \implies H_0 \text{ wird nicht abgelehnt.}
+        \end{equation*}
+    \item Das Ziel ist auszuschlie{\ss}en, dass die Erfolgsquote unter 60\% liegt.
+        \begin{enumerate}[i)]
+            \item Nullhypothese $H_0$ : $p \leq 0.6$
+            \item Alternativhypothese $H_1$ : $p > 0.6$
+        \end{enumerate}
+        Wir w"ahlen dann das gr"o{\ss}tm"ogliche $k_0 \in \{0,...,40\}$,
+        sodass
+        \begin{equation*}
+            P(X \geq n - k_0) \leq \alpha
+        \end{equation*}
+        Es ergibt sich damit
+        \begin{equation*}
+            A := \{30,...,40\} \quad \text{Ablehnungsbereich}
+        \end{equation*}
+        Daraus folgt mit $T(X) = 32$
+        \begin{equation*}
+            T(X) \in A \implies H_0 \text{ wird abgelehnt.}
+        \end{equation*}
+    \item Das Ziel ist zu testen, ob die Erfolgsquote m"oglicherweise unter 90\%
+        liegt.
+        \begin{enumerate}[i)]
+            \item Nullhypothese $H_0$ : $p \geq 0.9$
+            \item Alternativhypothese $H_1$ : $p < 0.9$
+        \end{enumerate}
+        Wir w"ahlen dann das gr"o{\ss}tm"ogliche $k_0 \in \{0,...,40\}$,
+        sodass
+        \begin{equation*}
+            P(X \leq k_0) \leq \alpha
+        \end{equation*}
+        Es ergibt sich damit
+        \begin{equation*}
+            A := \{0,...,32\} \quad \text{Ablehnungsbereich}
+        \end{equation*}
+        Daraus folgt mit $T(X) = 32$
+        \begin{equation*}
+            T(X) \in A \implies H_0 \text{ wird abgelehnt.}
+        \end{equation*}
+\end{enumerate}

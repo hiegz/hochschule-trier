@@ -1,0 +1,23 @@
+\section{Aufgabe 16}
+\setcounter{section}{16}
+
+In einer Lotterie werden 6 nummerierte Kugeln aus 49 Kugeln
+ungeordnet gezogen. Wie viele Ziehung gibt es, welche die Zahlen
+1, 2, 3 enthalten.
+
+Unter der Annahme, dass die Reihenfolge der Ziehungen unerheblich
+ist, lässt sich feststellen, dass sich das Ergebnis, bei dem die
+ersten drei gezogenen Kugeln die Zahlen 1, 2 und 3 enthalten,
+nicht von dem Ergebnis unterscheidet, bei dem diese Kugeln in
+einer anderen Reihenfolge gezogen wurden. Es sollte also gen"ugen,
+die Anzahl der Möglichkeiten zu berechnen, drei weitere Kugeln zu
+ziehen, wenn man davon ausgeht, dass die drei Zielkugeln bereits
+gezogen wurden.
+
+\begin{equation*}
+    \begin{aligned}
+        |\text{Ur}^n_k(oR, oZ)| &= |\text{Fa}^n_k(nuD, oM)| = \\[5pt]
+                                &= \binom{n}{k} = \binom{46}{3} = \\[5pt]
+                                &= \dfrac{46!}{3!\cdot43!} = \dfrac{46 \cdot 45 \cdot 44}{3 \cdot 2} = 15180
+    \end{aligned}
+\end{equation*}
