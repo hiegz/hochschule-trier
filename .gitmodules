@@ -1,0 +1,3 @@
+[submodule ".texit"]
+	path = .texit
+	url = https://github.com/byut/texit
