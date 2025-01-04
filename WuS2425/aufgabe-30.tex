@@ -1,0 +1,21 @@
+\section{Aufgabe 30}
+\setcounter{section}{30}
+
+\begin{enumerate}[(a)]
+    \item Es sei $X\sim\mathcal{B}(n,p)$. Zeigen Sie mit Hilfe des binomischen
+        Satz (Math. Grundlagen), dass gilt $$\sum_{k=0}^nP(X=k)=1.$$
+
+        Binomischer Satz lautet: \textit{F"ur alle $a, b \in \mathbb{R}$ und alle $n \in \mathbb{N}_0$ gilt}
+        \begin{equation}
+            (a + b)^n = \sum_{\nu = 0}^n\binom{n}{\nu}a^{\nu}b^{n - \nu}
+        \end{equation}
+        Daraus folgt
+        \begin{align*}
+            \sum_{k=0}^nP(X=k) &= \binom{n}{0}p^0(1 - p)^{n} + \binom{n}{1}p^1(1 - p)^{n - 1} + ... + \binom{n}{k}p^k(1 - p)^{n - k} = \\[10pt]
+                               &= \sum_{k = 0}^n\binom{n}{k}p^k(1 - p)^{n - k} = (p + (1 - p))^n = 1^n = 1 \quad \text{\underline{q.e.d.}}
+        \end{align*}
+    % \item Es sei wie in Teil (a) $X\sim\mathcal{B}(n,p)$ und $k\in\{0,...,n\}$
+    %     fest. Für welchen Wert $p$ ist $P(X=k)$ maximal? (Hinweis: setzen
+    %     Sie $f(p):=P(X=k)$ und berechnen
+    %     Sie das Maximum von $f$).
+\end{enumerate}

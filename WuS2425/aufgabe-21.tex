@@ -1,0 +1,54 @@
+\section{Aufgabe 21}
+\setcounter{section}{21}
+
+In einer Lotterie werden 3 Kugeln aus 100 nummerierten Kugeln ohne Zurücklegen
+gezogen (ungeordnete Stichproben). Ein Tipp eines Teilnehmers der Lotterie
+bezeichne das Auswählen dreier unterschiedlicher Zahlen aus $\{1,...,100\}$
+(vor der Ziehung).
+\begin{enumerate}[(a)]
+    \item Geben Sie einen geeigneten Laplaceschen W-Raum an, der dieses
+        Experiment modelliert.
+
+        Wählt man aus 100 Kugeln 3 aus, ohne sie zurückzulegen und ohne auf
+        ihre Reihenfolge zu achten, dann gilt:
+        \begin{equation*}
+            |\Omega| = \binom{100}{3} = 161700 \quad\text{und}\quad p(\omega) = \dfrac{1}{|\Omega|} = \dfrac{1}{161700} = 6.18 \cdot 10^{-6} \quad (\forall_{\omega \in \Omega})
+        \end{equation*}
+
+    \item Nehmen Sie an, dass Sie drei (unterschiedliche) Tipps abgegeben haben.
+        Berechnen Sie mit dem W-Raum aus Teil (a) die Wahrscheinlichkeit, dass
+        einer Ihrer Tipps mit der Ziehung übereinstimmt.
+
+        Sei $M \subset \Omega$ die Menge der drei unterschiedlichen Tipps, dann gilt:
+        \begin{equation*}
+            |M| = 3 \quad\text{und}\quad P(M) = \dfrac{|M|}{|\Omega|} = \dfrac{3}{161700} \approx 1.85 \cdot 10^{-5}
+        \end{equation*}
+        wobei $P(M)$ die Wahrscheinlichkeit ist, dass einer dieser Tipps mit der Ziehung "ubereinstimmt.
+
+    \item Nehmen Sie an, dass Sie einen Tipp abgegeben haben. Berechnen Sie mit dem
+        W-Raum aus Teil (a) die Wahrscheinlichkeit, dass mindestens zwei der
+        Zahlen Ihres Tipps mit der Ziehung übereinstimmen.
+
+        Sei $X \sim \text{HV}(100, 3, 3)$ eine Zufallsvariable, die die
+        Anzahl der Zahlen in dem Tipp, die mit der Ziehung "ubereinstimmen.
+        Dann gilt:
+        \begin{equation}
+            P(X = k) = \dfrac{\binom{K}{k}\binom{N - K}{n - k}}{\binom{N}{n}}
+        \end{equation}
+        wo
+        \begin{enumerate}[-]
+            \item $N$ die Gesamtanzahl der Kugeln ist,
+            \item $K$ die Gesamtanzahl der Erfolge ist,
+            \item $n$ die Anzahl der Ziehungen ist,
+            \item $k$ die Anzahl der beobachteten Erfolge ist.
+        \end{enumerate}
+        \vspace{5pt}
+        Daher folgt:
+        \begin{equation*}
+            \begin{array}{rcccl}
+                P(X \geq 2) &=& P(X = 2) + P(X = 3) &=& \\[7.5pt]
+                            &=& \dfrac{\binom{3}{2}\binom{100 - 3}{3 - 2}}{\binom{100}{3}} + \dfrac{\binom{3}{3}\binom{100 - 3}{3 - 3}}{\binom{100}{3}} &\approx& \\[15pt]
+                      &\approx& 0.0017996 + 6.18 \cdot 10^{-6} &\approx& 0.0018058
+            \end{array}
+        \end{equation*}
+\end{enumerate}

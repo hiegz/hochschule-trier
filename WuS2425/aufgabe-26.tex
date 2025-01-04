@@ -1,0 +1,15 @@
+\section{Aufgabe 26}
+\setcounter{section}{26}
+
+Beweisen Sie die Aussage $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
+\begin{equation*}
+    \begin{aligned}
+        A \cup B &= (A \setminus B) \cup (B \setminus A) \cup (A \cap B) \\[5pt]
+        P(A \setminus B) &= P(A) - P(A \cap B) \\[5pt]
+        P(B \setminus A) &= P(B) - P(A \cap B) \\[5pt]
+        P(A \cup B) &= P(A \setminus B) + P(B \setminus A) + P(A \cap B) = \\[5pt]
+                    &= (P(A) - P(A \cap B)) + (P(B) - P(A \cap B)) + P(A \cap B) = \\[5pt]
+                    &= P(A) + P(B) + P(A \cap B) - P(A \cap B) - P(A \cap B) = \\[5pt]
+                    &= P(A) + P(B) - P(A \cap B) \quad \text{\underline{q.e.d.}}
+    \end{aligned}
+\end{equation*}

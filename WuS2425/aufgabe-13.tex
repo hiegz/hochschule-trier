@@ -1,0 +1,21 @@
+\section{Aufgabe 13}
+\setcounter{section}{13}
+
+\begin{enumerate}[1.]
+    \item Wie viele M"oglichkeiten gibt es, 5 unterscheidbare Stifte auf 3 verschiedene
+        Schubladen zu verteilen, wenn jede Schublade mehrere Stifte enthalten kann?
+        \begin{equation*}
+            |\text{Fa}^n_k(uD, mM)| = |\text{Ur}^n_k(mR, mZ)| = n^k = 3^5 = 243
+        \end{equation*}
+
+    \item Wie viele M"oglichkeiten gibt es, 8 identische S"u{\ss}igkeiten auf 5
+        verschiedene Teller zu verteilen, wobei ein Teller auch leer bleiben
+        kann?
+        \begin{equation*}
+            \begin{aligned}
+                |\text{Fa}^n_k(nuD, mM)| &= |\text{Ur}^n_k(oR, mZ)| = \\[10pt]
+                                         &= \binom{n + k - 1}{k} = \binom{12}{8} = \\[5pt]
+                                         &= \dfrac{12!}{8!(12 - 8)!} = \dfrac{12 \cdot 11 \cdot 10 \cdot 9}{4 \cdot 3 \cdot 2} = 495
+            \end{aligned}
+        \end{equation*}
+\end{enumerate}
