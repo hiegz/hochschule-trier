@@ -1,13 +1,13 @@
-\documentclass[10pt, a4paper, oneside]{article}
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
 \usepackage[ngerman]{babel}
-\usepackage{longtable}
-\usepackage[shortlabels]{enumitem}
+\usepackage{import}
 
-\input{include/preamble}
+\import{../../.texit/include}{preamble}
 
-\title{Technische Informatik\\[5pt]\Large{L\"osungen zum \"Ubungsblatt 01}\\[20pt]}
-\author{Volodymyr But}
-\date{WS24/25, FHS Trier}
+\title{Technische Informatik\\[10pt]\Large{WiSe 2024/25}\\[15pt]\Large{\"Ubungsblatt 1}}
+\author{Volodymyr But\\[10pt]Hochschule Trier}
+\date{}
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
 
@@ -22,26 +22,26 @@
 In der Vorlesung wurde die sogenannte \textbf{Von-Neumann-Architektur}
 vorgestellt. Erl"autern Sie den so genannten \textbf{Von-Neumann-Flaschenhals}.
 
-\textbf{Erkl"arung}. Die Von-Neumann-Architektur besteht aus drei
-Hauptkomponenten: dem Prozessor (CPU), dem Hauptspeicher und dem Bus. Der
-Hauptspeicher speichert Daten und Programme, die vom Prozessor ausgeführt
-werden. Der Bus verbindet den Prozessor mit dem Speicher. Das Problem bei dieser
-Architektur besteht darin, dass sowohl Befehle als auch Daten nacheinander
-geladen werden müssen, was zu einem Engpass in der Verbindung zwischen Prozessor
-und Speicher führen kann. Die maximale Datenübertragungsrate wird also zwischen
-Daten und Befehlen aufgeteilt, was als Von-Neumann-Flaschenhals bezeichnet wird.
+Die Von-Neumann-Architektur besteht aus drei Hauptkomponenten: dem Prozessor
+(CPU), dem Hauptspeicher und dem Bus. Der Hauptspeicher speichert Daten und
+Programme, die vom Prozessor ausgeführt werden. Der Bus verbindet den Prozessor
+mit dem Speicher. Das Problem bei dieser Architektur besteht darin, dass sowohl
+Befehle als auch Daten nacheinander geladen werden müssen, was zu einem Engpass
+in der Verbindung zwischen Prozessor und Speicher führen kann. Die maximale
+Datenübertragungsrate wird also zwischen Daten und Befehlen aufgeteilt, was als
+Von-Neumann-Flaschenhals bezeichnet wird.
 
 \section{Aufgabe 2}
 
 Welche alternative Architektur vermeidet den Von-Neumann-Flaschenhals?
 Skizzieren Sie diese alternative Architektur?
 
-\textbf{Erkl"arung}. Eine der alternativen Architekturen, die den
-Von-Neumann-Flaschenhals vermeiden, ist die Harvard-Architektur. Sie teilt den
-Hauptspeicher in zwei Bereiche auf: den Programmspeicher und den Datenspeicher.
-Zusätzlich werden zwei separate Busse eingerichtet, die diese Speicher mit der
-CPU verbinden. Dadurch wird eine gleichzeitige Übertragung von Daten und
-Befehlen ermöglicht und der Von-Neumann-Flaschenhals vermieden.
+Eine der alternativen Architekturen, die den Von-Neumann-Flaschenhals
+vermeiden, ist die Harvard-Architektur. Sie teilt den Hauptspeicher in zwei
+Bereiche auf: den Programmspeicher und den Datenspeicher. Zusätzlich werden
+zwei separate Busse eingerichtet, die diese Speicher mit der CPU verbinden.
+Dadurch wird eine gleichzeitige Übertragung von Daten und Befehlen ermöglicht
+und der Von-Neumann-Flaschenhals vermieden.
 
 \vspace{10px}
 \begin{figure}[h]
@@ -55,11 +55,9 @@ Befehlen ermöglicht und der Von-Neumann-Flaschenhals vermieden.
 Erl"autern Sie die Unterschiede zwischen einer L/S-Architektur, einer
 R/M-Architektur und einer R+M-Architektur.
 
-\textbf{Erkl"arung}.
-
 \begin{table}[h]
     \centering
-    \begin{tabular}{p{0.33\linewidth}|p{0.33\linewidth}|p{0.33\linewidth}}
+    \begin{tabular}{p{0.3\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}}
         L/S-Architektur & R/M-Architektur & R+M-Architektur \\
         \hline
         teilt die Befehle in zwei Kategorien ein: Speicherzugriff und
@@ -81,40 +79,24 @@ In der Vorlesung wurde die Funktionsweise eines Relais erl"autert. Wird der
 Schalter im Steuerkreis geschlossen, dann wird der Elektromagnet aktiviert und
 schaltet mechanisch den Schalter des Lastkreis.
 
-\begin{figure}[h]
-    \includegraphics[width=1\textwidth]{./assets/relay-circuit.png}
-    \caption{Das Relais}
-\end{figure}
-
-\pagebreak
-
 \begin{enumerate}[(a)]
-    \item Modifizieren Sie die Zeichnung bitte so, dass eine logische
+    \item Modifizieren Sie die Schaltung bitte so, dass eine logische
         UND-Schaltung realisiert ist. Sie ben"otigen dazu zwei Schalter im
-        Steuerkreis. Denken Sie z. B. an eine Hecken- schere oder eine
-        Stanzmaschine, bei denen der Benutzer zwei Schalter dr"ucken muss um die
-        Maschine zu bedienen.
+        Steuerkreis. Denken Sie z.B. an eine Heckenschere oder eine
+        Stanzmaschine, bei denen der Benutzer zwei Schalter dr"ucken muss um
+        die Maschine zu bedienen.
 
-        \textbf{L"osung:}
+        Siehe Abbildung~\ref{fig:und-circuit}
 
-        \begin{figure}[h]
-            \includegraphics[width=1\textwidth]{./assets/und-circuit.png}
-            \caption{UND-Schaltung}
-        \end{figure}
+    \item Modifizieren Sie die Schaltung bitte so, dass eine logische
+        ODER-Schaltung entsteht. Sie ben"otigen wieder Schalter im Steuerkreis.
+        Denken Sie an den Notrufknopf von Patienten im Krankenhaus. Die rote
+        Lampe im Schwesternzimmer (Lastkreis) erleuchtet wenn einer der
+        Patienten den Schalter dr"uckt.
 
-    \item Modifizieren Sie die Zeichnung bitte so, dass eine logische ODER-Schaltung entsteht.
-        Sie ben"otigen wieder Schalter im Steuerkreis. Denken Sie an den Notrufknopf
-        von Patienten im Krankenhaus. Die rote Lampe im Schwesternzimmer
-        (Lastkreis) erleuchtet wenn einer der Patienten den Schalter dr"uckt.
+        Siehe Abbildung~\ref{fig:oder-circuit}
 
-        \textbf{L"osung:}
-
-        \begin{figure}[h]
-            \includegraphics[width=1\textwidth]{./assets/oder-circuit.png}
-            \caption{ODER-Schaltung}
-        \end{figure}
-
-    \item Modifizieren Sie die Zeichnung bitte so, dass eine logische
+    \item Modifizieren Sie die Schaltung bitte so, dass eine logische
         NOT-Schaltung entsteht. Sie brauchen nur einen Schalter im Steuerkreis.
         Solange der Schalter geschaltet ist, bleibt die Maschine im Lastkreis
         aus. Wird der Schalter im Steuerkreis ge"offnet, l"auft die Maschine.
@@ -123,14 +105,9 @@ schaltet mechanisch den Schalter des Lastkreis.
         geschlossen) und der LKW kann bewegt werden. Ohne Druck ist der
         Schalter offen und die Bremsanlage (Lastkreis) schaltet. Durch
         Bet"atigen des Bremspedals oder durch einen Defekt an der
-        Luftdruckanlage w"urde der Schalter im Steuerkreis ge"offnet
+        Luftdruckanlage w"urde der Schalter im Steuerkreis ge"offnet.
 
-        \textbf{L"osung:}
-
-        \begin{figure}[h]
-            \includegraphics[width=1\textwidth]{./assets/not-circuit.png}
-            \caption{NOT-Schaltung}
-        \end{figure}
+        Siehe Abbildung~\ref{fig:not-circuit}
 
     \item Jetzt bauen Sie noch bitte eine Schaltung mit zwei Schaltern A und B
         im Steuerkreis, so dass die Maschine im Lastkreis l"auft, solange weder
@@ -138,14 +115,36 @@ schaltet mechanisch den Schalter des Lastkreis.
         geschlossen, wird der Lastkreis ausgeschaltet. Welche logische Funktion
         ist entstanden?
 
-        \textbf{L"osung:}
-
-        \begin{figure}[h]
-            \includegraphics[width=1\textwidth]{./assets/nor-circuit.png}
-            \caption{NOR-Schaltung}
-        \end{figure}
-
+        Siehe Abbildung~\ref{fig:nor-circuit}
 \end{enumerate}
+
+\begin{figure}[p]
+    \includegraphics[width=1\textwidth]{./assets/und-circuit.png}
+    \caption{UND-Schaltung}
+    \label{fig:und-circuit}
+\end{figure}
+
+\begin{figure}[p]
+    \includegraphics[width=1\textwidth]{./assets/oder-circuit.png}
+    \caption{ODER-Schaltung}
+    \label{fig:oder-circuit}
+\end{figure}
+
+\FloatBarrier
+
+ \begin{figure}[p]
+    \includegraphics[width=1\textwidth]{./assets/not-circuit.png}
+    \caption{NOT-Schaltung}
+    \label{fig:not-circuit}
+\end{figure}
+
+\begin{figure}[p]
+    \includegraphics[width=1\textwidth]{./assets/nor-circuit.png}
+    \caption{NOR-Schaltung}
+    \label{fig:nor-circuit}
+\end{figure}
+
+\FloatBarrier
 
 \section{Aufgabe 5}
 
@@ -184,16 +183,14 @@ Wozu werden die folgenden Komponenten einer CPU verwendet?
 \section{Aufgabe 7}
 
 Es existieren verschiedene Architekturmodelle mit unterschiedlichen
-Adressformaten. Schrei- ben Sie f¨ur die nachfolgende Berechnung jeweils ein
+Adressformaten. Schreiben Sie f"ur die nachfolgende Berechnung jeweils ein
 Programm unter Verwendung von 3-Adress-, 2-Adress- und 1-Adress-Instruktionen:
-
 \begin{equation*}
     x = (a \cdot b \cdot c) - (d + e)
 \end{equation*}
 
-\textbf{L"osung}.
-
 \begin{enumerate}[(a)]
+    \itemsep0em
     \item Berechnung unter Verwendung von 1-Adress-Instruktionen:
         \begin{verbatim}
         load a      ; ACC <- a
@@ -203,6 +200,8 @@ Programm unter Verwendung von 3-Adress-, 2-Adress- und 1-Adress-Instruktionen:
         sub e       ; ACC <- ACC - e
         store x     ; x <- ACC
         \end{verbatim}
+
+    \vspace{-0.3em}
     \item Berechnung unter Verwendung von 2-Adress-Instruktionen:
         \begin{verbatim}
         mul a, b    ; a <- a * b
@@ -210,6 +209,8 @@ Programm unter Verwendung von 3-Adress-, 2-Adress- und 1-Adress-Instruktionen:
         sub a, d    ; a <- a - d
         sub a, e    ; a <- a - e
         \end{verbatim}
+
+    \vspace{-0.3em}
     \item Berechnung unter Verwendung von 3-Adress-Instruktionen:
         \begin{verbatim}
         mul a, a, b ; a <- a * b
