@@ -1,13 +1,12 @@
 \documentclass[10pt, oneside]{article}
 \usepackage[a4paper, total={5.5in, 9in}]{geometry}
 \usepackage[ngerman]{babel}
+\usepackage{import}
 
-\usepackage{csquotes}
+\import{../../.texit/include/}{preamble}
 
-\input{include/preamble}
-
-\title{Technische Informatik\\[5pt]\Large WiSe 2024/25\\[10pt]\Large L{\"o}sungen zum {\"U}bungsblatt 2}
-\author{Volodymyr But}
+\title{Technische Informatik\\[10pt]\Large{WiSe 2024/25}\\[15pt]\Large{{\"U}bungsblatt 2}}
+\author{Volodymyr But\\[10pt]Hochschule Trier}
 \date{}
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
@@ -54,13 +53,15 @@ Welche Segmente m"ussen \enquote{on} sein um das Zeichen f"ur 5 darzustellen?
         \hline
     \end{tabular}
     \egroup
-\end{minipage} 
+\end{minipage}
 \hfill
 \begin{minipage}{0.29\linewidth}
     \centering
-    \includegraphics[width=0.85\linewidth]{./assets/7s.png}
+    \includegraphics[width=0.85\linewidth]{./assets/abbildung-01-01.png}
     \vfill
 \end{minipage}
+
+\pagebreak
 
 \section{Aufgabe 2}
 
@@ -70,39 +71,36 @@ $x2$, $x1$, $x0$ das Segment $e$ leuchten soll. Stellen Sie mit den digitalen
 Basis-Gattern eine Schaltung auf, deren Ausgang das Segment $e$ ansteuert.
 (Ohne vorherige Optimierung, nur Gatter mit 1 oder 2 Eing"agen verwenden.)
 
-\begin{figure*}[h]
-    \centering
-    \includegraphics[width=0.45\textwidth]{./assets/aufgabe-2.png}
-\end{figure*}
+Siehe circuits/circuit-02-01.circ
 
-\pagebreak
 \section{Aufgabe 3}
 
 Spielen Sie die Addition der beiden Zahlen $A = 10_10 = 1010_2$ und $B = 7_10 =
 0111_2$ mit dem 4 Bit Paralleladdierer durch. Schreiben Sie dazu die Bits aus
 der Rechnung jeweils an die Ein- und Ausg"ange des Addierers.
 
-\begin{figure*}[h]
+\vspace{5pt}
+
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{./assets/aufgabe-3.png}
-\end{figure*}
+    \includegraphics[width=0.8\textwidth]{./assets/abbildung-03-01.png}
+    \caption{}
+\end{figure}
 
 \section{Aufgabe 4}
 
 \begin{enumerate}[(a)]
     \item Wie viele Steuerleistungen ben"otigt ein Multiplexer f"ur 14 Eing"ange?
-
-        \textbf{Antwort:} $n = {\lceil}{\log}_2(14){\rceil} = {\lceil}3.81{\rceil} = 4$
+        \begin{equation*}
+            n = {\lceil}{\log}_2(14){\rceil} = {\lceil}3.81{\rceil} = 4
+        \end{equation*}
 
     \item Zeichnen Sie das logische Diagramm f"ur einen Multiplexer mit 1
         Steuerleitung und 2 Eing"angen. Verwenden Sie nur AND, OR und NOT
         Gatter. AND und OR Gatter d"urfen beliebig viele Eing"ange haben.
         Hinweis: Dann sollte ein NOT, zwei AND und ein OR ausreichen.
 
-        \begin{figure*}[h]
-            \centering
-            \includegraphics[width=0.45\textwidth]{./assets/aufgabe-4b.png}
-        \end{figure*}
+        Siehe circuits/circuit-04-01.circ
 \end{enumerate}
 
 \end{document}

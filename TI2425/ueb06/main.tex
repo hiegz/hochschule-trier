@@ -1,10 +1,11 @@
 \documentclass[10pt, oneside]{article}
 \usepackage[a4paper, total={5.5in, 9in}]{geometry}
 \usepackage[ngerman]{babel}
+\usepackage{import}
 
-\input{include/preamble}
+\import{../../.texit/include/}{preamble}
 
-\title{Technische Informatik\\[10pt]\Large{WiSe 2024/25}\\[15pt]\Large{L{\"o}sungen zum {\"U}bungsblatt 6}}
+\title{Technische Informatik\\[10pt]\Large{WiSe 2024/25}\\[15pt]\Large{{\"U}bungsblatt 6}}
 \author{Volodymyr But\\[10pt]Hochschule Trier}
 \date{}
 
@@ -77,39 +78,28 @@ gegebenen Gleichung her.
 
 \section{Aufgabe 8}
 
-Stellen Sie anhand der gegebenen Schaltung die logische Gleichung f"ur $Q$ auf.
-\begin{figure*}[h]
-    \centering
-    \includegraphics[scale=0.3]{./8.png}
-\end{figure*}
-
+Stellen Sie anhand der in der Aufgabensammlung angegebenen Schaltung die
+logische Gleichung f"ur $Q$ auf. Minimieren Sie danach die erhaltene Gleichung
+mit den Regeln der Booleschen Algebra.
 \begin{align*}
     AB + ((B + C) \cdot BC) &= AB + BBC + BCC = \\
                             &= AB + BC + BC \\
                             &= AB + BC = \\
                             &= B(A + C)
 \end{align*}
-\begin{figure*}[h]
-    \centering
-    \includegraphics[scale=0.25]{./8-1.png}
-\end{figure*}
 
 \section{Aufgabe 9}
-\begin{enumerate}[(a)]
-    \item Verwenden Sie die Regeln der Booleschen Algebra zur Vereinfachung des
-        Booleschen Ausdrucks:
-        \begin{align*}
-            A \cdot B + A \cdot (B + C) + B \cdot (B + C) &= AB + AB + AC + BB + BC = \\
-                                                          &= AB + AC + B + BC = \\
-                                                          &= AB + AC + B = \\
-                                                          &= B + AC
-        \end{align*}
-    \item Zeichnen Sie die logischen Schaltkreise f"ur den optimierten Ausdruck.
-        \begin{figure*}[h]
-            \centering
-            \includegraphics[scale=0.25]{./8-1.png}
-        \end{figure*}
-\end{enumerate}
+
+Verwenden Sie die Regeln der Booleschen Algebra zur Vereinfachung des
+Booleschen Ausdrucks:
+\begin{align*}
+    A \cdot B + A \cdot (B + C) + B \cdot (B + C) &= AB + AB + AC + BB + BC = \\
+                                                  &= AB + AC + B + BC = \\
+                                                  &= AB + AC + B = \\
+                                                  &= B + AC
+\end{align*}
+
+\pagebreak
 
 \section{Aufgabe 10}
 
