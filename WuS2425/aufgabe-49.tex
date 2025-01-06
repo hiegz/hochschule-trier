@@ -1,0 +1,21 @@
+\section{Aufgabe 49}
+\setcounter{section}{49}
+
+Es sei $X \sim \mathcal{U}([a, b])$ mit $a < b$. Bestimmen Sie $\varepsilon > 0$ so, dass
+\begin{equation*}
+    P(X \geq a + \varepsilon \land X \leq b - \varepsilon) = 0.95
+\end{equation*}
+Skizzieren Sie diese Situation anhand der Dichtefunktion der Gleichverteilung auf $[a, b]$
+\begin{equation*}
+    \begin{array}{rcl}
+        P(X \geq a + \varepsilon \land X \leq b - \varepsilon) &=& 0.95 \\[10pt]
+        \int_{a + \varepsilon}^{b - \varepsilon}\dfrac{1}{b - a}dx &=& 0.95 \\[10pt]
+        \dfrac{1}{b - a} \cdot [x]_{a + \varepsilon}^{b - \varepsilon} &=& 0.95 \\[10pt]
+        \dfrac{1}{b - a} \cdot (b - \varepsilon - a - \varepsilon) &=& 0.95 \\[10pt]
+        \dfrac{b - a - 2\varepsilon}{b - a} &=& 0.95 \\[10pt]
+        1 - \dfrac{1}{b - a} \cdot 2\varepsilon &=& 0.95 \\[10pt]
+        \dfrac{1}{b - a} \cdot 2\varepsilon &=& 0.05 \\[10pt]
+        p(x) \cdot 2\varepsilon &=& 0.05 \\[10pt]
+        \varepsilon &=& 0.025 \cdot \dfrac{1}{p(x)}
+    \end{array}
+\end{equation*}
