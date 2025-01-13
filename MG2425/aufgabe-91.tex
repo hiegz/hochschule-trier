@@ -1,0 +1,18 @@
+\section{Aufgabe 91}
+\setcounter{section}{91}
+
+Untersuchen Sie die nachstehenden Folgen auf Konvergenz, und bestimmen Sie
+gegebenfalls den Grenzwert.
+\begin{enumerate}[(a)]
+    \item $(a_n)_{n \in \mathbb{N}}$ definiert durch $a_n = \dfrac{3^n}{4^{n +
+        k} + 4}$ mit $k \in \mathbb{Z}$ fest.
+        \begin{align*}
+            \lim\limits_{n\rightarrow\infty}\dfrac{3^n}{4^{n + k} + 4} &= \lim\limits_{n\rightarrow\infty}\left(\dfrac{4^{n + k}}{3^n} + \dfrac{4}{3^n}\right)^{-1} = \lim\limits_{n\rightarrow\infty}\left(\dfrac{4^n \cdot 4^k}{3^n} + 0\right)^{-1} = 4^{-k} \cdot \lim\limits_{n\rightarrow\infty}\left(\dfrac{4^n}{3^n}\right)^{-1} = \\[10pt]
+                                                                       &= 4^{-k} \cdot \lim\limits_{n\rightarrow\infty}\left(\dfrac{4}{3}\right)^{-n} = 4^{-k} \cdot 0 = 0
+        \end{align*}
+
+    \item $(a_n)_{n \in \mathbb{N}}$ mit $a_n = \dfrac{3^n}{n!}$
+        \begin{equation*}
+            \lim\limits_{n\rightarrow\infty}\dfrac{3^n}{n!} = 0 \quad (3^n < n!\text{ }\forall n > 6)
+        \end{equation*}
+\end{enumerate}
