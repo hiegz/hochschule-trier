@@ -1,0 +1,65 @@
+\section{Aufgabe 41}
+\setcounter{section}{41}
+
+In einer Studie wird untersucht, ob die Pr"aferenz f"ur eine bestimmte
+Freizeitaktivit"at (un)abh"angig vom Wohnort ist. Dazu wurden 300 Personen
+befragt. Die Antworten wurden in einer Kontingenztabellen zusammengefasst:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Wohnort  & Aktivit"at 1 & Aktivit"at 2 & Aktivit"at 3 & Summe \\
+        Stadt    & 50           & 30           & 20           & 100 \\
+        Vorstadt & 40           & 50           & 30           & 120 \\
+        Land     & 20           & 30           & 30           & 80 \\
+        Summe    & 110          & 110          & 80           & 300 \\ \hline
+    \end{tabular}
+    \caption{Antworten der Umfrageteilnehmer}
+\end{table}
+
+\begin{enumerate}
+    \item Formulieren Sie die Nullhypothese $H_0$ und die Alternativhypothese
+        $H_1$ f"ur einen $\chi^2$-Unabh"angigkeitstest.
+        \begin{itemize}[-]
+            \item Nullhypothese $H_0$: $X \perp Y$
+            \item Alternativhypothese $H_1$: $X \not\perp Y$
+        \end{itemize}
+    \item Berechnen Sie den $\chi^2$-Wert und bestimmen Sie die Freiheitsgrade des Tests.
+
+        Aus den Antworten der Umfrageteilnehmer lassen sich die erwarteten
+        Werte ableiten. Die Ergebnisse sind in der folgenden Tabelle
+        zusammengefasst:
+
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                Wohnort  & Aktivit"at 1 & Aktivit"at 2 & Aktivit"at 3 \\
+                Stadt    & 36.7         & 36.7         & 26.7         \\
+                Vorstadt & 44           & 44           & 32           \\
+                Land     & 29.3         & 29.3         & 21.3         \\ \hline
+            \end{tabular}
+            \caption{Erwartungswerte $E_{j,k} := n\hat{p}_{j1}\hat{p}_{2k}$}
+        \end{table}
+
+        Der entsprechende $\chi^2$-Wert ist
+        \begin{equation*}
+            \begin{array}[t]{rccccccl}
+                15.55 &=&\dfrac{(50 - 36.7)^2}{36.7} &+& \dfrac{(30 - 36.7)^2}{36.7} &+& \dfrac{(20 - 26.7)^2}{26.7} &+ \\[10pt]
+                      &+& \dfrac{(40 - 44)^2}{44}     &+& \dfrac{(50 - 44)^2}{44}     &+& \dfrac{(30 - 32)^2}{32}     &+ \\[10pt]
+                      &+& \dfrac{(20 - 29.3)^2}{29.3} &+& \dfrac{(30 - 29.3)^2}{29.3} &+& \dfrac{(30 - 21.3)^2}{21.3}
+               \end{array} \\[10pt]
+        \end{equation*}
+        Die Freiheitsgrade des Tests ist
+        \begin{equation*}
+            4 = (3 - 1)(3 - 1)
+        \end{equation*}
+    \item F"uhren Sie den Test auf einem Signifikanzniveau von $\alpha = 0.05$
+        durch, und ziehen Sie eine Schlussfolgerung.
+
+        Ein Signifikanzniveau $\alpha = 0.05$ und Freiheitsgrade von $4$
+        entsprechen einem Grenzwert von $9.488$. Da $9.488 < 15.55$ gilt, wird
+        die Hypothese, dass der Ort und Aktivit"aten unabh"angig sind,
+        abgelehnt.
+\end{enumerate}
