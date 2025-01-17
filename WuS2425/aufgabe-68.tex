@@ -1,0 +1,18 @@
+\section{Aufgabe 68}
+\setcounter{section}{68}
+
+Es seien $X$, $Y$ stochastisch unabh"angige, reell-wertige, endlich verteilte
+Zufallsvariablen. Die Bildbereiche seinen dabei $\{x_1,...,x_n\}$,
+$\{y_1,...,y_m\}$. Zeigen Sie, dass $E(XY) = E(X)E(Y)$ gilt.
+
+Nach der Def. 6.2 aus dem Skript folgt
+\begin{equation*}
+    P(X = x \land Y = y) = P(X = x) \cdot P(Y = y)\text{, }\forall_{x,y}
+\end{equation*}
+Dann gilt
+\begin{align*}
+    E(XY) &= \sum_{i = 1}^n\sum_{j = 1}^m x_iy_jP(X = x_i \land Y = y_j) = \\[10pt]
+          &= \sum_{i = 1}^n\sum_{j = 1}^m x_iy_jP(X = x_i)P(Y = y_j) = \\[10pt]
+          &= \sum_{i = 1}^nx_iP(X = x_i)\sum_{j = 1}^my_jP(Y = y_j) = \\[10pt]
+          &= E(X)E(Y) \quad \square
+\end{align*}
