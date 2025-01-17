@@ -1,7 +1,9 @@
 \section{Aufgabe 51}
+\setcounter{section}{51}
 
 \begin{enumerate}[(a)]
-    \item $P(1 \leq X \leq 5) = \sum_{k = 1}^5P(X = k)$
-    \item $P(X + Y \leq 3) = P(X = 0 \land Y \leq 3) + P(X = 1 \land Y \leq 2) + P(X = 2 \land Y \leq 1)$
-    \item $P(X > 4 \land Y < 2) = P(X > 4) \cdot P(Y < 2) = (1 - P(X \leq 4)) \cdot P(Y < 2)$
+    \item $P(X \leq k) = \sum_{i = 0}^kp(1 - p)^i = p\sum_{i = 0}^k(1 - p)^i = p \cdot \dfrac{1 - (1 - p)^{k + 1}}{1 - (1 - p)} = 1 - (1 - p)^{k + 1}$
+    \item $f(p) = p(1 - p)^2 = p^3 - 2p^2 + p\text{;  } f'(p) = 3p^2 - 4p + 1\text{;  } f''(p) = 6p - 4 \\[5pt]
+            f'(p) = 0 \iff p = 1 \lor p = 1/3a \\[5pt]
+            f''(1/3) < 0 \iff p = 1/3$
 \end{enumerate}
