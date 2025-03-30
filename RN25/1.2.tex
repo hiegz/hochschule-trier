@@ -1,0 +1,63 @@
+\setcounter{section}{1}
+\setcounter{subsection}{1} % 1.2
+\subsection{Netztopologien}
+
+Vier paketvermittelte Netze enthalten je n Knoten. Das erste Netz hat eine
+Sterntopologie mit einem zentralen Vermittler. Das zweite ist ein
+bidirektionaler Ring, beim dritten ist jeder Knoten mit jedem anderen Knoten
+durch ein Kabel verbunden. Im vierten Netz sind alle Knoten in einer Linie miteinander
+verbunden (Linien-Topologie).
+
+\begin{enumerate}[(a)]
+        \item Erstellen Sie eine Tabelle mit den im Übungsblatt angegebenen Gr"o{\ss}en.
+
+            \begin{table*}[h]
+                \centering
+                \bgroup
+                \def\arraystretch{1.5}%  1 is the default, change whatever you need
+                \begin{tabularx}{\textwidth}{|V{4cm}|*4{f|}}
+                    \hline
+                                            & Stern-Topologie & bidirekt. Ring & vollst"andig verkn"upft & Linien-Topologie \\ \hline
+                    Anzahl der Kanten       & $n - 1$         & $n$            & $\binom{n}{2}$          & $n - 1$          \\ \hline
+                    Anzahl der Teilstrecken & 2               & $n - 1$        & $1$                     & $n - 1$          \\ \hline
+                    Bisektionsweite         & --              & 2              & $\binom{n}{2} - n$      & 1                \\ \hline
+                    Grad der Knoten         & $(n - 1)$, $1$  & 2              & $n - 1$                 & $1-2$            \\ \hline
+                    Kanten-Konnektivit"at   & 1               & 2              & $n - 1$                 & 1                \\ \hline
+                    Symmetrie               & nein            & ja             & ja                      & nein             \\ \hline
+                \end{tabularx}
+                \egroup
+            \end{table*}
+
+        \item Welche dieser Gr"o{\ss}en sagen etwas "uber
+            \begin{itemize}
+                \item die Kosten (+ Effizienz?)
+                    \begin{itemize}
+                        \item Der Grad einer Topologie gibt die Anzahl der
+                            Links pro Knoten an. Je höher der Grad, desto mehr
+                            Kabel müssen verlegt werden, und desto teurer wird
+                            das Netz.
+                        \item Der Durchmesser eines Netzwerks bezeichnet die
+                            maximale Anzahl an Hops, die ein Paket benötigt, um
+                            von einem beliebigen Knoten zu einem anderen Knoten
+                            im Netzwerk zu gelangen. Das hei{\ss}t, je größer
+                            der Durchmesser, desto größer die Transferzeit im
+                            ungünstigsten Fall.
+                        \item Die Bisektionsweite bezeichnet die kleinste
+                            Anzahl an Links, die durchtrennt werden müssen, um
+                            ein Netzwerk mit N Knoten in zwei Teilnetzwerke mit
+                            jeweils N/2 Knoten zu unterteilen. Eine geringere
+                            Bisektionsweite hat daher negative Auswirkungen auf
+                            den Zeitaufwand für den Datenaustausch zwischen den
+                            beiden Netzhälften.
+                    \end{itemize}
+                \item die Ausfallsicherheit / Robustheit
+                    \begin{itemize}
+                        \item Die Konnektivität beschreibt die minimale Anzahl
+                            an Knoten, die entfernt werden müssen, damit das
+                            Netzwerk seine Funktionsfähigkeit verliert. Damit
+                            gibt sie auch die Ausfallsicherheit des Netzwerks
+                            an: Je höher die Konnektivität, desto
+                            ausfallsicherer ist das Netzwerk.
+                    \end{itemize}
+            \end{itemize}
+\end{enumerate}
