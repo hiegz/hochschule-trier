@@ -1,0 +1,60 @@
+\setcounter{section}{2}
+\setcounter{subsection}{0} % 2.1
+\subsection{Übertragungszeit}
+
+Die benötigte Übertragungszeit eines Datenblocks von einem Punkt A zu einem
+Punkt B ist die Zeit zwischen dem Senden des ersten Bits und dem Empfangen des
+letzten Bits. Zur Berechnung der Übertragungszeit t benötigt man folgende
+Größen: die Entfernung d (in m) zwischen den Punkten A und B, die
+Ausbreitungsgeschwindigkeit c (in m/s) des Datensignals, die
+Datenübertragungsrate b (in Bit/s) sowie die Anzahl g der zu übertragenden Bits
+(in Bits)
+
+\begin{enumerate}[(a)]
+    \item Berechnen Sie die Übertragungszeit eines Datenblocks der Länge 1500
+        Bytes zwischen zwei Punkten, die über eine Entfernung von 1 km durch
+        ein Ethernet miteinander verbunden sind. Gehen Sie beim Ethernet von
+        einer Datenübertragungsrate von 10 Mbit/s sowie davon aus, dass die
+        Ausbreitungsgeschwindigkeit im Kabel $3 \cdot 10^8$ m/s beträgt.
+        \begin{equation*}
+            t = \dfrac{d}{c} + \dfrac{g}{b} =
+                \dfrac{1000\ \text{m}}{3 \cdot 10^8\ \text{m/s}} + \dfrac{1500 \cdot 8\ \text{Bit}}{10^6\ \text{Bit/s}} =
+                3.33 \cdot 10^{-6}\ \text{s} + 1.2 \cdot 10^{-2}\ \text{s} \approx 12\ \text{ms}
+        \end{equation*}
+
+    \item Sie fahren in einem ICE eine Strecke von 600 km mit einer
+        Durchschnittsgeschwindigkeit von 180 km/h. Sie haben 20 CDs bei sich.
+        Welcher Datenübertragungsrate entspricht dies ungefähr, falls dieselbe
+        Menge von Daten in derselben Zeit über einen elektrischen Leiter
+        übertragen würde?
+        \begin{itemize}
+            \item Eine CD fasst in der Regel bis zu 700 MB an Daten \\
+                \tabto{6mm} $\implies$ Gesamtdatenmenge $=$ 14 GB $=$ $1.12 \cdot 10^{11}$ Bit
+            \item Bei einer Geschwindigkeit von 180 km/h betr"agt die Reisedauer etwa 3,33 Stunden\\
+                \tabto{6mm} $\implies$ t $=$ $3.33 \cdot 3600\ \text{s} = 12000\ \text{s}$
+        \end{itemize}
+        Dann gilt
+        \begin{equation*}
+            b = \dfrac{n}{t} = \dfrac{1.12 \cdot 10^{11}\ \text{Bit}}{1.2 \cdot 10^4\ \text{s}} =
+                9.3 \cdot 10^6\ \text{Bit/s}
+        \end{equation*}
+    \item Sie haben Ihren Bernhardiner Bernie darauf abgerichtet, statt einer
+        Flasche Schnaps eine Schachtel mit drei 8mm-Bändern zu tragen. Jede
+        Band fasst 7 GB (Gigabyte). Bernie bewegt sich mit durchschnittlich 18
+        km/h. Bei welcher Entfernung erreicht Bernie ungefähr die gleiche
+        Datenübertragungsrate wie eine DSL-Leitung mit 16 Mbit/s?
+        \begin{itemize}
+            \item Beim Bernhardiner gehen wir davon aus, dass die Bandbreite so
+                groß ist, dass zu dem Zeitpunkt, an dem er den Empfänger
+                erreicht, alle Daten gleichzeitig übertragen werden \\[10pt]
+                \tabto{6mm} $\implies$ $\dfrac{g_B}{b_B} \to 0$
+            \item Bei der DSL-Leitung ist die Ausbreitungsgeschwindigkeit gleich der Lichtgeschwindigkeit \\[10pt]
+                \tabto{6mm} $\implies$ $\dfrac{d_L}{c_L} \to 0$
+       \end{itemize}
+       Dann gilt
+       \begin{equation*}
+           \dfrac{d_B}{c_B} = \dfrac{g_L}{b_L} \implies d_B = \dfrac{c_B \cdot g_L}{b_L} =
+           \dfrac{18\ \text{km/h} \cdot 21\ \text{GB}}{16\ \text{MBit/s}} =
+           \dfrac{5\ \text{m/s} \cdot 1.6 \cdot 10^{11}\ \text{Bit}}{1.6 \cdot 10^7\ \text{Bit}} \approx 50\ \text{km}
+       \end{equation*}
+\end{enumerate}
