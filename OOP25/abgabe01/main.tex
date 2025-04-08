@@ -1,0 +1,400 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{import}
+\usepackage{eurosym}
+
+\import{../../.texit/include}{preamble}
+
+\title{Objektorientierte Programmierung\\[10pt]\Large{SoSe 2025}}
+\author{Volodymyr But\\[10pt]Hochschule Trier}
+\date{}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+
+\maketitle
+\vspace{25px}
+
+\section{Aufgabe 1}
+
+Betrachten Sie die Deklarationen
+
+\begin{verbatim}
+int a = 76, b = 37, c;
+\end{verbatim}
+
+Nehmen Sie an, dass die folgenden Anweisungen der Reihe nach ausgeführt werden.
+Welche Werte haben a, b und c nach jeder Anweisung?
+
+\begin{verbatim}
+c = b % a * 9;
+a++;
+b--;
+c += a + b;
+c %= 2 * 5;
+c++;
+\end{verbatim}
+
+L"osung:
+
+\begin{verbatim}
+a = 77; b = 36; c = 7;
+\end{verbatim}
+
+\section{Aufgabe 2}
+
+Welche impliziten Typkonversionen werden in den folgenden Ausdrücken
+vorgenommen? Welche Werte haben die Variablen y, i und x nach der Zuweisung?
+Gehen Sie von folgenden Deklarationen aus:
+
+\begin{verbatim}
+double x = 23.57, y;
+float z = 4.5F;
+int i;
+short s = 5;
+\end{verbatim}
+
+\begin{enumerate}[(a)]
+    \item \verb+y = 2 * z+
+        \begin{itemize}
+            \item Der Wert \verb+2+ wird als ein \verb+float+ interpretiert,
+                damit die Multiplikation \verb+float+ * \verb+float+
+                durchgef"uhrt werden kann.
+            \item Der resultierende \verb+float+-Wert \verb+9.0f+ wird danach implizit zu \verb+double+ konvertiert.
+            \item Dann gilt \verb+y = 9.0+, wobei \verb+y+ ein \verb+double+ ist.
+        \end{itemize}
+    \item \verb+i = s * 3+ 
+        \begin{itemize}
+            \item Der Wert \verb+3+ wird als ein \verb+short+ interpretiert,
+                damit die Multiplikation \verb+short * short+ durchgef"uhrt
+                werden kann.
+            \item Der resultierende \verb+short+-Wert \verb+15+ wird danach implizit zu \verb+int+ konvertiert.
+            \item Dann gilt \verb+i = 15+, wobei \verb+i+ ein \verb+int+ ist.
+        \end{itemize}
+    \item \verb+x = z / s+
+        \begin{itemize}
+            \item Die \verb+short+-Variable \verb+s+ wird implizit zu
+                \verb+float+ konvertiert, damit die Division \verb+float / float+ 
+                durchgef"uhrt werden kann.
+            \item Der resultierende \verb+float+ Wert wird danach implizit zu \verb+double+ konvertiert.
+            \item Dann gilt \verb+x = 0.8999999761581421+, wobei \verb+x+ ein \verb+double+ ist.
+        \end{itemize}
+\end{enumerate}
+
+\section{Aufgabe 3}
+
+Betrachten Sie das folgende Programm. Tragen Sie die Werte ein, welche die
+Variablen a bzw. b nach Ausführung der jeweiligen Anweisung haben.
+
+\begin{verbatim}
+public class assignOps2
+{
+    public static void main(String args[])
+    {
+        int a, b;
+        a = 20;
+        a -= 4;     // a = 16
+        a = 20;
+        b = 4;
+        a += b;     // a = 24
+        b *= a;     // b = 96
+        a %= b + 6; // a = 24
+        a = 35;
+        b = 88;
+        a++;        // a = 36
+        b--;        // b = 87
+    }
+}
+\end{verbatim}
+
+\section{Aufgabe 4}
+
+Wodurch unterscheiden sich die Ausdrücke
+
+\begin{verbatim}
+a = 5
+a == 5
+\end{verbatim}
+
+\begin{itemize}
+    \item \verb+a = 5+ ist eine Zuweisung, bei der der Wert \verb+5+ der
+        Variablen \verb+a+ zugewiesen wird.
+    \item \verb+a == 5+ ist ein Vergleich, bei dem "uberpr"uft wird, ob der
+        Wert der Variablen \verb+a+ gleich \verb+5+ ist.
+\end{itemize}
+
+\section{Aufgabe 5}
+
+Die Variable \verb+ch+ sei vom Typ \verb+char+.
+
+Geben Sie einen logischen Ausdruck an, mit dem Sie testen können, ob \verb+ch+ eine
+Dezimalziffer ist.
+
+\begin{verbatim}
+ch >= '0' && ch <= '9'
+\end{verbatim}
+
+Stellen Sie fest, ob \verb+ch+ ein großes \verb+Y+ oder ein kleines \verb+y+ ist
+
+\begin{verbatim}
+ch == 'Y'  || ch == 'y'
+\end{verbatim}
+
+Stellen Sie fest, ob ch ein Vokal (Selbstlaut; a, e, i, o oder u) ist.
+
+\begin{verbatim}
+ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U'
+\end{verbatim}
+
+\section{Aufgabe 6}
+
+Die folgenden Deklarationen seien gegeben:
+
+\begin{verbatim}
+boolean p = true, q = false;
+\end{verbatim}
+
+\begin{itemize}
+    \item Welche logischen Werte liefern die Ausdrücke
+
+    \begin{enumerate}[(a)]
+        \item \verb+p ^ q+
+
+            \verb+> true+
+        \item \verb+(p & !q) | (q & !p)+
+
+            \verb+> true+
+        \item \verb+(p | !q) & (!p | q)+
+
+            \verb+> false+
+    \end{enumerate}
+
+    \item Geben Sie alle logischen Werte für die Variablen p und q an, welche die Ausdrücke
+
+    \verb+p & !q == false+ und \\
+    \verb+p | (p != q) == true+
+
+    erzeugen.
+
+    Stellen Sie dazu eine Wertetabelle.
+
+    \begin{table*}[h]
+        \centering
+        \begin{minipage}{.4\linewidth}
+            \centering
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \verb+p+     & \verb+q+     & \verb+p & !q+ \\
+                \hline
+                \verb+true+  & \verb+true+  & \verb+false+ \\
+                \hline
+                \verb+false+ & \verb+false+ & \verb+false+ \\
+                \hline
+                \verb+false+ & \verb+true+  & \verb+false+ \\
+                \hline
+                \verb+true+  & \verb+false+ & \verb+true+ \\
+                \hline
+            \end{tabular}
+        \end{minipage}%
+        \begin{minipage}{.4\linewidth}
+            \centering
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \verb+p+     & \verb+q+     & \verb+p | (p != q)+ \\
+                \hline
+                \verb+true+  & \verb+true+  & \verb+true+ \\
+                \hline
+                \verb+false+ & \verb+true+  & \verb+true+ \\
+                \hline
+                \verb+true+  & \verb+false+ & \verb+true+ \\
+                \hline
+                \verb+false+ & \verb+false+ & \verb+false+ \\
+                \hline
+            \end{tabular}
+        \end{minipage}  \\[15pt]
+    \end{table*}
+
+    \item Sind die folgenden logischen Ausdrücke äquivalent? Falls nicht, geben Sie Werte
+    für \verb+p+ und \verb+q+ an, die zeigen, dass die Ausdrücke nicht äquivalent
+    sind. Stellen Sie auch hier eine Wertetabelle auf.
+
+    \verb+p != q+ und \verb+!(p & q)+ \\
+    \verb+p != q+ und \verb+(p | q) & !(p & q)+
+
+    \begin{table*}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|}
+            \hline
+            \verb+p+     & \verb+q+     & \verb+p != q+ & \verb+!(p & q)+ & \verb+p != q+ $\leftrightarrow$ \verb+!(p & q)+ \\
+            \hline
+            \verb+true+  & \verb+true+  & \verb+false+ & \verb+false+     & \verb+true+  \\
+            \hline
+            \verb+false+ & \verb+false+ & \verb+false+ & \verb+true+      & \verb+false+ \\
+            \hline
+            \verb+false+ & \verb+true+  & \verb+true+  & \verb+true+      & \verb+true+  \\
+            \hline
+            \verb+true+  & \verb+false+ & \verb+true+  & \verb+true+      & \verb+true+  \\
+            \hline
+        \end{tabular}
+    \end{table*}
+
+    \begin{table*}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|}
+            \hline
+            \verb+p+     & \verb+q+     & \verb+p != q+ & \verb+(p | q) & !(p & q)+ & \verb+p != q+ $\leftrightarrow$ \verb+(p | q) & !(p & q)+ \\
+            \hline
+            \verb+true+  & \verb+true+  & \verb+false+  & \verb+false+              & \verb+true+ \\
+            \hline
+            \verb+false+ & \verb+false+ & \verb+false+  & \verb+false+              & \verb+true+ \\
+            \hline
+            \verb+false+ & \verb+true+  & \verb+true+   & \verb+true+               & \verb+true+ \\
+            \hline
+            \verb+true+  & \verb+false+ & \verb+true+   & \verb+true+               & \verb+true+ \\
+            \hline
+        \end{tabular}
+    \end{table*}
+
+    Daraus folgt, dass
+
+    \begin{itemize}
+        \item \verb+p != q+ und \verb+!(p & q)+ nicht "aquivalent sind,
+        \item \verb+p != q+ und \verb+(p | q) & !(p & q)+ "aquivalent sind.
+    \end{itemize}
+
+    \item Welchen Wert hat die boolesche Variable bexp nach jeder Zuweisung?
+
+    \begin{verbatim}
+    bexp = false != true; // true
+    bexp = !false;        // true
+    \end{verbatim}
+
+\end{itemize}
+
+\section{Aufgabe 7}
+
+Die \verb+int+-Variable \verb+x+ habe den Wert 5. Die folgende Anweisung f"uhrt
+dennoch nicht zu einer Division durch 0. Warum?
+
+\begin{verbatim}
+if (x != 5 && 1.0 / (x – 5) > 0)
+    y = 1
+\end{verbatim}
+
+Da \verb+x != 5+ falsch ist, wird der gesamte Ausdruck ebenfalls als falsch bewertet,
+und der restliche Teil wird nicht mehr ausgeführt.
+
+\section{Aufgabe 8}
+
+Geben Sie für die folgenden bedingten Ausdrücke jeweils eine gleichwertige if-
+Anweisung an
+
+\begin{enumerate}[(a)]
+    \item \verb+odd = value % 2 == 1 ? true : false;+
+        \begin{verbatim}
+if (value % 2 == 1) {
+    odd = true;
+} else {
+    odd = false;
+}
+        \end{verbatim}
+    \item \verb+value = x > y ? x : y;+
+        \begin{verbatim}
+if (x > y) {
+    value = x;
+} else {
+    value = y;
+}
+        \end{verbatim}
+\end{enumerate}
+
+\section{Aufgabe 9}
+
+Wandeln Sie die folgende if-Anweisung in einen bedingten Ausdruck um, welcher der
+Variablen c einen Wert zuweist
+
+\begin{verbatim}
+c = a < 2 * b ? a : b;
+\end{verbatim}
+
+\pagebreak
+
+\section{Aufgabe 10}
+
+Die Kosten für das Mieten eines Kleinwagens betragen das Maximum aus entweder
+\euro45 pauschal oder aber \euro10 plus \euro0,35 pro
+gefahrenem Kilometer. Der Mietpreis beträgt also mindestens \euro45.
+Geben Sie einen bedingten Ausdruck an, welcher der Variablen mietpreis den
+entsprechenden Betrag zuweist. Die folgenden Deklarationen seien gegeben:
+
+\begin{verbatim}
+double gefahreneKm, mietpreis;
+mietpreis = (10 + 0.35 * gefahreneKm > 45) ? (10 + 0.35 * gefahreneKm) : 45;
+\end{verbatim}
+
+\section{Aufgabe 11}
+
+Nehmen Sie an, dass \verb+x+, \verb+y+ und val vom Typ int sind. Geben Sie für
+die folgende Wertzuweisung eine gleichwertige if Anweisung an.
+
+\begin{verbatim}
+val = x < y && y != 0 ? 1 : 0;
+\end{verbatim}
+
+$\leftrightarrow$
+
+\begin{verbatim}
+if (x < y && y != 0) {
+    val = 1;
+} else {
+    val = 0;
+}
+\end{verbatim}
+
+\section{Aufgabe 12}
+
+Der Wertebereich für den Datentyp short ist –32768 .. 32767. Welchen Wert weist
+die folgende Anweisung der \verb+short+-Variablen \verb+n+ zu?
+
+\begin{verbatim}
+short n = (short)32768L;
+\end{verbatim}
+
+\begin{verbatim}
+> -32768
+\end{verbatim}
+
+\section{Aufgabe 13}
+
+Die Zahlendarstellung für \verb+float+ und \verb+double+ verwendet eine feste
+Zahl von Bits. Daher ist die Repräsentation von Gleitkommazahlen in einem
+Rechner „grobkörnig“, d.h. es gibt „Löcher“, in denen keine Gleitkommazahlen
+liegen. Geben Sie das folgende Programm ein und lassen Sie es ablaufen. Sie
+werden feststellen, dass irgendwann \verb|1 + d == 1| gilt. Was sagt dies über
+die Gleitkommazahlen in der Nähe des Wertes 1 aus?
+
+\begin{verbatim}
+public class fpNumbers
+{
+    public static void main(String args[])
+    {
+        int i;
+        double d = 0.1;
+        for(i = 1; i <= 20; i++)
+        {
+            System.out.println(1.0 + d);
+            d = d / 10;
+        }
+    }
+}
+\end{verbatim}
+
+Dies zeigt, dass 1e-15 der kleinste Wert in unserem Test ist, der bei Addition
+zu 1.0 mit double-Genauigkeit eine sichtbare Veränderung bewirkt. Kleinere
+Werte wie 1e-16 gehen in der Darstellung verloren und verändern das Ergebnis
+nicht mehr.
+
+\end{document}
