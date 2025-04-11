@@ -1,0 +1,51 @@
+\setcounter{section}{3}
+\setcounter{subsection}{4} % 3.5
+\subsection{CRC}
+
+Sie wollen (ich? nicht wirklich) die Bits \verb|10011101| CRC-geschützt unter
+Verwendung des Generator-Polynoms $C(x) = x^3 + 1$ übertragen.
+\begin{enumerate}[(a)]
+    \item Welche Bits "ubermitteln Sie? Wie berechnen sich diese?
+        \begin{align*}
+            \text{M}(x) \cdot x^2       &= \text{D}(x) \cdot \text{C}(x) + \text{R}(x) \\
+            x^9 + x^6 + x^5 + x^4 + x^2 &= (x^6 + x^2 + x) \cdot (x^3 + 1) + x \\[10pt]
+            \text{P}(x)                 &= \text{M}(x) \cdot x^k - \text{R}(x) \\
+            \text{P}(x)                 &= x^9 + x^6 + x^5 + x^4 + x^2 - x \\
+            \text{P}(x)                 &= x^9 + x^6 + x^5 + x^4 + x^2 + x
+        \end{align*}
+
+        Der übertragene Rahmen ist also \verb|1001110110|.
+
+    \item Was berechnet der Empf"anger, wenn die Nachricht, unver"andert bei ihm eintrifft?
+
+        Der Empfänger überprüft die empfangene Nachricht, indem er sie durch
+        das Generator-Polynom dividiert. Bleibt kein Rest, so liegt entweder kein
+        Übertragungsfehler vor oder der Fehler konnte nicht erkannt werden.
+        Gibt es jedoch einen Rest, wurde die Nachricht während der Übertragung
+        verfälscht.
+
+    \item Das hochwertigste Bit (ganz links) der Nachricht wird durch Rauschen
+        invertiert. Geben Sie das Fehlerpolynom E(x) an. Wie lautet das
+        Ergebnis für die CRC-Berechnung des Empfängers? Woher weiß der
+        Empfänger, dass ein Fehler aufgetreten ist?
+
+        In diesem Fall gilt $\text{E}(x) = x^9$. Der Empf"anger erh"alt also
+        die Bitfolge \verb|0001110110| statt \verb|1001110110|. Daher bleibt
+        bei der Division der empfangenen Nachricht durch das Generator-Polynom
+        ein Rest. Daran erkennt der Empf"anger, dass w"ahrend der "Ubertragung ein
+        Fehler aufgetreten ist.
+
+    \item Welche Fehler erkennt das Generator-Polynom $\text{C}(x)$?
+        \begin{itemize}
+            \item alle einzelnen Bit-Fehler.
+            \item alle Fehler mit ungerader Anzahl fehlerhafter Bits, da
+                $\text{C}(x)$ eine gerade Anzahl von Termen besitzt.
+            \item alle B"undelfehler bis zur L"ange 3.
+            \item viele Fehler mehr als 3 Bits.
+        \end{itemize}
+
+    \item Geben Sie ein Beispiel f"ur einen Fehler an, der nicht erkannt wird.
+        \begin{equation*}
+            \text{E}(x) = x^9 + x^6 + x^3 + 1
+        \end{equation*}
+\end{enumerate}
