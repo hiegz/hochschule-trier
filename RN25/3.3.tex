@@ -1,0 +1,100 @@
+\setcounter{section}{3}
+\setcounter{subsection}{2} % 3.3
+\subsection{Hamming-Code}
+
+\newcommand{\cs}[1]{\texttt{\symbol{}#1}}
+
+\begin{enumerate}[(a)]
+    \item Gegeben sind die folgenden Daten-Bits einer Nachricht: \verb|1101001100110101|
+        \begin{itemize}
+            \item F"ugen Sie die ben"otigten Parity-Bits an der passenden
+                Stelle ein und zeigen Sie, wie Sie die Parity-Bits berechnet
+                haben. Vervollst"andigen Sie dazu die abgebildete Tabelle aus.
+
+                Siehe Tabelle 3.1; die Parity-Bits wurden nach der in der
+                Vorlesung vorgestellten Methode berechnet ("uber alle Stellen
+                $c_j$, in denen an der $i$-ten Stelle der Bin"arkodierung des
+                Index $j$ eine Eins steht)
+            \item Wie lauten die kompletten Code-Bits?
+
+                \verb+011110110011001110101+
+
+            \item Angenommen das 10. Code-Bit kippt im "ubertragenen Bitmuster.
+                Zeigen Sie, wie der Fehler korrigiert werden kann.
+
+                Wir überprüfen alle Parity-Bits und addieren anschließend die
+                Indizes derjenigen, die die Validierung nicht bestanden haben.
+
+                In unserem Beispiel erhalten wir: $2 + 8 = 10\ \ \ (\text{also } d_6 \text{ oder } c_{10})$
+        \end{itemize}
+
+        \item Wie ist das Verhältnis im Allgemeinen beim Hamming-Code zwischen
+            Daten-Bits und Parity-Bits?
+            
+            \begin{equation*}
+                n : \text{log}_2(n) + 1
+            \end{equation*}
+
+        \item Durch Anwendung des Hamming-Codes werden jeweils 4 Bits mit 7 Bits
+            codiert. Drei solcher 7-Bit-Codewörter werden wie folgt übertragen: zuerst
+            jeweils das erste Bit der drei Codewörter, dann jeweils das zweite Bit der drei
+            Codewörter usw. Auf Empfängerseite wird die Matrix von links nach rechts
+            befüllt. Empfangen wurde folgende Bitfolge:
+
+\begin{verbatim}
+  1 0 1
+  1 0 0
+  1 0 1
+  0 1 0
+  0 0 0
+  1 1 1
+  0 1 0
+\end{verbatim}
+
+            Korrigieren Sie die empfangenen Bits. Wie lautet die Ausgangsnachricht
+            (korrigiert und ohne Parity-Bits)?
+
+\begin{verbatim}
+  1 0 1
+  1 0 0
+  1 0 1   1 0 1
+  0 1 1
+  0 1 0   0 1 0
+  0 1 1   0 1 1
+  0 1 0   0 1 0
+\end{verbatim}
+
+            Bündelfehler bis zu welcher Länge können mit diesem Verfahren korrigiert
+            werden?
+
+            Wir haben drei individuelle Hamming-Codes, also drei.
+
+\end{enumerate}
+
+\begin{sidewaystable}
+    \centering
+    \begin{tabular}{|p{2.3cm}|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|} 
+        \hline
+        Code-Bits             & $c_1$                                      & $c_2$                                      & $c_3$                                      & $c_4$                                      & $c_5$                                      & $c_6$                                      & $c_7$                                      & $c_8$                                      & $c_9$                                      & $c_{10}$                                   & $c_{11}$                                   & $c_{12}$                                   & $c_{13}$                                   & $c_{14}$                                   & $c_{15}$                                   & $c_{16}$                                   & $c_{17}$                                   & $c_{18}$                                   & $c_{19}$                                   & $c_{20}$                                   & $c_{21}$                                   \\ 
+        \hline
+        Index                 & \rotatebox[origin=c]{90}{\texttt{ 00001 }} & \rotatebox[origin=c]{90}{\texttt{ 00010 }} & \rotatebox[origin=c]{90}{\texttt{ 00011 }} & \rotatebox[origin=c]{90}{\texttt{ 00100 }} & \rotatebox[origin=c]{90}{\texttt{ 00101 }} & \rotatebox[origin=c]{90}{\texttt{ 00110 }} & \rotatebox[origin=c]{90}{\texttt{ 00111 }} & \rotatebox[origin=c]{90}{\texttt{ 01000 }} & \rotatebox[origin=c]{90}{\texttt{ 01001 }} & \rotatebox[origin=c]{90}{\texttt{ 01010 }} & \rotatebox[origin=c]{90}{\texttt{ 01011 }} & \rotatebox[origin=c]{90}{\texttt{ 01100 }} & \rotatebox[origin=c]{90}{\texttt{ 01101 }} & \rotatebox[origin=c]{90}{\texttt{ 01110 }} & \rotatebox[origin=c]{90}{\texttt{ 01111 }} & \rotatebox[origin=c]{90}{\texttt{ 10000 }} & \rotatebox[origin=c]{90}{\texttt{ 10001 }} & \rotatebox[origin=c]{90}{\texttt{ 10010 }} & \rotatebox[origin=c]{90}{\texttt{ 10011 }} & \rotatebox[origin=c]{90}{\texttt{ 10100 }} & \rotatebox[origin=c]{90}{\texttt{ 10101 }} \\ 
+        \hline
+        Parity- und Datenbits & $p_{1}$                                    & $p_{2}$                                    & $d_{1}$                                    & $p_{3}$                                    & $d_{2}$                                    & $d_{3}$                                    & $d_{4}$                                    & $p_{4}$                                    & $d_{5}$                                    & $d_{6}$                                    & $d_{7}$                                    & $d_{8}$                                    & $d_{9}$                                    & $d_{10}$                                   & $d_{11}$                                   & $p_{5}$                                    & $d_{12}$                                   & $d_{13}$                                   & $d_{14}$                                   & $d_{15}$                                   & $d_{16}$                                   \\
+        \hline
+        Wert                  & 0                                          & 1                                          & 1                                          & 1                                          & 1                                          & 0                                          & 1                                          & 1                                          & 0                                          & 0                                          & 1                                          & 1                                          & 0                                          & 0                                          & 1                                          & 1                                          & 1                                          & 0                                          & 1                                          & 0                                          & 1                                          \\
+        \hline
+        Berechnung $p_1$      & x                                          &                                            & x                                          &                                            & x                                          &                                            & x                                          &                                            & x                                          &                                            & x                                          &                                            & x                                          &                                            & x                                          &                                            & x                                          &                                            & x                                          &                                            & x                                          \\
+        \hline 
+        Berechnung $p_2$      &                                            & x                                          & x                                          &                                            &                                            & x                                          & x                                          &                                            &                                            & x                                          & x                                          &                                            &                                            & x                                          & x                                          &                                            &                                            & x                                          & x                                          &                                            &                                            \\
+        \hline
+        Berechnung $p_3$      &                                            &                                            &                                            & x                                          & x                                          & x                                          & x                                          &                                            &                                            &                                            &                                            & x                                          & x                                          & x                                          & x                                          &                                            &                                            &                                            &                                            & x                                          & x                                          \\
+        \hline
+        Berechnung $p_4$      &                                            &                                            &                                            &                                            &                                            &                                            &                                            & x                                          & x                                          & x                                          & x                                          & x                                          & x                                          & x                                          & x                                          &                                            &                                            &                                            &                                            &                                            &                                            \\
+        \hline
+        Berechnung $p_5$      &                                            &                                            &                                            &                                            &                                            &                                            &                                            &                                            &                                            &                                            &                                            &                                            &                                            &                                            &                                            & x                                          & x                                          & x                                          & x                                          & x                                          & x                                          \\
+        \hline
+    \end{tabular}
+    \caption{}
+\end{sidewaystable}
+
+\FloatBarrier
