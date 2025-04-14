@@ -1,0 +1,8 @@
+i)    +; 17 <= 17 * 1
+ii)   +; n * (n + 1) <= 2n^2
+iii)  +; 2^n <= 3^n
+iv)   -; 3^n > 2^n
+v)    -; 2^n > n^7
+vi)   -; (n + 1)! > n! (although i'd say O((n + 1)!) is O(n!))
+vii)  +; (n + 1)^2 <= 2 * n^2
+viii)
