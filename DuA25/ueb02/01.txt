@@ -1,0 +1,5 @@
+1. 2^100000        : O(1),     konstanter      Aufwand
+2. 3^3 * log_2(n)  : O(log n), logarithmischer Aufwand
+3. 1020n       + 1 : O(n),     linearer        Aufwand
+4. n^20 / n^18 + 1 : O(n^2),   polynomialer    Aufwand
+5. 10^n        + 1 : O(10^n),  exponentieller  Aufwand
