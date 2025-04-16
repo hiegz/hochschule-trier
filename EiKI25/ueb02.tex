@@ -50,12 +50,12 @@
 
     \item Empfehlungssysteme (z.B. Youtube, Spotify oder Netflix)
         \begin{itemize}
-            \item verstärkendes Lernen 
+            \item verstärkendes Lernen
             \item Maschine sagt die Bewertung eines Nutzers für ein Foto, ein
                 Video oder einen Film voraus.
             \item System erh"alt Pluspunkte, wenn ein Nutzer eine Empfehlung
                 anschaut oder wenn dem Nutzer die Empfehlung gefallen hat, und
-                Minuspunkte, wenn er die Empfehlung komplett ignoriert. 
+                Minuspunkte, wenn er die Empfehlung komplett ignoriert.
             \item System lernt durch Belohnung und Bestrafung, bessere
                 Entscheidungen zu treffen.
         \end{itemize}
@@ -73,8 +73,15 @@
     \item nicht sinnvoll. Die Trainingsdaten enthalten ausschlie{\ss}lich
         Spam-Emails. Es wird somit nicht "uberpr"uft, ob das System
         f"alschlicherweise auch normale E-Mails als Spam klassifiziert.
-    \item Der Fall ist deutlich besser, da die Testdaten nun sowohl Spam-E-Mails als
-        auch normale Nachrichten enthalten.
+    \item Der Fall ist besser, da die Testdaten nun sowohl Spam-E-Mails als
+        auch normale Nachrichten enthalten. Jedoch sind die Menge der Testdaten 
+        und die Menge der Trainingsdaten sind nicht disjunkt, also kann es zu
+        einer Überschätzung der Modellleistung kommen. Dies liegt daran, dass
+        das Modell während des Trainings möglicherweise bereits ähnliche oder
+        identische Daten gesehen hat, was die Generalisierungsfähigkeit auf
+        völlig neue, unbekannte Beispiele einschränken könnte. Um eine
+        realistischere Einschätzung der Modellgüte zu erhalten, wäre es daher
+        sinnvoll, strikt disjunkte Trainings- und Testmengen zu verwenden.
 \end{enumerate}
 
 \section{4\ \ \ Entscheidungsb"aume anwenden}
