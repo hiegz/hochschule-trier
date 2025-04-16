@@ -1,0 +1,391 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{import}
+
+\import{../../.texit/include}{preamble}
+
+\title{Objektorientierte Programmierung\\[15pt]\Large{Übungsblatt 2}\\[10pt]\Large{SoSe 2025}}
+\author{Volodymyr But\\[10pt]Hochschule Trier}
+\date{}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+
+\maketitle
+\vspace{25px}
+
+\section{Aufgabe 1}
+
+Welche Ausgabe erzeugt das folgende Programmstück?
+
+\begin{verbatim}
+int x = 80, y = 60;
+if(x < 100)
+    if(y > 50)
+        System.out.println("eins");
+    else
+        System.out.println("zwei");
+else
+    System.out.println("drei");
+\end{verbatim}
+
+\begin{verbatim}
+> eins
+\end{verbatim}
+
+\section{Aufgabe 2}
+
+Welche Ausgabe erzeugen die folgenden Anweisungen?
+
+\begin{verbatim}
+int x = 110, y = 40;
+if(x < 100) {
+    if(y > 50)
+        System.out.println("eins");
+}
+else {
+    System.out.println("zwei");
+    System.out.println("drei");
+}
+\end{verbatim}
+
+\begin{verbatim}
+> zwei
+  drei
+\end{verbatim}
+
+\pagebreak
+\section{Aufgabe 3}
+
+Führen Sie die folgende bedingte Anweisung „von Hand“ aus. Welche Ausgabe wird
+für jeden der Werte von t erzeugt?
+
+\begin{verbatim}
+if(t < 15)
+    if(t > 7)
+        System.out.println("eins");
+    else
+        System.out.println("zwei");
+    else
+        if(t < 18)
+            System.out.println("drei");
+
+System.out.println("Ende");
+\end{verbatim}
+
+\begin{enumerate}[(a)]
+    \item \verb|t = 9|
+\begin{verbatim}
+> eins
+  Ende
+\end{verbatim}
+    \item \verb|t = 20|
+\begin{verbatim}
+> Ende
+\end{verbatim}
+    \item \verb|t = 4|
+\begin{verbatim}
+> zwei
+  Ende
+\end{verbatim}
+    \item \verb|t = 7|
+\begin{verbatim}
+> zwei
+  Ende
+\end{verbatim}
+    \item \verb|t = 16|
+\begin{verbatim}
+> drei
+  Ende
+\end{verbatim}
+\end{enumerate}
+
+\section{Aufgabe 4}
+
+Führen Sie die folgende bedingte Anweisung „von Hand“ aus und beantworten Sie die
+angegebenen Fragen
+
+\begin{verbatim}
+if(a < b)
+    if(m > n)
+        System.out.println("schwarz");
+    else
+        System.out.println("rot");
+else
+    if(m > n)
+        System.out.println("gruen");
+    else
+        System.out.println("blau");
+\end{verbatim}
+
+\pagebreak
+\begin{enumerate}
+    \item Was wird ausgegeben f"ur \verb|a = 3|, \verb|b = 4|, \verb|m = 1| und \verb|n = 5|?
+\begin{verbatim}
+> rot
+\end{verbatim}
+    \item Was wird ausgegeben f"ur \verb|a = 5|, \verb|b = 3|, \verb|m = 7| und \verb|n = 4|?
+\begin{verbatim}
+> gruen
+\end{verbatim}
+    \item Was wird ausgegeben wenn \verb|a < b| und \verb|m > n| gilt?
+\begin{verbatim}
+> schwarz
+\end{verbatim}
+    \item Schreiben Sie eine gleichwertige geschachtelte \verb|if|-Anweisung,
+        die mit dem folgenden Vergleich beginnt: \verb|if (m > n) ...|
+\begin{verbatim}
+if (m > n)
+    if (a < b)
+        System.out.println("schwarz");
+    else
+        System.out.println("gruen");
+else
+    if (a < b)
+        System.out.println("rot");
+    else
+        System.out.println("blau");
+\end{verbatim}
+\end{enumerate}
+
+\section{Aufgabe 5}
+
+Führen Sie die folgende bedingte Anweisung „von Hand“ aus. Welche Ausgabe wird
+für jeden der Werte von n erzeugt?
+
+\begin{verbatim}
+if (n <= 10)
+    if (n / 3 < 2)
+        System.out.println("eins");
+    else if (n / 3 >= 3)
+        System.out.println("zwei");
+    else
+        System.out.println("drei");
+else if (n > 20)
+    System.out.println("vier");
+else
+    System.out.println("fuenf");
+\end{verbatim}
+
+\begin{enumerate}[(a)]
+    \item \verb|n = 17|
+\begin{verbatim}
+> fuenf
+\end{verbatim}
+    \item \verb|n = 25|
+\begin{verbatim}
+> vier
+\end{verbatim}
+    \item \verb|n = 7|
+\begin{verbatim}
+> drei
+\end{verbatim}
+    \item \verb|n = 0|
+\begin{verbatim}
+> eins
+\end{verbatim}
+    \item \verb|n = 9|
+\begin{verbatim}
+> zwei
+\end{verbatim}
+\end{enumerate}
+
+\section{Aufgabe 6}
+
+Schreibena Sie eine switch-Anweisung, die äquivalent zur folgenden if-Anweisung
+ist. a (vom Typ int) soll als Auswahlausdruck verwendet werden.
+
+\begin{verbatim}
+if(a == 3)
+    result = a;
+else if(a == 6)
+    result = a + 10;
+else if(a == 10)
+    result = a + 20;
+else
+    result = a + 30;
+\end{verbatim}
+
+\begin{verbatim}
+switch (a) {
+    case 3:
+        result = a;
+        break;
+    case 6:
+        result = a + 10;
+        break;
+    case 10:
+        result = a + 20;
+        break;
+    default:
+        result = a + 30;
+        break;
+}
+\end{verbatim}
+
+\section{Aufgabe 7}
+
+Schreibe Sie eine if-Anweisung, die zur folgenden switch-Anweisung äquivalent
+ist.
+
+\begin{verbatim}
+switch(n)
+{
+    case 39:
+    case 15: System.out.println("gewonnen");
+             break;
+    default: System.out.println("verloren");
+             break;
+}
+\end{verbatim}
+
+\begin{verbatim}
+if (n == 39 || n == 15)
+    System.out.println("gewonnen");
+else
+    System.out.println("verloren");
+\end{verbatim}
+
+\pagebreak
+\section{Aufgabe 8}
+
+Betrachten Sie die folgende Fallunterscheidung:
+
+\begin{verbatim}
+switch (n) {
+    case 1:
+    case 3:
+    case 4:
+        System.out.println(n);
+        break;
+    case 2:
+    case 5:
+    case 6:
+        System.out.println(n * 10);
+        break;
+    default:
+        System.out.println(n * 100);
+        break;
+}
+\end{verbatim}
+
+Was wird ausgegeben f"ur
+\begin{enumerate}[(a)]
+    \item \verb|n = 5| \\
+        \verb|> 50|
+    \item \verb|n = 4| \\
+        \verb|> 4|
+    \item \verb|n = 8| \\
+        \verb|> 800|
+\end{enumerate}
+
+Nehmen Sie an, dass die \verb|break|-Anweisungen aus der
+\verb|switch|-Anweisung entfernt wurden. Was würde ausgegeben für
+\begin{enumerate}[(a)]
+    \item \verb|n = 5| \\
+        \verb|> 50| \\
+        \verb|  500|
+    \item \verb|n = 4| \\
+        \verb|> 4| \\
+        \verb|  40| \\
+        \verb|  400|
+    \item \verb|n = 8| \\
+        \verb|> 800|
+\end{enumerate}
+
+\pagebreak
+\section{Aufgabe 9}
+
+Geben Sie zur folgenden if-Anweisung eine gleichwertige switch-Anweisung an.
+
+\begin{verbatim}
+if (ch == 'a' || ch == 'b' || ch == 'c')
+    System.out.println("im Bereich \"abc\"");
+else if (ch >= 'g' && ch < 'i')
+    System.out.println("in der Mitte des Alphabets");
+else if (ch == 'z')
+    System.out.println("ein z, ein z, ...");
+else
+    System.out.println("andere Buchstaben");
+\end{verbatim}
+
+\begin{verbatim}
+switch (ch) {
+    case 'a':
+    case 'b':
+    case 'c':
+        System.out.println("im Bereich \"abc\"");
+        break;
+    case 'g':
+    case 'h':
+        System.out.println("in der Mitte des Alphabets");
+        break;
+    case 'z':
+        System.out.println("ein z, ein z, ...");
+        break;
+    default:
+        System.out.println("andere Buchstaben");
+}
+\end{verbatim}
+
+\section{Aufgabe 10}
+
+Schreiben Sie eine switch-Anweisung, die äquivalent zur folgenden if-Anweisung
+ist. Wie beurteilen Sie Ihre Lösung im Vergleich zur vorliegenden if-Anweisung?
+
+\begin{verbatim}
+if (n < 5 || n > 8)
+    System.out.println("Bereich 1");
+else if (n >= 5 && n <= 7)
+    System.out.println("Bereich 2");
+else
+    System.out.println("Bereich 3");
+\end{verbatim}
+
+\begin{verbatim}
+switch (n) {
+    default:
+        System.out.println("Bereich 1");
+        break;
+    case 5:
+    case 6:
+    case 7:
+        System.out.println("Bereich 2");
+        break;
+    case 8:
+        System.out.println("Bereich 3");
+        break;
+}
+\end{verbatim}
+
+Im Allgemeinen wurde die \verb|switch|-Anweisung nicht daf"ur entwickelt,
+Wertebereiche zu verarbeiten. \verb|switch| eignet sich hervorragend f"ur
+festgelegte, diskrete Werte - wie Konstanten oder Enums. Wenn es darum geht,
+Bedingungen basierend auf Wertebereichen auszuwerten, sind
+\verb|if|-Anweisungen die bessere Wahl, da sie nicht nur die Absicht klarer
+widerspiegeln, sondern auch eine bessere Lesbarkeit und Flexibilit"at bieten.
+
+In unserem Fall ist die \verb|if|-Anweisung nicht nur flexibler, sondern auch
+deutlich lesbarer und verst"andlicher, als zu versuchen, eine
+\verb|switch|-Anweisung f"ur Wertebereiche zu verwenden.
+
+\section{Aufgabe 11}
+
+Nehmen Sie an, dass x, y, z und val vom Typ double sind. Geben Sie für die
+folgende Wertzuweisung eine gleichwertige if-Anweisung an.
+
+\verb|val = x >= y && x <= z ? z-y : x < y ? 0 : 1.0E25;|
+
+\begin{verbatim}
+double val;
+if (x >= y && x <= z)
+    val = z - y;
+else if (x < y)
+    val = 0;
+else
+    val = 1.0E25;
+\end{verbatim}
+
+\end{document}
