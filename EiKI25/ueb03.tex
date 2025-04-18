@@ -1,0 +1,75 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{import}
+
+\import{../.texit/include}{preamble}
+
+\title{Einführung in die Künstliche Intelligenz\\[15pt]\Large{Übungsblatt 3}\\[10pt]\Large{SoSe 2025}}
+\author{Volodymyr But\\[10pt]Hochschule Trier}
+\date{}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+
+\maketitle
+\vspace{25px}
+
+\section{Entscheidungsbaum erstellen}
+
+\begin{enumerate}[(a)]
+    \item $\begin{aligned}[t]
+            \text{Entropy}(S) &= -(q\log_2q + (1 - q)\log_2(1 - q)) = \\
+                              &= -\left(\dfrac{9}{14} \cdot \log_2 \dfrac{9}{14} + \left(1 - \dfrac{9}{14}\right) \cdot \log_2\left(1 - \dfrac{9}{14}\right)\right) = \\
+                              &\approx 0.94
+        \end{aligned}$
+        \begin{enumerate}[1.]
+           \item Attribut \verb|Outlook|
+                \begin{align*}
+                    \text{Entropy}(S_\text{Sunny})    &= -\left(\dfrac{2}{5} \cdot \log_2 \dfrac{2}{5} + \left(1 - \dfrac{2}{5}\right) \cdot \log_2\left(1 - \dfrac{2}{5}\right)\right) \approx 0.97 \\[5pt]
+                    \text{Entropy}(S_\text{Overcast}) &= -\left(\dfrac{4}{4} \cdot \log_2 \dfrac{4}{4} + \left(1 - \dfrac{4}{4}\right) \cdot \log_2\left(1 - \dfrac{4}{4}\right)\right) = 0 \\[5pt]
+                    \text{Entropy}(S_\text{Rain})     &= -\left(\dfrac{3}{5} \cdot \log_2 \dfrac{3}{5} + \left(1 - \dfrac{3}{5}\right) \cdot \log_2\left(1 - \dfrac{3}{5}\right)\right) \approx 0.97
+                \end{align*}
+                Dann gilt
+                \begin{equation*}
+                    \text{Gain}(S, \text{Outlook}) = 0.94 - 2 \cdot \dfrac{5}{14} \cdot 0.97 \approx 0.25
+                \end{equation*}
+
+           \item Attribut \verb|Humidity|
+                \begin{align*}
+                    \text{Entropy}(S_\text{High})   &= -\left(\dfrac{3}{7} \cdot \log_2 \dfrac{3}{7} + \left(1 - \dfrac{3}{7}\right) \cdot \log_2\left(1 - \dfrac{3}{7}\right)\right) \approx 0.98 \\[5pt]
+                    \text{Entropy}(S_\text{Normal}) &= -\left(\dfrac{6}{7} \cdot \log_2 \dfrac{6}{7} + \left(1 - \dfrac{6}{7}\right) \cdot \log_2\left(1 - \dfrac{6}{7}\right)\right) \approx 0.59
+                \end{align*}
+                Dann gilt
+                \begin{equation*}
+                    \text{Gain}(S, \text{Humidity}) = 0.94 - \left(\dfrac{7}{14} \cdot 0.98 + \dfrac{7}{14} \cdot 0.59\right) = 0.155
+                \end{equation*}
+
+           \item Attribut \verb|Wind|
+                \begin{align*}
+                    \text{Entropy}(S_\text{Weak})   &= -\left(\dfrac{6}{8} \cdot \log_2 \dfrac{6}{8} + \left(1 - \dfrac{6}{8}\right) \cdot \log_2\left(1 - \dfrac{6}{8}\right)\right) \approx 0.81 \\[5pt]
+                    \text{Entropy}(S_\text{Strong}) &= -\left(\dfrac{3}{6} \cdot \log_2 \dfrac{3}{6} + \left(1 - \dfrac{3}{6}\right) \cdot \log_2\left(1 - \dfrac{3}{6}\right)\right) = 1
+                \end{align*}
+                Dann gilt
+                \begin{equation*}
+                    \text{Gain}(S, \text{Wind}) = 0.94 - \left(\dfrac{8}{14} \cdot 0.81 + \dfrac{6}{14} \cdot 1\right) \approx 0.05
+                \end{equation*}
+        \end{enumerate}
+
+        Das Attribut mit dem h"ochstens Information Gain ist Attribut
+        \verb|Outlook|. Daher ist es auch das beste Attribut.
+\end{enumerate}
+
+\section{Gini-Index als Kriterium f"ur Entscheidungsb"aume}
+
+\begin{enumerate}[(a)]
+    \item $\text{Gini}(S) = 1 - (q^2 + (1 - q)^2)$
+        \begin{itemize}
+            \item bei $q = 0$, $\text{Gini}(S) = 0$
+            \item bei $q = 1$, $\text{Gini}(S) = 0$
+            \item bei $q = 0.5$, $\text{Gini}(S) = 0.5$
+        \end{itemize}
+\end{enumerate}
+
+\end{document}
