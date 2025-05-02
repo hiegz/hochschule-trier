@@ -1,0 +1,24 @@
+\section{Aufgabe 39}
+
+Es seien $v_1,...,v_m \in \mathbb{R}^n$ mit $\langle v_j, v_k \rangle = 0$ f"ur
+alle $j \neq k$ und $v := v_1 + ... + v_m$. Dann gilt
+\begin{align*}
+    \langle v, v \rangle &= \langle v_1 + ... + v_m, v_1 + ... + v_m \rangle = \\
+                         &= \langle v_1, v_1 + ... + v_m \rangle + \langle v_2, v_1 + ... + v_m \rangle + ... + \langle v_m, v_1 + ... + v_m \rangle = \\[10pt]
+                         &=           \langle v_1, v_1 \rangle + \langle v_1, v_2 \rangle + ... + \langle v_1, v_m \rangle \ + \\
+                         &\ \ \ \ \ + \langle v_2, v_1 \rangle + \langle v_2, v_2 \rangle + ... + \langle v_2, v_m \rangle \ + \\
+                         &\hspace{35px} \vdots \\
+                         &\ \ \ \ \ + \langle v_m, v_1 \rangle + \langle v_m, v_2 \rangle + ... + \langle v_m, v_m \rangle
+\end{align*}
+Alternativ lässt sich dies auch mit der Summenschreibweise ausdrücken
+\begin{equation*}
+    \langle v, v \rangle = \sum_{j = 1}^m\sum_{k = 1}^m\langle v_j, v_k \rangle
+\end{equation*}
+Und da f"ur alle $j \neq k$ gilt $\langle v_j, v_k \rangle = 0$, folgt:
+\begin{equation*}
+    \sum_{j = 1}^m\sum_{k = 1}^m\langle v_j, v_k \rangle = \sum_{l = j = k = 1}^m\langle v_l, v_l \rangle = \sum_{l = 1}^m(\sqrt{\langle v_l, v_l \rangle})^2 = \sum_{l = 1}^m||v_l||^2 \\
+\end{equation*}
+Also gilt
+\begin{equation*}
+    \langle v, v \rangle = \sum_{l = 1}^m||v_l||^2 \ \ \ \square
+\end{equation*}
