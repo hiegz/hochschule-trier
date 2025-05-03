@@ -1,0 +1,41 @@
+\setcounter{section}{4}
+\setcounter{subsection}{5} % 4.6
+\subsection{IP-Adressen und Subnetze der Hochschule Trier}
+
+Das IP-Netzwerk der Hochschule Trier verwendet die IP-Adressen
+\verb|143.93.32.0| bis \verb|143.93.63.255|.
+
+\begin{enumerate}[(a)]
+    \item Geben Sie zunächst die beiden begrenzenden IP-Adressen in binärer
+        Schreibweise an.
+
+\begin{verbatim}
+143.93.32.0    = 1000 1111.0101 1101.0010 0000.0000 0000
+143.93.63.255  = 1000 1111.0101 1101.0011 1111.1111 1111
+\end{verbatim}
+
+    \item Welche CIDR-Netzmaske gehört zum Hochschule-Netzwerk?
+
+        \verb|143.93.32.0/19|
+
+    \item Sie wollen das Netzwerk auf acht Fachbereiche aufteilen. Welche
+        Subnetzmaske verwenden Sie?
+
+        F"ur 8 Fachbereiche, brauchen wir 3 ($8 = 2^3$) zus"atzliche Netz-Bits. Das ergibt:
+
+        \begin{enumerate}[1.]
+            \item \verb|143.93.32.0/22|
+            \item \verb|143.93.36.0/22|
+            \item \verb|143.93.40.0/22|
+            \item \verb|143.93.44.0/22|
+            \item \verb|143.93.48.0/22|
+            \item \verb|143.93.52.0/22|
+            \item \verb|143.93.56.0/22|
+            \item \verb|143.93.60.0/22|
+        \end{enumerate}
+
+    \item Der Fachbereich Informatik ist der siebte / vorletzte Fachbereich. Welche IP-
+        Adressen kann er für seine Hosts verwenden?
+
+        \verb|143.93.56.1 - 143.93.59.254| (1022 Hosts)
+\end{enumerate}
