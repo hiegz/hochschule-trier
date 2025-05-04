@@ -1,0 +1,40 @@
+\setcounter{section}{3}
+\setcounter{subsection}{0}
+\subsection{Rahmenbildung}
+
+\begin{enumerate}[(a)]
+    \item In einem Protokoll der Sicherungsschicht wird die folgende Zeichenkodierung
+        verwendet:
+
+        \verb|A:    01000111|\\
+        \verb|B:    11100011|\\
+        \verb|FLAG: 01111110|\\
+        \verb|ESC:  11100000|
+
+        Wir "ubertragen die Zeichenfolge: \verb|A, B, ESC, FLAG| innerhalb der Payload.
+
+        \begin{enumerate}[i.]
+            \item Byte Stuffing
+
+\begin{verbatim}
+FLAG A B ESC ESC ESC FLAG FLAG = 01111110 01000111 11100011 11100000
+                                 11100000 11100000 01111110 01111110
+\end{verbatim}
+
+            \item Bit Stuffing
+
+\begin{verbatim}
+FLAG A B ESC FLAG FLAG         = 01111110 01000111 11010001 11110000
+                                 00011111 01001111 110
+\end{verbatim}
+        \end{enumerate}
+
+    \item Warum wird bei Rahmenbildung nach Byte- und Bit-Stuffing das FLAG-Byte
+        zu Beginn und am Ende des Rahmens verwendet? Was spricht dagegen, nur
+        den Beginn des Rahmens mit dem FLAG-Byte zu markieren?
+
+        Der Empfänger muss wissen, wann ein Frame endet. Andernfalls könnte er
+        den Leerlaufzustand des Senders als Teil des Frames interpretieren und
+        die Daten falsch verstehen. Mit einem End-Flag jedoch setzt er einfach
+        seinen Zustand zurück und wartet erneut auf das Start-Flag.
+\end{enumerate}
