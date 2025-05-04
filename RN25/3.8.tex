@@ -1,0 +1,27 @@
+\setcounter{section}{3}
+\setcounter{subsection}{7} % 3.8
+\subsection{Bin"arer exponentieller Backoff-Algorithmus (a)}
+
+Zwei CSMA / CD Stationen konkurrieren nach der Übertragung eines Rahmens um die
+Benutzung des Kanals und verwenden dazu den binären exponentiellen Backoff-
+Algorithmus.
+
+Wie hoch ist die Wahrscheinlichkeit, dass die Konkurrenz nach n Kollisionen
+endet?
+
+Nach der nn-ten Kollision wählen beide Stationen zufällig eine Zahl aus der Menge
+\begin{equation*}
+    \{0, 1, 2, ..., 2^n - 1\}
+\end{equation*}
+wobei $n$ h"ochstens 10 ist. Wenn beide Stationen dieselbe Zahl w"ahlen, kommt
+es erneut zu einer Kollision. Die Wahrscheinlichkeit f"ur eine solche Kollision betr"agt:
+\begin{equation*}
+    \text{P}_\text{Kollision}(n) = \dfrac{1}{2^n}
+\end{equation*}
+Die Wahrscheinlichkeit, dass die Konkurrenz nach genau $n$ Kollisionen endet -
+also in den ersten $n - 1$ Versuchen stets eine Kollision auftrat und beim
+$n$-ten Versuch erstmals keine - ergibt sich
+\begin{align*}
+    \text{P}(n) &= \prod_{k = 1}^{n - 1} \text{P}_\text{Kollision}(k) \cdot (1 - \text{P}_\text{Kollision}(n)) = \\[5pt]
+                &= \prod_{k = 1}^{n - 1} \dfrac{1}{2^k} \cdot \left(1 - \dfrac{1}{2^n}\right) = \dfrac{1}{2^{\sum_{k = 1}^{n - 1}k}} \cdot \left(1 - \dfrac{1}{2^n}\right) = \dfrac{1}{2^{\frac{n(n - 1)}{2}}} \cdot \left(1 - \dfrac{1}{2^n}\right)
+\end{align*}
