@@ -1,0 +1,55 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{import}
+
+\import{../../.texit/include}{preamble}
+
+\title{Einführung in die Künstliche Intelligenz\\[15pt]\Large{Übungsblatt 5}\\[10pt]\Large{SoSe 2025}}
+\author{Volodymyr But\\[10pt]Hochschule Trier}
+\date{}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+
+\maketitle
+\vspace{25px}
+
+\section{Entscheidungsbaum zu Bestellungen}
+
+\begin{enumerate}[(a)]
+    \item Bestimmen Sie das beste Attribut f"ur die Wurzel des Entscheidungsbaums, indem
+        Sie den \textit{Information Gain} f"ur jedes Attribut berechnen.
+
+        $\text{Entropy}(S) = -(q\log_2q + (1 - q)\log_2(1 - q)) = 0.985$
+
+        \begin{enumerate}[1.]
+            \item TimeOfDay
+
+                $\text{Entropy}(S_{\text{Morning}} := \{0, 1, 1, 0\}) = 1$ \\[5pt]
+                $\text{Entropy}(S_{\text{Afternoon}} := \{0, 0, 0\}) = 0$ \\[5pt]
+                $\text{Entropy}(S_{\text{Evening}} := \{1, 0, 0, 1\}) = 1$ \\[5pt]
+                $\text{Entropy}(S_{\text{Night}} := \{0, 1, 1\}) = 0.918$
+
+                $\text{Gain}(S, \text{TimeOfDay}) = \text{Entropy}(S) - \sum_v\dfrac{|S_v|}{|S|}\text{Entropy}(S_v) = 0.217$
+
+            \item Device
+
+                $\text{Entropy}(S_{\text{Desktop}} := \{0, 0, 0, 0, 0, 0\}) = 0$ \\[5pt]
+                $\text{Entropy}(S_{\text{Mobile}}  := \{1, 1, 1, 1, 0, 1, 0, 1\}) = 0.811$
+
+                $\text{Gain}(S, \text{Device}) = \text{Entropy}(S) - \sum_v\dfrac{|S_v|}{|S|}\text{Entropy}(S_v) = 0.5216$
+
+            \item PaymentMethod
+
+                $\text{Entropy}(S_{\text{CreditCard}} := \{0, 0, 1, 1, 0, 1, 1\}) = 0.985$ \\[5pt]
+                $\text{Entropy}(S_{\text{PayPal}} := \{1, 0, 0, 1, 0, 0, 0\}) = 0.863$
+
+                $\text{Gain}(S, \text{PaymentMethod}) = \text{Entropy}(S) - \sum_v\dfrac{|S_v|}{|S|}\text{Entropy}(S_v) = 0.0611$
+        \end{enumerate}
+
+        $\underset{A}{\text{argmax}}\ \text{Gain}(S, A) = \text{Device}$ $\implies$ Device ist das beste Attribut.
+\end{enumerate}
+
+\end{document}
