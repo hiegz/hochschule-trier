@@ -1,0 +1,15 @@
+TimeOfDay,Device,PaymentMethod,Cancelled
+Morning,Desktop,CreditCard,No
+Evening,Mobile,PayPal,Yes
+Afternoon,Desktop,PayPal,No
+Evening,Desktop,CreditCard,No
+Morning,Mobile,CreditCard,Yes
+Night,Desktop,PayPal,No
+Night,Mobile,PayPal,Yes
+Morning,Mobile,CreditCard,Yes
+Afternoon,Mobile,CreditCard,No
+Evening,Desktop,PayPal,No
+Night,Mobile,CreditCard,Yes
+Morning,Desktop,PayPal,No
+Afternoon,Mobile,PayPal,No
+Evening,Mobile,CreditCard,Yes
