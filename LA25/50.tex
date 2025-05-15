@@ -1,0 +1,45 @@
+\section{Aufgabe 50}
+
+Es seien $U_1, U_2 \in \mathbb{R}^n$ zwei Unterr"aume. Zeigen Sie folgende Aussagen
+\begin{enumerate}[(a)]
+    \item $U_1 \cap U_2$ ist ein Unterraum.
+
+        \begin{itemize}
+            \item $0 \in U_1, 0 \in U_2 \Rightarrow 0 \in U_1 \cap U_2 \Rightarrow U_1 \cap U_2 \neq \emptyset$ \ \ \ \done
+            \item Sei $u, w \in U_1 \cap U_2$. Dann gilt
+                \begin{itemize}
+                    \item $u, w \in U_1 \implies u + w \in U_1$,
+                    \item $u, w \in U_2 \implies u + w \in U_2$.
+                \end{itemize}
+                \ $\Rightarrow u + w \in U_1 \land u + w \in U_2 \iff u + w \in U_1 \cap U_2$ \ \ \ \done
+            \item Sei $v \in U_1 \cap U_2$. Dann gilt
+                \begin{itemize}
+                    \item $v \in U_1 \Rightarrow \lambda v \in U_1$
+                    \item $v \in U_2 \Rightarrow \lambda v \in U_2$
+                \end{itemize}
+                \ $\Rightarrow \lambda v \in U_1 \land \lambda v \in U_2 \iff \lambda v \in U_1 \cap U_2$ \ \ \ \done
+        \end{itemize}
+
+
+    \item F"ur $x_1 \in U_1 \setminus U_2$ und $x_2 \in U_2 \setminus U_1$ ist $x_1 + x_2 \notin U_1 \cup U_2$
+
+        \begin{enumerate}[1.]
+            \item  Wir nehmen an, dass $x_1 + x_2 \in U_1$
+                Da $x_1 \in U_1$ und $U_1$ ein UR ist, ist auch $-x_1 \in U_1$. Dann gilt:
+                \begin{equation*}
+                    x_1 + x_2 + (-x_1) = x_2 \in U_1 \ \ \ \text{\Lightning}
+                \end{equation*}
+                \ $\Rightarrow x_1 + x_2 \notin U_1$
+            \item Wir nehmen an, dass $x_1 + x_2 \in U_2$
+                Da $x_2 \in U_2$ und $U_2$ ein UR ist, ist auch $-x_2 \in U_2$. Dann gilt:
+                \begin{equation*}
+                    x_1 + x_2 + (-x_2) = x_1 \in U_2 \ \ \ \text{\Lightning}
+                \end{equation*}
+                \ $\Rightarrow x_1 + x_2 \notin U_2$
+        \end{enumerate}
+
+        Daraus folgt
+        \begin{equation*}
+            x_1 + x_2 \notin U_1 \cup U_2 \ \ \ \square
+        \end{equation*}
+\end{enumerate}
