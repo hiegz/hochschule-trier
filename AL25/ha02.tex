@@ -1,0 +1,84 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{import}
+
+\import{../.texit/include}{preamble}
+
+\title{Angewandte Logik\\[15pt]\Large{Hausaufgabenblatt 1-2}\\[10pt]\Large{SoSe 2025}}
+\author{Volodymyr But\\[5pt][Matrikel-Nr.: 982324]\\[10pt]Hochschule Trier}
+\date{}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+
+\maketitle
+\vspace{25px}
+
+\section{Aufgabe 1}
+
+Gegeben sei folgende Formel: $((A \land B) \lor C) \land (\lnot B \lor D)$
+\begin{enumerate}[(a)]
+    \item Formen Sie die Formel um in KNF
+
+        $((A \land B) \lor C) \land (\lnot B \lor D)$ = $(A \lor C) \land (B \lor C) \land (\lnot B \lor D)$
+
+    \item Formen Sie die Formel um in DNF
+
+        $\begin{aligned}
+            ((A \land B) \lor C) \land (\lnot B \lor D) &= ((A \land B) \land (\lnot B \lor D)) \lor (C \land (\lnot B \lor D)) = \\
+                                                        &= (A \land B \land \lnot B) \lor (A \land B \land D) \lor (C \land \lnot B) \lor (C \land D)
+        \end{aligned}$
+
+    \item In welcher logischen Beziehung stehen die unter a) und b) berechneten Formeln?
+
+        Beide Formen sind logisch äquivalent zur Ursprungsformel und zueinander.
+\end{enumerate}
+
+\section{Aufgabe 2}
+
+Begr"unden Sie, warum die folgende Regel des Resolutionskalk"uls korrekt ist.
+\[
+\frac{
+    \begin{array}{c}
+        \{L\} \\
+        \{\neg L, \neg K, M\}
+    \end{array}
+}{\{\neg K, M\}}
+\]
+
+Aus zwei Klauseln $C_1 = A \cup \{L\}$ und $C_2 = B \cup \{\lnot L\}$ kann man
+die Resolvente $C = A \cup B$ ableiten. Dabei ist $L$ ein Literal und $\lnot L$
+sein Komplement.
+
+Die Klauseln sind
+\begin{itemize}
+    \item $\{L\}$,
+    \item $\{\lnot L, \lnot K, M\}$.
+\end{itemize}
+Gem"a{\ss} der Definition werden $L$ und $\lnot L$ gel"oscht und die "ubrigen
+Literale vereint. Das ergibt
+\begin{equation*}
+    \{\lnot K, M\} \ \ \ \square
+\end{equation*}
+
+\pagebreak
+\section{Aufgabe 3}
+
+Eine Formel ist erf"ullt durch eine Variablenbelegung, wenn in jeder Klausel
+\textbf{mindestens ein} Literal wahr ist in dieser Variablenbelegung.
+
+Eine Formel ist nicht erf"ullt durch eine Variablenbelegung, wenn in einer
+Klausel \textbf{alle} Literale \textbf{falsch} sind unter der gegebenen
+Variablenbelegung.
+
+Eine Signatur ist eine \textbf{nicht leere}, \textbf{endliche} Menge von
+\textbf{Bezeichnern}.
+
+Ein Kalk"ul ist vollst"andig, wenn f"ur beliebige Formeln F und G gilt: \\
+falls $F \models G$ gilt, dann muss auch $F \vdash G$ gelten.
+
+Ein Kalk"ul besteht aus einer Menge von \textbf{Axiomen} und einer Menge von \textbf{Schlussregeln}.
+
+\end{document}
