@@ -1,0 +1,27 @@
+\setcounter{section}{4}
+\setcounter{subsection}{24} % 4.25
+\subsection{Entfernungsvektor-Routing (2)}
+
+F"ullen sie das angegebene Routing-Tabelle f"ur den Knoten A unter der Annahme,
+dass $\text{Entfernung}(\text{A}, \text{B}) = 2$, $\text{Entfernung}(\text{A},
+\text{C}) = 7$, $\text{Entfernung}(\text{A}, \text{E}) = 2$.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+          & Entfernung & Next Hop & Begründung\\
+        \hline
+        A & 0          & .        & . \\
+        \hline
+        B & 2          & B        & Direktverbindung ist am k"urzesten \\
+        \hline
+        C & 3          & B        & "Uber B ist am k"urzesten (2 + 1 = 3) \\
+        \hline
+        D & 5          & B        & "Uber B ist am k"urzesten (2 + 3 = 5) \\
+        \hline
+        E & 2          & E        & Direktverbindung ist am k"urzesten \\
+        \hline
+    \end{tabular}
+    \caption{}
+\end{table}
