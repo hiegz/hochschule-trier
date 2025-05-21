@@ -1,0 +1,25 @@
+\section{Aufgabe 23}
+
+Es sei $A \in \mathbb{R}^{n \times n}$ so, dass $(E - A)$ invertierbar ist.
+\begin{enumerate}[1.]
+    \item $n = 0$
+        \begin{align*}
+            \sum_{k = 0}^0A^k = A^0 &= 1 \\
+            (E - A)^{-1}(E - A^1)   &= 1 \\[5pt]
+            1 &= 1
+        \end{align*}
+    \item $n = u$
+        \begin{align*}
+            \sum_{k = 0}^u = (E - A)^{-1}(E - A^{u + 1})
+        \end{align*}
+    \item $n = u + 1$
+        \begin{align*}
+            \sum_{k = 0}^{u + 1}A^k &= (E - A)^{-1}(E - A^{u + 2}) \\
+            \sum_{k = 0}^{u}A^k + A^{u + 1} &= (E - A)^{-1}(E - A^{u + 2}) \\
+            (E - A)^{-1}(E - A^{u + 1}) + A^{u + 1} &= (E - A)^{-1}(E - A^{u + 2}) \\
+            (E - A)^{-1}(E - A^{u + 1}) + (E - A)^{-1}(E - A)A^{u + 1} &= (E - A)^{-1}(E - A^{u + 2}) \\
+            (E - A)^{-1}[E - A^{u + 1} + (E - A)A^{u + 1}] &= (E - A)^{-1}(E - A^{u + 2}) \\
+            (E - A)^{-1}[E - A^{u + 1} + A^{u + 1} - A^{u + 2}] &= (E - A)^{-1}(E - A^{u + 2}) \\
+            (E - A)^{-1}(E - A^{u + 2}) &= (E - A)^{-1}(E - A^{u + 2})
+        \end{align*}
+\end{enumerate}
