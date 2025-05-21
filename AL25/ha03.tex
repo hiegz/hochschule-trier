@@ -1,0 +1,138 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{import}
+\usepackage{caption}
+
+\import{../.texit/include}{preamble}
+
+\title{Angewandte Logik\\[15pt]\Large{Hausaufgabenblatt 1-3}\\[10pt]\Large{SoSe 2025}}
+\author{Volodymyr But\\[5pt][Matrikel-Nr.: 982324]\\[10pt]Hochschule Trier}
+\date{}
+
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+
+\maketitle
+\vspace{25px}
+
+\section{Aufgabe 1}
+
+Für die Aufgabenteile a), b), c) ist die folgende Formel relevant:
+\begin{equation*}
+    (A \lor \lnot B) \land (A \lor \lnot C) \land (B \lor \lnot E) \land (B \lor \lnot D) \land (D \lor E \lor C)
+\end{equation*}
+\begin{enumerate}[(a)]
+    \item Formen Sie die Formel um in Klauselform
+        \begin{equation*}
+            \text{P} = \{\{A, \lnot B\}, \{A, \lnot C\}, \{B, \lnot E\}, \{B, \lnot D\}, \{D, E , C\}\}
+        \end{equation*}
+
+    \item "Uberpr"ufen Sie mit Hilfe des DPLL-Verfahrens, ob die gegebene
+        Formel erf"ullbar oder unerf"ullbar ist. Nehmen Sie weiterhin folgende
+        Reihenfolge der zu w"ahlenden Literale an: A, B, C.
+
+        Erf"ullbar (siehe Abbildung~\ref{fig:1.b})
+
+    \item "Uberpr"ufen Sie mit Hilfe des DPLL-Verfahrens, ob die gegebene
+        Formel erf"ullbar oder unerf"ullbar ist. Nehmen Sie weiterhin folgende
+        Reihenfolge der zu w"ahlenden Literale an: $\lnot\text{C}, \lnot\text{A}, \lnot\text{B}$.
+
+        Erf"ullbar (siehe Abbildung~\ref{fig:1.c})
+
+    \item Was schlie{\ss}en Sie aus der L"ange der in (b) und (c) erstellten Beweise?
+
+        Die unterschiedliche Länge der Beweise in (b) und (c) zeigt, dass die
+        Wahl der Literale im DPLL-Algorithmus die Effizienz des Verfahrens
+        wesentlich beeinflussen kann.
+
+    \item Geben Sie ein Modell für die oben gegebene Formel an.
+
+        Aus (b): $[\text{A} \rightarrow \top, \text{B} \rightarrow \top, \text{C} \rightarrow \top]$
+
+        Aus (c): $[\text{C} \rightarrow \bot, \text{A} \rightarrow \top, \text{B} \rightarrow \top, \text{D} \rightarrow \top]$
+
+\end{enumerate}
+
+\begin{figure}[p]
+    \caption{}
+    \label{fig:1.b}
+\begin{verbatim}
+DPLL(F = {{A, !B}, {A, !C}, {B, !E}, {B, !D}, {D, E, C}}, [])
+  1. F enthält keine Klausel der Form {L}.
+  2. F != {} und {{}} ist nicht in F enthalten.
+  3. simplify(F, L := A) -> {{B, !E}, {B, !D}, {D, E, C}}
+  4. DPLL(F = {{B, !E}, {B, !D}, {D, E, C}})
+       1. F enthält keine Klausel der Form {L}.
+       2. F != {} und {{}} ist nicht in F enthalten.
+       3. simplify(F, L := B) = {{D, E, C}}
+       4. DPLL(F = {{D, E, C}})
+            1. F enthält keine Klausel der Form {L}.
+            2. F != {} und {{}} ist nicht in F enthalten.
+            3. simplify(F, L := C) = {}
+            5. DPLL(F = {})
+                 1. F enthält keine Klausel der Form {L}.
+                 2. F == {}. Return True
+               DPLL(F = {}) == True. Return True.
+          DPLL(F = {{D, E, C}}) == True. Return True.
+     DPLL(F = {{B, !E}, {B, !D}, {D, E, C}}) == True. Return True.
+\end{verbatim}
+\end{figure}
+
+\FloatBarrier
+
+\begin{figure}[p]
+    \caption{}
+    \label{fig:1.c}
+\begin{verbatim}
+DPLL(F = {{A, !B}, {A, !C}, {B, !E}, {B, !D}, {D, E, C}}, [])
+  1. F enthält keine Klausel der Form {L}.
+  2. F != {} und {{}} ist nicht in F enthalten.
+  3. simplify(F, L := !C) -> {{A, !B}, {B, !E}, {B, !D}, {D, E}}
+  4. DPLL(F = {{A, !B}, {B, !E}, {B, !D}, {D, E}})
+       1. F enthält keine Klausel der Form {L}.
+       2. F != {} und {{}} ist nicht in F enthalten.
+       3. simplify(F, L := !A) -> {{!B}, {B, !E}, {B, !D}, {D, E}}
+       4. DPLL(F = {{!B}, {B, !E}, {B, !D}, {D, E}})
+            1. F enthält keine Klausel der Form {L}.
+            2. F != {} und {{}} ist nicht in F enthalten.
+            3. simplify(F, L := !B) -> {{!E}, {!D}, {D, E}}
+            4. DPLL(F = {{!E}, {!D}, {D, E}})
+                 1. F enthält {!E}. simplify(F, L := !E) -> {{!D}, {D}}
+                 2. F enthält {!D}. simplify(F, L := !D) -> {{}}
+                 3. {{}} ist in F enthalten. Return False.
+               DPLL(F = {{!E}, {!D}, {D, E}}) != True.
+            5. simplify(F, L := B) -> {{}, {D, E}}
+            6. DPLL(F = {{}, {D, E}})
+                 1. F enthält keine Klausel der Form {L}.
+                 2  {{}} ist in F enthalten. Return False.
+               DPLL(F = {{}, {D, E}}) != True. Return False.
+          DPLL(F = {{!B}, {B, !E}, {B, !D}, {D, E}}) != True.
+       5. simplify(F, L := A) -> {{B, !E}, {B, !D}, {D, E}}
+       6. DPLL(F = {{B, !E}, {B, !D}, {D, E}})
+            1. F enthält keine Klausel der Form {L}.
+            2. F != {} und {{}} ist nicht in F enthalten.
+            3. simplify(F, L := !B) -> {{!E}, {!D}, {D, E}}
+            4. DPLL(F = {{!E}, {!D}, {D, E}})
+                 1. F enthält {!E}. simplify(F, L := !E) -> {{!D}, {D}}
+                 2. F enthält {!D}. simplify(F, L := !D) -> {{}}
+                 3. {{}} ist in F enthalten. Return False.
+               DPLL(F = {{!E}, {!D}, {D, E}}) != True
+            5. simplify(F, L := B) -> {{D, E}}
+            6. DPLL(F = {{D, E}})
+                 1. F enthält keine Klausel der Form {L}.
+                 2. F != {} und {{}} ist nicht in F enthalten.
+                 3. simplify(F, L := D) -> {}.
+                 4. DPLL(F = {})
+                      1. F enthält keine Klausel der Form {L}.
+                      2. F == {}. Return True.
+                    DPLL(F = {}) == True. Return True.
+               DPLL(F = {{D, E}}) == True. Return True.
+          DPLL(F = {{B, !E}, {B, !D}, {D, E}}) == True. Return True.
+     DPLL(F = {{A, !B}, {B, !E}, {B, !D}, {D, E}}) == True. Return True.
+\end{verbatim}
+\end{figure}
+
+\end{document}
