@@ -1,0 +1,204 @@
+\setcounter{section}{4}
+\setcounter{subsection}{11} % 4.12
+\subsection{Zusammenhang ARP und IP}
+
+Geben Sie die für die Adressauflösung relevanten Felder der ausgetauschten
+Ethernet-Rahmen, ARP-Rahmen und die versendeten IP-Pakete.
+
+Siehe Tabelle~\ref{tab:4.12.1}, \ref{tab:4.12.2}, ..., \ref{tab:4.12.8}
+
+\begin{table}[p]
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            \multicolumn{2}{|c|}{Paket 1} \\
+            \hline
+            Eth-Src.  & $\alpha$ \\
+            \hline
+            Eth-Dest. & \verb|ff:ff:ff:ff:ff:ff| \\
+            \hline
+            \multicolumn{2}{|c|}{ARP} \\
+            \hline
+            Sender-MAC & $\alpha$ \\
+            \hline
+            Sender-IP & A \\
+            \hline
+            Target-MAC & \verb|00:00:00:00:00:00| \\
+            \hline
+            Target-IP & B \\
+            \hline
+            Op-Code & 0x01 (Request) \\
+            \hline
+        \end{tabular}
+        \caption{}
+        \label{tab:4.12.1}
+    \end{minipage}
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            \multicolumn{2}{|c|}{Paket 2} \\
+            \hline
+            Eth-Src.  & $\beta$ \\
+            \hline
+            Eth-Dest. & $\alpha$ \\
+            \hline
+            \multicolumn{2}{|c|}{ARP} \\
+            \hline
+            Sender-MAC & $\beta$ \\
+            \hline
+            Sender-IP & B \\
+            \hline
+            Target-MAC & $\alpha$ \\
+            \hline
+            Target-IP & A \\
+            \hline
+            Op-Code & 0x02 (Reply) \\
+            \hline
+        \end{tabular}
+        \caption{}
+        \label{tab:4.12.2}
+    \end{minipage}
+\end{table}
+
+\begin{table}[p]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \multicolumn{2}{|c|}{Paket 3} \\
+        \hline
+        Eth-Src.  & $\alpha$ \\
+        \hline
+        Eth-Dest. & $\beta$ \\
+        \hline
+        \multicolumn{2}{|c|}{IP} \\
+        \hline
+        Source & A \\
+        \hline
+        Destination & D \\
+        \hline
+    \end{tabular}
+    \caption{}
+    \label{tab:4.12.3}
+\end{table}
+
+\begin{table}[p]
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            \multicolumn{2}{|c|}{Paket 4} \\
+            \hline
+            Eth-Src.  & $\gamma$ \\
+            \hline
+            Eth-Dest. & \verb|ff:ff:ff:ff:ff:ff| \\
+            \hline
+            \multicolumn{2}{|c|}{ARP} \\
+            \hline
+            Sender-MAC & $\gamma$ \\
+            \hline
+            Sender-IP & C \\
+            \hline
+            Target-MAC & \verb|00:00:00:00:00:00| \\
+            \hline
+            Target-IP & D \\
+            \hline
+            Op-Code & 0x01 (Request) \\
+            \hline
+        \end{tabular}
+        \caption{}
+        \label{tab:4.12.4}
+    \end{minipage}
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            \multicolumn{2}{|c|}{Paket 5} \\
+            \hline
+            Eth-Src.  & $\delta$ \\
+            \hline
+            Eth-Dest. & $\gamma$ \\
+            \hline
+            \multicolumn{2}{|c|}{ARP} \\
+            \hline
+            Sender-MAC & $\delta$ \\
+            \hline
+            Sender-IP  & D \\
+            \hline
+            Target-MAC & $\gamma$ \\
+            \hline
+            Target-IP & C \\
+            \hline
+            Op-Code & 0x01 (Request) \\
+            \hline
+        \end{tabular}
+        \caption{}
+        \label{tab:4.12.5}
+    \end{minipage}
+\end{table}
+
+\begin{table}[p]
+    \begin{minipage}[t]{0.32\linewidth}
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            \multicolumn{2}{|c|}{Paket 6} \\
+            \hline
+            Eth-Src.  & $\gamma$ \\
+            \hline
+            Eth-Dest. & $\delta$ \\
+            \hline
+            \multicolumn{2}{|c|}{IP} \\
+            \hline
+            Source & A \\
+            \hline
+            Destination & D \\
+            \hline
+        \end{tabular}
+        \caption{}
+        \label{tab:4.12.6}
+    \end{minipage}
+    \begin{minipage}[t]{0.32\linewidth}
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            \multicolumn{2}{|c|}{Paket 7} \\
+            \hline
+            Eth-Src.  & $\delta$ \\
+            \hline
+            Eth-Dest. & $\gamma$ \\
+            \hline
+            \multicolumn{2}{|c|}{IP} \\
+            \hline
+            Source & D \\
+            \hline
+            Destination & A \\
+            \hline
+        \end{tabular}
+        \caption{}
+        \label{tab:4.12.7}
+    \end{minipage}
+    \begin{minipage}[t]{0.32\linewidth}
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            \multicolumn{2}{|c|}{Paket 8} \\
+            \hline
+            Eth-Src.  & $\beta$ \\
+            \hline
+            Eth-Dest. & $\alpha$ \\
+            \hline
+            \multicolumn{2}{|c|}{IP} \\
+            \hline
+            Source & D \\
+            \hline
+            Destination & A \\
+            \hline
+        \end{tabular}
+        \caption{}
+        \label{tab:4.12.8}
+    \end{minipage}
+\end{table}
+
+\FloatBarrier
