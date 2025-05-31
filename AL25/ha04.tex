@@ -1,0 +1,97 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{import}
+\usepackage{caption}
+
+\import{../.texit/include}{preamble}
+
+\title{Angewandte Logik\\[15pt]\Large{Hausaufgabenblatt 2}\\[10pt]\Large{SoSe 2025}}
+\author{Volodymyr But\\[5pt][Matrikel-Nr.: 982324]\\[10pt]Hochschule Trier}
+\date{}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+
+\maketitle
+\vspace{25px}
+
+\section{Aufgabe 1}
+
+Untersuchen Sie die Formel $\forall y \: (\text{R}(h(y, a)) \land b) \lor \exists z \: \text{P}(g(h(y, a), x, h(z, f(y))))$
+
+\begin{enumerate}[(a)]
+    \item Welche Pr"adikatssymbole kommen vor?
+
+        $\{\text{R}, \text{P}\}$
+
+    \item Welche Funktionssymbole kommen vor?
+
+        $\{f, g, h\}$
+
+    \item Welche Variablen kommen vor?
+
+        $\{a, b, x, y, z\}$
+
+\end{enumerate}
+
+\section{Aufgabe 2}
+
+\begin{enumerate}[(a)]
+    \item Welche Variablen kommen jeweils in den folgenden Formeln gebunden vor?
+        \begin{enumerate}[i)]
+            \item $\exists w \: \forall x \: \exists y \: \forall z \: \text{P}(c, f(w), x, y, z)$
+
+                $\{w, x, y, z\}$
+
+            \item $\forall x \: \text{P}(x, y) \land \text{Q}(x) = (\forall x \: \text{P}(x, y)) \land \text{Q}(x)$
+
+                $\{x\}$ ($x$ ist gebunden in $\forall x \: \text{P}(x, y)$ und frei in $\text{Q}(x)$)
+
+            \item $\forall x \: (\text{P}(x, y) \land \text{Q}(x))$
+
+                $\{x\}$
+        \end{enumerate}
+
+    \item Welche Variablen kommen in den unter (a) gegebenen Formeln frei vor?
+        \begin{enumerate}[i)]
+            \item $\{c\}$
+            \item $\{x, y\}$ ($x$ ist gebunden in $\forall x \: \text{P}(x, y)$ und frei in $\text{Q}(x)$)
+            \item $\{y\}$
+        \end{enumerate}
+\end{enumerate}
+
+\section{Aufgabe 3}
+
+Überprüfen Sie mit Hilfe des DPLL-Verfahrens, ob folgende Formel erfüllbar ist
+\begin{equation*}
+    (Q \Rightarrow R) \land (R \Rightarrow (P \land Q)) \land (P \Rightarrow (Q \lor R)) \land (\lnot(P \Leftrightarrow Q))
+\end{equation*}
+Zun"achst stellen wir die angegebene Formel in Klauselnormalform dar:
+\begin{align*}
+    &\hspace{13pt}(Q \Rightarrow R) \land (R \Rightarrow (P \land Q)) \land (P \Rightarrow (Q \lor R)) \land (\lnot(P \Leftrightarrow Q)) = \\
+    &=            (\lnot Q \lor R) \land (\lnot R \lor (P \land Q)) \land (\lnot P \lor Q \lor R) \land (\lnot((\lnot P \lor Q) \land (\lnot Q \lor P))) = \\
+    &=            (\lnot Q \lor R) \land (\lnot R \lor P) \land (\lnot R \lor Q) \land (\lnot P \lor Q \lor R) \land (\lnot(\lnot P \lor w) \lor \lnot (\lnot Q \lor P)) = \\
+    &=            (\lnot Q \lor R) \land (\lnot R \lor P) \land (\lnot R \lor Q) \land (\lnot P \lor Q \lor R) \land ((P \land \lnot Q) \lor (Q \land \lnot P)) = \\
+    &=            (\lnot Q \lor R) \land (\lnot R \lor P) \land (\lnot R \lor Q) \land (\lnot P \lor Q \lor R) \land (P \lor Q) \land (P \lor \lnot P) \land (\lnot Q \lor Q) \land (\lnot Q \lor \lnot P)
+\end{align*}
+Also
+\begin{equation*}
+    \{\{\lnot Q, R\}, \{\lnot R, P\}, \{\lnot R, Q\}, \{\lnot P, Q, R\}, \{P, Q\}, \{P, \lnot P\}, \{\lnot Q, Q\}, \{\lnot Q, \lnot P\}\}
+\end{equation*}
+DPLL:
+\begin{enumerate}[1.]
+    \item $L := Q$ \\[5pt]
+        $F := \{\{R\}, \{\lnot R, P\}, \{P, \lnot P\}, \{\lnot P\}\}$ \\[5pt]
+        $F := \{\{P\}, \{P, \lnot P\}, \{\lnot P\}\}$ \\[5pt]
+        $F := \{\{\}\}$ \\[5pt]
+
+    \item $L := \lnot Q$ \\[5pt]
+        $F := \{\{\lnot R, P\}, \{\lnot R\}, \{\lnot P, R\}, \{P\}, \{P, \lnot P\}\}$ \\[5pt]
+        $F := \{\{\lnot R\}, \{R\}\}$ \\[5pt]
+        $F := \{\{\}\}$ \\[5pt]
+\end{enumerate}
+$\Rightarrow F \: \text{ist nicht erf"ullbar}$
+
+\end{document}
