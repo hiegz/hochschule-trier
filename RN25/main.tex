@@ -4,6 +4,9 @@
 \usepackage{import}
 \usepackage{tabularray}
 
+% pyplotlib fix (assets/*.pgf)
+\def\mathdefault#1{\displaystyle #1}
+
 \import{../.texit/include}{preamble}
 
 \title{Rechnernetze\\[10pt]\Large{SoSe 2025}}
@@ -38,5 +41,6 @@
 \setcounter{figure}{0}
 \import{./}{5.1}
 \import{./}{5.11}
+\import{./}{5.12}
 
 \end{document}
