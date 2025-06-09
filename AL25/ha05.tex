@@ -77,10 +77,18 @@ eine passende Interpretation in PL1 anzugeben.
         $a^{\alpha} = 10$ \\[5pt]
         $f^I : f(x) = 2x$ \\[5pt]
         $g^I : g(x, y) = x + y$ \\[5pt]
+        $x^{\beta} = 1$ \\[5pt]
 
         Daraus folgt
 
         $t_1^I = g(f(a^{\alpha})^I, a^{\alpha})^I = f^I(a^{\alpha}) + a^{\alpha} = 2a^{\alpha} + a^{\alpha} = 3a^{\alpha} = 3 \cdot 10 = 30$ \\[5pt]
+        $\begin{aligned}
+            t_2^I &= f(g(a^{\alpha}, f(x^{\beta})^I)^I)^I = \\
+                  &= 2 \cdot g(a^{\alpha}, f(x^{\beta})^I)^I = \\
+                  &= 2 \cdot (a^{\alpha} + f(x^{\beta})^{I}) = \\
+                  &= 2 \cdot (a^{\alpha} + 2 \cdot x^{\beta}) = \\
+                  &= 2 \cdot (10 + 2 \cdot 1) = 24
+        \end{aligned}$
 
     \item
         $U = \mathbb{N}$ \\[5pt]
@@ -91,6 +99,7 @@ eine passende Interpretation in PL1 anzugeben.
 
         Daraus folgt
 
+        $t_1^I = g(f(a^{\alpha})^I, a^{\alpha})^I = f^I(a^{\alpha}) \cdot a^{\alpha} = a^{\alpha} \cdot a^{\alpha} = 0 \cdot 0 = 0$ \\[5pt]
         $\begin{aligned}
             t_2^I &= f(g(a^{\alpha}, f(x^{\beta})^I)^I)^I = \\
                   &= g(a^{\alpha}, f(x^{\beta})^I)^I = \\
