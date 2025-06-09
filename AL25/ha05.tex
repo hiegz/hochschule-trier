@@ -1,0 +1,72 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{import}
+\usepackage{caption}
+
+\import{../.texit/include}{preamble}
+
+\title{Angewandte Logik\\[15pt]\Large{Hausaufgabenblatt 3}\\[10pt]\Large{SoSe 2025}}
+\author{Volodymyr But\\[5pt][Matrikel-Nr.: 982324]\\[10pt]Hochschule Trier}
+\date{}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+
+\maketitle
+\vspace{25px}
+
+\section{Aufgabe 1}
+
+Untersuchen Sie die folgenden Formeln auf Erfüllbarkeit, in dem Sie versuchen
+eine passende Interpretation in PL1 anzugeben.
+\begin{enumerate}[(a)]
+    \item $<(t_1, t_2)$ wobei $t_1$ und $t_2$ Terme sind
+
+        $U = \{0, 1\}$ \\[5pt]
+        $<^I :\: <(x, y)^I = x < y$ \\[5pt]
+        $t_1^{\beta} = 0$ \\[5pt]
+        $t_2^{\beta} = 1$
+
+        Dann gilt $<(t_1, t_2)^I = (0 < 1) = \top$. Also $<(t_1, t_2)$ ist erf"ullbar.
+
+    \item $\forall x \ \exists y <(x, y)$
+
+        $U = \mathbb{N}$ \\[5pt]
+        $<^I :\: <(x, y)^I = x < y$
+
+        Da $\mathbb{N}$ unendlich ist, gilt es f"ur $U$, dass
+        \begin{equation*}
+            \forall x \ (\exists y \:\:\: y = x + 1) \:\:\: \land \:\:\: x < x + 1
+        \end{equation*}
+        Daraus folgt, dass
+        $(\forall x\ \exists y < (x, y))^I = \top$. Also $\forall x\ \exists y < (x, y)$ ist erf"ullbar.
+
+    \item $\forall x \ \exists y >(x, y)$
+
+        $U = \mathbb{Z}$ \\[5pt]
+        $>^I :\: >(x, y)^I = x > y$
+
+        Da $\mathbb{Z}$ unendlich ist, gilt es f"ur $U$, dass
+        \begin{equation*}
+            \forall x \ (\exists y \:\:\: y = x - 1) \:\:\: \land \:\:\: x > x - 1
+        \end{equation*}
+        Daraus folgt, dass
+        $(\forall x\ \exists y > (x, y))^I = \top$. Also $\forall x\ \exists y > (x, y)$ ist erf"ullbar.
+
+    \item $\forall x \ \exists y\ f(x, y) = x$
+
+        $U = \mathbb{Z}$ \\[5pt]
+        $f^I : f(x, y) = x \cdot y$
+
+        F"ur $U$ gilt
+        \begin{equation*}
+            \forall x \ \exists y\  y = e = 1 \land f(x, e) = x \cdot e = x \cdot y = x \cdot 1 = x
+        \end{equation*}
+        Daraus folgt, dass $(\forall x \ \exists y\ f(x, y) = x)^I = \top$.
+        Also $\forall x \ \exists y\ f(x, y) = x$ ist erf"ullbar.
+
+\end{enumerate}
+
+\end{document}
