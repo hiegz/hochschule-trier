@@ -69,4 +69,35 @@ eine passende Interpretation in PL1 anzugeben.
 
 \end{enumerate}
 
+\section{Aufgabe 2}
+
+\begin{enumerate}
+    \item
+        $U = \mathbb{N}$ \\[5pt]
+        $a^{\alpha} = 10$ \\[5pt]
+        $f^I : f(x) = 2x$ \\[5pt]
+        $g^I : g(x, y) = x + y$ \\[5pt]
+
+        Daraus folgt
+
+        $t_1^I = g(f(a^{\alpha})^I, a^{\alpha})^I = f^I(a^{\alpha}) + a^{\alpha} = 2a^{\alpha} + a^{\alpha} = 3a^{\alpha} = 3 \cdot 10 = 30$ \\[5pt]
+
+    \item
+        $U = \mathbb{N}$ \\[5pt]
+        $a^{\alpha} = 0$ \\[5pt]
+        $f^I : f(x) = x$ \\[5pt]
+        $g^I : g(x, y) = x \cdot y$ \\[5pt]
+        $x^{\beta} = 0$ \\[5pt]
+
+        Daraus folgt
+
+        $\begin{aligned}
+            t_2^I &= f(g(a^{\alpha}, f(x^{\beta})^I)^I)^I = \\
+                  &= g(a^{\alpha}, f(x^{\beta})^I)^I = \\
+                  &= (a^{\alpha} \cdot f(x^{\beta})^{I}) = \\
+                  &= (a^{\alpha} \cdot x^{\beta}) = \\
+                  &= (0 \cdot 0) = 0
+        \end{aligned}$
+\end{enumerate}
+
 \end{document}
