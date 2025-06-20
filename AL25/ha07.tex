@@ -28,7 +28,42 @@
 
     \item
         $\sigma = \{x \leftarrow f(g(y, a)), z \leftarrow b, v \leftarrow w\}$ \\[5pt]
-        $\sigma(P(f(x), g(v, f(f(x))))) = \sigma(P(f(f(g(y, a))), g(w, f(f(f(g(y, a)))))))$
+        $\sigma(P(f(x), g(v, f(f(x))))) = P(f(f(g(y, a))), g(w, f(f(f(g(y, a))))))$
+\end{enumerate}
+
+\section{Aufgabe 2}
+
+Sind die folgenden Termpaare unifizierbar? Bestimmen Sie falls möglich den
+mgu oder geben Sie einen Grund für die Nichtunifizierbarkeit an.
+
+\begin{enumerate}[(a)]
+    \item $f(h(x), x, h(x))$ und $f(z, h(w), h(z))$
+
+        Angenommen, es existiert eine mgu $\sigma$ der beiden Terme. Dann gilt:
+        \begin{equation*}
+            \sigma(h(x)) = \sigma(z) \text{ und } \sigma(h(x)) = \sigma(h(z))
+        \end{equation*}
+        Daraus folgt
+        \begin{equation*}
+            \sigma(z) = \sigma(h(z))
+        \end{equation*}
+        Dies bedeutet, dass $z$ in seiner eigenen Substitution vorkommt. Somit
+        ist sie nicht idempotent und kann keine g"ultige Unifikatorl"osung
+        sein.
+
+        Also sind die Terme nicht unifizierbar.
+
+    \item $f(g(x, w), g(w, h(a)), g(h(u), x))$ und $f(y, z, z)$
+
+        $\{ x \leftarrow h(a), y \leftarrow g(h(a), h(a)), u \leftarrow a, w \leftarrow h(a), z \leftarrow g(h(a), h(a))\}$
+
+    \item $f(w, g(w, h(a)), g(h(x), x))$ und $f(h(y), z, z)$
+
+        $\{ x \leftarrow h(a), y \leftarrow h(a), w \leftarrow h(h(a)), z \leftarrow g(h(h(a)), h(a)) \}$
+
+    \item $f(g(x, w), g(w, h(b)), g(w, x))$ und $f(z, z, z)$
+
+        $\{ x \leftarrow h(b), w \leftarrow h(b), z \leftarrow g(h(b), h(b)) \}$
 \end{enumerate}
 
 
