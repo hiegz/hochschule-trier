@@ -1,0 +1,35 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{import}
+\usepackage{caption}
+
+\import{../.texit/include}{preamble}
+
+\title{Angewandte Logik\\[15pt]\Large{Hausaufgabenblatt 5}\\[10pt]\Large{SoSe 2025}}
+\author{Volodymyr But\\[5pt][Matrikel-Nr.: 982324]\\[10pt]Hochschule Trier}
+\date{}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+
+\maketitle
+\vspace{25px}
+
+\section{Aufgabe 1}
+
+\begin{enumerate}[(a)]
+    \item
+        $\sigma_1(\text{K}1) = \{\lnot\text{zugelassen}(\text{hans}, \text{logik}), \lnot\text{gut\_vorbereitet}(\text{hans}, \text{logik}), \text{besteht\_pruefung}(\text{hans}, \text{logik})\}$ \\[5pt]
+        $\sigma_2(\text{K}2) = \{\lnot\text{zugelassen}(\text{hans}, \text{logik}), \lnot\text{gut\_vorbereitet}(\text{hans}, \text{logik})\}$ \\[5pt]
+        $\sigma_3(\text{K}1) = \{\lnot\text{zugelassen}(\text{hans}, \text{logik}), \lnot\text{gut\_vorbereitet}(\text{hans}, \text{logik}), \text{besteht\_pruefung}(\text{hans}, \text{logik})\}$ \\[5pt]
+        $\sigma_3(\text{K}2) = \{\lnot\text{zugelassen}(\text{hans}, \text{logik}), \lnot\text{gut\_vorbereitet}(\text{hans}, \text{logik})\}$ \\[5pt]
+
+    \item
+        $\sigma = \{x \leftarrow f(g(y, a)), z \leftarrow b, v \leftarrow w\}$ \\[5pt]
+        $\sigma(P(f(x), g(v, f(f(x))))) = \sigma(P(f(f(g(y, a))), g(w, f(f(f(g(y, a)))))))$
+\end{enumerate}
+
+
+\end{document}
