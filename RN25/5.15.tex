@@ -1,0 +1,64 @@
+\setcounter{section}{5}
+\setcounter{subsection}{14} % 5.15
+\subsection{NAT}
+
+\begin{enumerate}[(a)]
+    \item Skizzieren Sie das Netzwerk-Szenario
+
+        --
+
+    \item Wie viele interne Clients k"onnen in diesem Szenario maximal
+        gleichzeitig im Internet surfen.
+
+        Wenn ein Client über NAT auf das öffentliche Netz zugreifen möchte,
+        weist ihm der NAT-Server einen öffentlichen Port zu. Pro IP-Adresse
+        stehen maximal 65.536 Ports zur Verfügung, daher können gleichzeitig
+        höchstens 65.536 Geräte über diese Adresse auf das Internet zugreifen.
+
+    \item Geben Sie an, welche Eintr"age das NAT-Gateway verwalten muss, wenn
+        \begin{itemize}
+            \item der interne Client den externen DNS-Server aufruft.
+                \begin{table}[h]
+                    \begin{minipage}{0.49\linewidth}
+                        \centering
+                        \begin{tabular}{ccc}
+                            Quelle          & Ziel       & Prot. \\
+                            \hline
+                            10.0.0.10:13001 & 1.2.3.7:53 & UDP \\
+                        \end{tabular}
+                        \caption{Internes Netz}
+                    \end{minipage}
+                    \begin{minipage}{0.49\linewidth}
+                        \centering
+                        \begin{tabular}{ccc}
+                            Quelle          & Ziel       & Prot. \\
+                            \hline
+                            1.2.3.4:25565   & 1.2.3.7:53 & UDP \\
+                        \end{tabular}
+                        \caption{Externes Netz}
+                    \end{minipage}
+                \end{table}
+
+            \item der externe Client den internen Web-Server aufruft.
+                \begin{table}[h]
+                    \begin{minipage}{0.49\linewidth}
+                        \centering
+                        \begin{tabular}{ccc}
+                            Quelle          & Ziel       & Prot. \\
+                            \hline
+                            1.2.3.8:25567   & 1.2.3.6:80 & TCP \\
+                        \end{tabular}
+                        \caption{Externes Netz}
+                    \end{minipage}
+                    \begin{minipage}{0.49\linewidth}
+                        \centering
+                        \begin{tabular}{ccc}
+                            Quelle          & Ziel        & Prot. \\
+                            \hline
+                            1.2.3.8:25567   & 10.0.0.1:80 & TCP \\
+                        \end{tabular}
+                        \caption{Internes Netz}
+                    \end{minipage}
+                \end{table}
+        \end{itemize}
+\end{enumerate}
