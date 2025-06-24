@@ -1,0 +1,27 @@
+\setcounter{section}{5}
+\setcounter{subsection}{8} % 5.9
+\subsection{TCP-Flusskontrolle}
+
+Es gelte $\text{MaxSendBuffer} = 1000$, $\text{MaxRcvBuffer} = 200$.
+Vervollständigen Sie die Tabelle.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{>{\centering\arraybackslash}p{1cm}|>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}|>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}}
+           & \multicolumn{4}{c}{\ttfamily Sender}                                                                                            & \multicolumn{4}{c}{\ttfamily Empf"anger} \\
+           \cline{2-9}
+           & \ttfamily Last Byte Acked  & \ttfamily EffWin & \ttfamily First Byte Sent & \ttfamily Last Byte Sent & \ttfamily Last Byte Read & \ttfamily Last Byte Recv & \ttfamily Next Byte Exp & \ttfamily AdWin \\
+           \hline
+        1  &                            &                  & 1                         & 50                       & 0                        & 50                       & 51                      & 150 \\
+        2  & 50                         & 150              & 51                        & 200                      & 10                       & 200                      & 201                     & 10  \\
+        3  & 200                        & 10               & 201                       & 210                      & 20                       & 210                      & 211                     & 10  \\
+        4  & 210                        & 10               & 211                       & 220                      & 30                       & 220                      & 216                     & 10  \\
+        5  & 215                        & 5                & 221                       & 225                      & 40                       & 225                      & 226                     & 15  \\
+        6  & 225                        & 15               & 226                       & 240                      & 50                       & 240                      & 241                     & 10  \\
+        7  & 240                        & 10               & 241                       & 250                      & 50                       & 250                      & 251                     & 0   \\
+        8  & 250                        & 0                & 251                       & 251                      & 50                       & 250                      & 251                     & 0   \\
+        9  & 250                        & 0                & 251                       & 251                      & 60                       & 251                      & 252                     & 9   \\
+       10  & 251                        & 9                & 252                       & 260                      & 70                       & 260                      & 261                     & 10  \\
+    \end{tabular}
+    \caption{}
+\end{table}
