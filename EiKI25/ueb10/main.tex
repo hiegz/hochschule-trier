@@ -1,0 +1,52 @@
+\documentclass[10pt, oneside]{article}
+\usepackage[a4paper, total={5.5in, 9in}]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{import}
+
+\import{../../.texit/include}{preamble}
+
+\title{Einführung in die Künstliche Intelligenz\\[15pt]\Large{Übungsblatt 10}\\[10pt]\Large{SoSe 2025}}
+\author{Volodymyr But\\[10pt]Hochschule Trier}
+\date{}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - %
+
+\begin{document}
+
+\maketitle
+\vspace{25px}
+
+\section{Ritter und Schurken}
+
+Auf der Insel der Ritter und Schurken ist jeder Bewohner entweder ein Ritter oder ein
+Schurke. Dabei sagen die Ritter immer die Wahrheit und die Schurken lügen immer.
+
+Wir begegnen drei Inselbewohnern, die am Straßenrand stehen.
+\begin{itemize}
+    \item Person A sagt: „Wir drei sind alle Schurken.“
+    \item Person B sagt: „Genau einer von uns ist ein Ritter.“
+\end{itemize}
+Wisenbasis:
+\begin{align*}
+    F &= A \Leftrightarrow (\lnot A \land \lnot B \land \lnot C) \\[5pt]
+    G &= B \Leftrightarrow (A \land \lnot B \land \lnot C) \lor (\lnot A \land B \land \lnot C) \lor (\lnot A \land \lnot B \land C) \\[5pt]
+    W &= F \land G
+\end{align*}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c|c|c}
+        $A$    & $B$    & $C$    & $W$    \\
+        \hline
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 1 & 1 & 0 \\
+        1 & 0 & 0 & 0 \\
+        1 & 0 & 1 & 0 \\
+        1 & 1 & 0 & 0 \\
+        1 & 1 & 1 & 0 \\
+    \end{tabular}
+    \caption{Wahrheitstabelle}
+\end{table}
+
+\end{document}
