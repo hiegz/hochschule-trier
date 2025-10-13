@@ -41,4 +41,5 @@
   ..exercise("1.1",   include("1.1.typ")),
   ..exercise("1.2.1", include("1.2.1.typ")),
   ..exercise("1.2.2", include("1.2.2.typ")),
+  ..exercise("1.2.3", include("1.2.3.typ")),
 )
