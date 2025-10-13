@@ -1,8 +1,5 @@
 #import "mathblock.typ": mathblock
 
-#counter(heading).update(10)
-= Aufgabe 11
-
 Ein bekanter Satz der Analysis besagt das Folgende: Ist $f: [a, b] -> RR$
 stetig, und auf $(a, b)$ differenzierbar, und gilt $f(a) = f(b)$ so gibt es ein
 $xi in (a, b)$ mit

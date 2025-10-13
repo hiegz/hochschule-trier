@@ -1,8 +1,5 @@
 #import "mathblock.typ": mathblock
 
-#counter(heading).update(3)
-= Aufgabe 4
-
 Es sei $f : RR -> RR$
 $
   f(x) = cases(

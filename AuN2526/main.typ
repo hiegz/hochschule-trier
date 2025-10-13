@@ -4,10 +4,12 @@
 #set document(title: title, author: author)
 #set page("a4")
 #set text(font: "New Computer Modern", lang: "de")
-#set enum(indent: 1em)
 #set math.cases(gap: 0.5em)
 
-#show heading: set block(above: 3em, below: 1em)
+#let exercise(id, content) = (
+  [#text(weight: "bold")[#id]],
+  [#content],
+)
 
 #align(center, text(18pt)[#title])
 #align(center, text(16pt)[WiSe 2025/26])
@@ -15,8 +17,17 @@
 #align(center, text(15pt)[#author])
 #align(center, text(15pt)[Hochschule Trier])
 
-#include "2.typ"
-#include "4.typ"
-#include "10.typ"
-#include "11.typ"
-#include "14.typ"
+#v(5em)
+
+// @typstyle off
+#grid(
+  columns: (auto, 1fr),
+  row-gutter: 25pt,
+  column-gutter: 10pt,
+
+  ..exercise(" 2.", include("2.typ")),
+  ..exercise(" 4.", include("4.typ")),
+  ..exercise("10.", include("10.typ")),
+  ..exercise("11.", include("11.typ")),
+  ..exercise("14.", include("14.typ")),
+)
