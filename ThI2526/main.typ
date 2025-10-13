@@ -11,7 +11,7 @@
 )
 
 #align(center, text(18pt)[#title])
-#align(center, text(16pt)[SoSe 2025])
+#align(center, text(16pt)[WiSe 2025/26])
 #v(15pt)
 #align(center, text(15pt)[#author])
 #align(center, text(15pt)[Hochschule Trier])
