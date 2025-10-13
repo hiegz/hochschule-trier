@@ -1,8 +1,5 @@
 #import "mathblock.typ": mathblock
 
-#counter(heading).update(1)
-= Aufgabe 2
-
 + $f: RR -> RR$, $f(x) = x^exp(x) + x = x^e^x + x = e^(e^x ln(x)) + x$,
 
   $f'(x) = e^(e^x ln(x)) dot (e^x ln(x) + e^x 1/x) + 1$
