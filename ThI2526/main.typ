@@ -38,5 +38,6 @@
 #section(
   1, "Einführung",
 
-  ..exercise("1.1", include("1.1.typ")),
+  ..exercise("1.1",   include("1.1.typ")),
+  ..exercise("1.2.1", include("1.2.1.typ")),
 )
