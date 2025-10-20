@@ -37,5 +37,6 @@
   [], [],
   [], [],
   [], [],
-  ..exercise("2.2.1", include("2.2.1.typ"))
+  ..exercise("2.2.1", include("2.2.1.typ")),
+  ..exercise("2.3",   include("2.3.typ"))
 )
