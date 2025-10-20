@@ -1,1 +1,1 @@
-#let mathblock(content) = block(below: 20pt)[#pad(left: 10pt)[#content]]
+#let mathblock(content) = block(below: 10pt)[#pad(left: 10pt)[#content]]
