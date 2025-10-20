@@ -2,11 +2,11 @@
 
 + $f: RR -> RR$, $f(x) = x^exp(x) + x = x^e^x + x = e^(e^x ln(x)) + x$,
 
-  $f'(x) = e^(e^x ln(x)) dot (e^x ln(x) + e^x 1/x) + 1$
+  $f'(x) = e^(e^x ln(x)) dot (e^x ln(x) + e^x 1/x) + 1 = x^exp(x) dot (e^x ln(x) + e^x 1/x) + 1$
 
 + $f : (0, infinity) -> RR$, $f(x) = x^(sin(x)) = e^(ln(x)sin(x))$,
 
-  $f'(x) = e^(ln(x)sin(x)) dot (1/x sin(x) + ln(x)cos(x))$
+  $f'(x) = e^(ln(x)sin(x)) dot (1/x sin(x) + ln(x)cos(x)) = x^sin(x) dot (1/x sin(x) + ln(x)cos(x))$
 
 + $f : (0, infinity) -> RR$, $f(x) = |x| dot 2x = 2x^2$
 
