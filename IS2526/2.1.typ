@@ -2,35 +2,41 @@
 == Skytale
 
 #let skytale_encrypt(plaintext: str, key: int) = [
+  #let rows = calc.ceil(plaintext.len() / key)
+  #let columns = key
+
   #table(
     align: center,
-    rows: key,
-    columns: calc.ceil(plaintext.len() / key),
+    rows: rows,
+    columns: columns,
 
     ..plaintext
       .codepoints()
       .enumerate()
       .map(((index, character)) => table.cell(
         character,
-        x: calc.rem(index, key),
-        y: calc.floor(index / key),
+        x: calc.rem(index, rows),
+        y: calc.floor(index / rows),
       ))
   )
 ]
 
 #let skytale_decrypt(ciphertext: str, key: int) = [
+  #let rows = calc.ceil(ciphertext.len() / key)
+  #let columns = key
+
   #table(
     align: center,
-    rows: key,
-    columns: calc.ceil(ciphertext.len() / key),
+    rows: rows,
+    columns: columns,
 
     ..ciphertext
       .codepoints()
       .enumerate()
       .map(((index, character)) => table.cell(
         character,
-        x: calc.floor(index / key),
-        y: calc.rem(index, key),
+        x: calc.floor(index / rows),
+        y: calc.rem(index, rows),
       ))
   )
 ]
@@ -61,13 +67,13 @@
 
   #skytale_decrypt(ciphertext: "PIIIERRSEELEAONREXRTTH", key: 6)
 
-  Der Klartext lautet: "PRARISOTIENTIERHELE REX "
+  Der Klartext lautet: "PEEAETIREOXHIRLNR ISERT "
 
 + Entschlüsseln Sie den Ciphertext GREATN mit dem Schlüssel 5
 
   #skytale_decrypt(ciphertext: "GREATN", key: 5)
 
-  Der Klartext lautet: "GNR E A T "
+  Der Klartext lautet: "GET#h(1em)RAN#h(1em)"
 
 + Geben Sie die Ver- und Entschlüsselungsvorschrift mit Hilfe einer Tabelle an:
 
@@ -100,10 +106,10 @@
         [Schlüssel],
         [Eingabegröße],
         [Zeichen-Index],
-        [Zeilen-Index],
-        [Spalten-Index],
         [Zeilen],
         [Spalten],
+        [Zeilen-Index],
+        [Spalten-Index],
         [Tabellengröße],
         [Padding],
       ),
@@ -114,15 +120,16 @@
       table.cell($l$, rowspan: 2),
       table.cell($i$, rowspan: 2),
 
-      [$r_i := i mod k$],
-      [$c_i := floor(i / k)$],
+      table.cell($r := ceil(l / k)$,           rowspan: 2),
+      table.cell($c := k$, rowspan: 2),
 
-      table.cell($r := k$,           rowspan: 2),
-      table.cell($c := ceil(l / k)$, rowspan: 2),
+      [$r_i := i mod r$],
+      [$c_i := floor(i / r)$],
+
       table.cell($n := r dot c$,     rowspan: 2),
       table.cell($n - l$,            rowspan: 2),
 
       [D],
-      [$r_i := floor(i / k)$],
-      [$c_i := i mod k$],
+      [$r_i := floor(i / r)$],
+      [$c_i := i mod r$],
     )
