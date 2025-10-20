@@ -38,5 +38,7 @@
   [], [],
   [], [],
   ..exercise("2.2.1", include("2.2.1.typ")),
-  ..exercise("2.3",   include("2.3.typ"))
+  ..exercise("2.3",   include("2.3.typ")),
+  ..for i in range(0, 18) { ([], []) },
+  ..exercise("2.5.2", include("2.5.2.typ")),
 )
