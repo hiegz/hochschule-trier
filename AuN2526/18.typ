@@ -1,0 +1,1 @@
+$Gamma(x + 1) = integral_0^infinity e^(-t) space t^x space d t = [- e^(-t)t^x]_0^infinity + integral_0^infinity e^(-t) x space t^(x - 1) d t = x integral_0^infinity e^(-t) space t^(x - 1) d t = x space Gamma(x)$
