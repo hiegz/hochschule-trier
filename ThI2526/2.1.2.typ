@@ -1,4 +1,4 @@
-$g(1) = 1$ und $g(n) = g(n - 1) + n^3$ f"ur alle $n >= 2$
+$g(1) = 1$ und $g(n) = g(n - 1) + n^3$ für alle $n >= 2$
 
 Zu zeigen:
 $ g(n) = "sollwert"(n) = ((n(n + 1))/2)^2 $
