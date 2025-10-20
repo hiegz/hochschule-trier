@@ -1,3 +1,4 @@
+```python
 def fib(n):
     if n <= 1:
         return n
@@ -18,3 +19,4 @@ for i in range(30 + 1):
     print(f"fib({i}) ...", end="")
     assert isclose(expected, found), f"expected {expected}, found {found}"
     print("ok")
+```
