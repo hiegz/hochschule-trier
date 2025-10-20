@@ -118,10 +118,10 @@ Quelle: #link("https://en.wikipedia.org/wiki/List_of_Java_keywords")[Wikipedia]
   public  private  protected  abstract  final  sealed  non-sealed  class  extends  implements  permits
   ```
 
-  Von diesen dürfen maximal vier gleichzeitig verwendet werden. Zum Beispiel:
+  Von diesen dürfen maximal acht gleichzeitig verwendet werden. Zum Beispiel:
 
   ```java
-  public final class Class extends BaseClass { ... }
+  public static final strictfp class Class permits OtherClass extends BaseClass implements Interface { ... }
   ```
 
   #v(2em)
