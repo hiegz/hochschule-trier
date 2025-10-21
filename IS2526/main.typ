@@ -27,3 +27,4 @@
 #pagebreak()
 #include "3.12.typ"
 #include "3.17.typ"
+#include "3.18.typ"
