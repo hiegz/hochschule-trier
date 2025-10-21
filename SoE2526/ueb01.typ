@@ -63,11 +63,11 @@
 
   - Typ: `float`
 
-    sinnvoll;
+    relativ sinnvoll; sinvoller wäre `Currency`
 
   - Anfangswert: `0`
 
-    sinnvoll;
+    relativ sinnvoll;
 
   - Restriktion: `1000 Euro < Gehalt < 4000 Euro`
 
