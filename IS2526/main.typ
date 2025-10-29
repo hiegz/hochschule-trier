@@ -7,7 +7,7 @@
 #set enum(indent: 1em)
 #set heading(numbering: "1.1")
 
-#show heading: set block(below: 1em)
+#show heading: set block(above: 2em, below: 1em)
 
 #align(center, text(18pt)[#title])
 #align(center, text(16pt)[WiSe 2025/26])
@@ -30,3 +30,4 @@
 #include "3.18.typ"
 #pagebreak()
 #include "3.21.typ"
+#include "3.24.typ"
