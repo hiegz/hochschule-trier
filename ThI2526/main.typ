@@ -40,4 +40,5 @@
   ..exercise("2.5.2", include("2.5.2.typ")),
   ..for i in range(0, 5) { ([], []) },
   ..exercise("2.8", include("2.8.typ")),
+  ..exercise("3.2", include("3.2.typ")),
 )
