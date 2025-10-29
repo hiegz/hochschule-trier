@@ -41,4 +41,5 @@
   ..for i in range(0, 5) { ([], []) },
   ..exercise("2.8", include("2.8.typ")),
   ..exercise("3.2", include("3.2.typ")),
+  ..exercise("3.3.2", include("3.3.2.typ")),
 )
