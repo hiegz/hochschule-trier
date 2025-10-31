@@ -177,8 +177,7 @@ public class MapReduceImpl<K1, V1, K2, V2, K3, V3> extends MapReduce<K1, V1, K2,
     public Map<K2, List<V2>> shuffle(Collection<Pair<K2, V2>> mapResults) {
         Map<K2, List<V2>> result = new HashMap<>();
         for (Pair<K2, V2> pair : mapResults) {
-            result.putIfAbsent(pair.key(), new ArrayList<V2>());
-            result.get(pair.key()).add(pair.value());
+            result.computeIfAbsent(pair.key(), k -> new ArrayList<V2>()).add(pair.value());
         }
         return result;
     }
