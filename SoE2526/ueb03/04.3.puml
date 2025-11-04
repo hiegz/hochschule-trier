@@ -1,0 +1,19 @@
+@startuml
+
+class Sportler {
+    -name: String
+}
+
+class Mannschaft {
+    -name: String
+}
+
+class Aktivitaet {
+    -von: Date
+    -bis: Date
+}
+
+Sportler "1" - "*" Aktivitaet
+Mannschaft "1" -- "*" Aktivitaet
+
+@enduml

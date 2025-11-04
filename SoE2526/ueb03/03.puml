@@ -1,0 +1,31 @@
+@startuml
+
+left to right direction
+
+state "Ausgeschaltet" as OFF
+state "Aufheizen" as HEAT
+state "Bereit" as READY
+state "Becherausgabe" as CUP
+state "Getränkausgabe" as DRINK
+state "Wartung" as MAINT
+
+[*] --> OFF
+OFF -> HEAT : Einschalten
+HEAT -> READY : Nach 10 Minuten
+
+READY --> READY : Geldeinwurf / Betrag aktualisieren
+
+CUP : do / Becher ausgeben
+READY -up-> CUP : Bechertaste gedrückt\n[Betrag >= 0.10]\n/ Betrag -= 0.10
+CUP -> READY : Becherausgabe abgeschlossen
+
+DRINK: do / Getränk ausgeben
+READY ---> DRINK : Getränketaste gedrückt\n[Betrag >= Getränkepreis]\n/ Betrag -= Getränkepreis
+DRINK ---> READY : Getränkausgabe abgeschlossen
+
+MAINT: do / Rückgabe aller Beträge
+READY ---> MAINT : Getränk leer
+READY ---> MAINT : Keine Becher vorhanden
+MAINT ---> READY : Reset gedrückt\n[Technikerschlüssel eingesteckt]
+
+@enduml
