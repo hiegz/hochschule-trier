@@ -1,0 +1,20 @@
+@startuml
+
+class WG {
+}
+
+WG "*" -l- "0..1" WG
+
+class HG {}
+class G {}
+class UG {}
+
+HG "1" -- "*" G
+G "1" -- "*" UG
+
+class Artikel {}
+class DA extends Artikel {}
+class HA extends Artikel {}
+class KA extends Artikel {}
+
+@enduml

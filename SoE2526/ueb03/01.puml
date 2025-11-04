@@ -1,0 +1,33 @@
+@startuml
+
+participant "TAN-App" as App
+actor Kunde
+participant "Online-Banking" as OBS
+participant "Bank" as Bank
+participant "EmpfängerKonto" as Empfaenger
+
+Kunde -> OBS: Anmeldung(username, password)
+OBS -> Bank: verifyCredentials(username, password)
+Bank --> OBS: authenticationOK
+OBS --> Kunde: Anmeldung erfolgreich
+
+Kunde -> OBS: neueÜberweisung()
+OBS -> Bank: ladeFavoriten(Kunde)
+Bank --> OBS: Favoritenliste
+OBS --> Kunde: zeigeFavoritenliste()
+
+Kunde -> OBS: überweisungErstellen(Empfänger, Betrag, Zweck)
+OBS -> Kunde: TAN erforderlich
+
+Kunde -> App: TAN anfordern()
+App --> Kunde: TAN anzeigen
+Kunde -> OBS: TAN eingeben(TAN)
+OBS -> Bank: prüfeTAN(Kunde, TAN)
+Bank --> OBS: TAN gültig
+
+OBS -> Bank: führeÜberweisungAus(KundeKonto, EmpfängerKonto, Betrag)
+Bank --> Empfaenger: Gutschrift(Betrag)
+Bank --> OBS: Überweisung bestätigt
+OBS --> Kunde: Überweisung erfolgreich
+
+@enduml

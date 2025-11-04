@@ -1,0 +1,16 @@
+@startuml
+
+class Fahrzeugklasse {
+    -name: String
+    -preisProTag: float
+}
+
+class Fahrzeug {
+    -fahrgestellnummer: String
+    -kennzeichen: String
+    +getPreisProTag(): float
+}
+
+Fahrzeugklasse "1" --- "*" Fahrzeug
+
+@enduml

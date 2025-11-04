@@ -1,0 +1,14 @@
+@startuml
+class Artikel {
+    -name: String
+    -preis: float
+    -artikelnummer: String
+}
+
+class Warengruppe {
+    +addArtikel(a: Artikel)
+    +getArtikel(): List<Artikel>
+}
+
+Warengruppe "1" o-- "*" Artikel
+@enduml
