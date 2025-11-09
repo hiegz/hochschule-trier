@@ -37,6 +37,7 @@
   ..exercise("18.", include("18.typ")),
   ..exercise("19.", include("19.typ")),
   ..for (i) in range(5) { ([], []) },
+  ..exercise("25.", include("25.typ")),
   ..exercise("29.", include("29.typ")),
   ..exercise("30.", include("30.typ")),
 )
