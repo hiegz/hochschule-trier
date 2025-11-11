@@ -1,0 +1,17 @@
+@startuml
+class Elternteil {
+  # name : String
+  # adresse : String
+  # geschlecht : String
+}
+
+class Vater extends Elternteil {}
+class Mutter extends Elternteil {}
+
+class Kind {
+  - geburtsdatum : Date
+}
+
+Vater -- Kind
+Mutter -- Kind
+@enduml

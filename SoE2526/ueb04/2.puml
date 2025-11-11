@@ -1,0 +1,30 @@
+@startuml
+class PKW {
+  +kennzeichen : String
+  +baujahr : int
+}
+
+class Typ {
+  +bezeichnung : String
+  +tagesmietpreis : double
+}
+
+class Person {
+  +name : String
+  +adresse : String
+  +geburtsdatum : Date
+}
+
+Typ "1" *-- "0..*" PKW
+
+class Vermietung {}
+
+Vermietung "1" -- "1" PKW
+Vermietung "1" -- "1" Person
+
+Vermietung "0..3" -- "0..1" Person
+
+note right of Person
+{constraint: max. 5 aktive Vermietungen als Entleiher}
+end note
+@enduml

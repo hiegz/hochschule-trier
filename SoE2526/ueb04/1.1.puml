@@ -1,0 +1,27 @@
+@startuml
+class Mitarbeiterin {
+  - name : String
+  - personalNr : int
+}
+
+interface Funktion {
+  + getBeschreibung() : String
+}
+
+class Teamleiterin implements Funktion {
+  - teamName : String
+  - mitarbeiterAnzahl : int
+}
+
+class ITSicherheitsbeauftragte implements Funktion {
+  - zertifizierung : String
+  - letztePruefung : Date
+}
+
+class Betriebsraetin implements Funktion {
+  - amtszeitBeginn : Date
+  - amtszeitEnde : Date
+}
+
+Mitarbeiterin "1" -- "*" Funktion : übernimmt >
+@enduml

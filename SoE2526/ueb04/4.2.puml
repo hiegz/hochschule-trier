@@ -1,0 +1,20 @@
+@startuml
+class Zustand {
+    - id: String
+    + nächster(s: Symbol): Zustand
+}
+
+Zustand "*" - "*" Zustand
+(Zustand, Zustand) .. Transition
+
+class Startzustand extends Zustand {}
+class Endzustand extends Zustand {}
+class UndefinierterZustand extends Zustand {}
+
+class Automat {
+  -aktuellerZustand: Zustand
+  +verarbeiten(Symbol... s)
+}
+
+Automat -[hidden]- Zustand
+@enduml
