@@ -1,0 +1,17 @@
+@startuml
+abstract class Prozessschritt {
+  - name : String
+  + ausführen() : void
+}
+
+class Berechnung extends Prozessschritt {}
+class DatenEingabe extends Prozessschritt {}
+
+class Prozessgruppe extends Prozessschritt {
+  - beschreibung : String
+  + addSchritt(s : Prozessschritt) : void
+  + removeSchritt(s : Prozessschritt) : void
+}
+
+Prozessgruppe *--- "*" Prozessschritt : besteht aus >
+@enduml

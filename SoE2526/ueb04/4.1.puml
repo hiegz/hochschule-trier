@@ -1,0 +1,25 @@
+@startuml
+
+interface State {
+    +next(input: String): State
+    +isEndState(): boolean
+}
+
+class UndefinedState implements State {
+    +next(input: String): State
+    +isEndState(): boolean
+}
+
+class ConcreteState implements State {
+    +next(input: String): State
+    +isEndState(): boolean
+}
+
+class StateMachine {
+    +process(inputs: List<String>): State
+    +getStartState(): State
+}
+
+StateMachine --> State
+
+@enduml

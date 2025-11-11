@@ -1,0 +1,11 @@
+@startuml
+class Person {
+    - name
+    - adresse
+    - geschlect
+    - geburtsdatum
+}
+
+Person "1" -- "*" Person : ist Vater von
+Person "1" -- "*" Person : ist Mutter von
+@enduml

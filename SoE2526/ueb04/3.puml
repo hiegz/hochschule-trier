@@ -1,0 +1,54 @@
+@startuml
+interface Drawable {
+    +draw(): void
+}
+
+interface Translatable {
+    +translate(language: String): void
+}
+
+interface Resizable {
+    +resize(width: int, height: int): void
+}
+
+abstract class Component implements Drawable {
+    -x: int
+    -y: int
+    -width: int
+    -height: int
+
+    +draw(): void
+}
+
+abstract class Container extends Component {
+    +addComponent(c: Component): void
+    +removeComponent(c: Component): void
+}
+
+Container *-- Component
+
+class Button extends Component implements Resizable, Translatable {
+    -text: String
+    +resize(width: int, height: int): void
+    +translate(language: String): void
+}
+
+class Label extends Component implements Translatable {
+    -text: String
+    +translate(language: String): void
+}
+
+class TextField extends Component implements Translatable {
+    -text: String
+    +translate(language: String): void
+}
+
+class Panel extends Container implements Resizable {
+    +resize(width: int, height: int): void
+}
+
+class Window extends Container implements Resizable {
+    -title: String
+    +resize(width: int, height: int): void
+}
+@enduml
