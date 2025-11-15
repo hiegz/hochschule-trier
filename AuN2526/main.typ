@@ -42,4 +42,5 @@
   ..exercise("30.", include("30.typ")),
   ..exercise("37.", include("37.typ")),
   ..exercise("39.", include("39.typ")),
+  ..exercise("40.", include("40.typ")),
 )
