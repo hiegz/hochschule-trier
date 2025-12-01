@@ -37,3 +37,7 @@
 #include "5.3.typ"
 #pagebreak()
 #include "5.8.typ"
+#pagebreak()
+#include "5.14.typ"
+#pagebreak()
+#include "5.100.typ"
