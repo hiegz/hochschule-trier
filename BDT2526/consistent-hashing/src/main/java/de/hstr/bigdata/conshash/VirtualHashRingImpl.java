@@ -11,9 +11,14 @@ class VirtualHashRingImpl implements HashRing {
     public VirtualHashRingImpl(Set<String> hosts, int virtualsPerNode) {
         for (String hostname : hosts) {
             for (int i = 1; i <= virtualsPerNode; i++) {
+                Node node = new Node(hostname);
                 String virtual = hostname + "-" + i;
                 int hash = HashUtils.hashCode(virtual);
-                ring.put(hash, new Node(hostname));
+                if (ring.containsKey(hash)) {
+                    throw new IllegalArgumentException(
+                            "Hash-Kollision zwischen Knoten: " + node + " und " + ring.get(hash));
+                }
+                ring.put(hash, node);
             }
         }
     }
