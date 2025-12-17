@@ -72,7 +72,7 @@
 
     Datenverlust bei mindestens einem Ausfall
 
-    $ P(X >= 0) = 1 - P(k = 0) = 1 - (1 - r)^n $
+    $ P(X > 0) = 1 - P(k = 0) = 1 - (1 - r)^n $
 
   - RAID 1:
 
