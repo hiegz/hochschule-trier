@@ -49,4 +49,6 @@
   ..exercise("6.9", include("6.9.typ")),
   ..exercise("11.2.1", include("11.2.1.typ")),
   ..exercise("11.2.2", include("11.2.2.typ")),
+  ..for i in range(0, 2) { ([], []) },
+  ..exercise("11.3", include("11.3.typ")),
 )
