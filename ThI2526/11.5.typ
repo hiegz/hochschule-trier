@@ -3,7 +3,7 @@ $L = { a^i b^j | i, j in NN " und " j = i^2 }$
 Angenommen $L$ ist regulär.
 
 Dann existiert nach dem Pumping-Lemma eine Zahl $p in NN$, so dass jedes Wort
-$w in L_1$ mit $|w| >= p$ in drei Teile $w = x y z$ zerlegt werden kann mit den
+$w in L$ mit $|w| >= p$ in drei Teile $w = x y z$ zerlegt werden kann mit den
 Eigenschaften
 
 - $|y| > 0$,
