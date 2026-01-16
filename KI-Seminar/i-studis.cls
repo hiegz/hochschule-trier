@@ -37,7 +37,7 @@
 %------------------ Titelseite des Fachbereichs Wirtschaft der Hochschule Trier ------
 \def\mytitlepage{
 	\begin{titlepage}{
-		\hspace {\fill} {\includegraphics [width=0.5\textwidth]{Abbildungen/HFTrier_FB_WIR.png}}}
+		\hspace {\fill} {\includegraphics [width=0.5\textwidth]{Abbildungen/Logo.png}}}
 
 		\definecolor{HSTrierOrange}{RGB}{202, 81, 22}
 		\color{HSTrierOrange}
