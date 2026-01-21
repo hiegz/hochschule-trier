@@ -1,20 +1,37 @@
 \chapter{Nullsummenspiele}
 
-Im Kontext des Adversarial Search wird im Allgemeinen überwiegend von
-sogenannten Nullsummenspielen gesprochen. Dabei handelt es sich um Spiele, in
-denen ein Vorteil für einen Akteur gleichzeitig einen gleich großen Nachteil
-für den anderen bedeutet.
+Im Kontext der adversarialen Suche werden in der Fachliteratur überwiegend
+sogenannte \textbf{Nullsummenspiele} betrachtet. Dabei handelt es sich um
+Entscheidungsszenarien, in denen der Vorteil eines Akteurs gleichzeitig einen
+gleich großen Nachteil für den Gegenspieler bedeutet. Das Grundprinzip besteht
+darin, dass der Gesamtnutzen aller Akteure für jedes mögliche Ergebnis konstant
+bleibt, was zu einem direkten Widerspruch der Interessen führt.  Die optimale
+Strategie bei solchen Spielen ergibt sich dabei nicht aus der Maximierung eines
+einzelnen Ergebnisses, sondern aus der Wahl einer Strategie, die den
+bestmöglichen Ausgang unter der Annahme eines optimal handelnden Gegners
+garantiert.
 
-In der Fachliteratur wird zudem häufig zwischen sogenannten Spielen mit
-unvollständiger Information, bei denen ein Akteur private Informationen erhält,
-die anderen nicht zugänglich sind, und Spielen mit vollständiger Information,
-bei denen allen Akteuren der gesamte Zustand bekannt ist, unterschieden.
-Außerdem existieren teilweise beobachtbare Spiele, in denen die Akteure nur
-unvollständige Informationen über den aktuellen Zustand erhalten.
+Zudem wird oft zwischen Spielen mit vollständiger und unvollständiger
+Information unterschieden. Bei \textbf{Spielen mit vollständiger Information}
+ist allen beteiligten Akteuren der aktuelle Zustand des Systems zu jedem
+Zeitpunkt bekannt. Jeder Spieler kann somit seine Entscheidungen unter
+Berücksichtigung des gesamten bisherigen Spielverlaufs treffen. So können die
+Spieler auch die möglichen Reaktionen des Gegenspieler analysieren, was die
+Wahl der Handlung unterstützt, die den bestmöglichen Ausgang für den eigenen
+Spieler verspricht. \textbf{Spiele mit unvollständiger Information} hingegen
+zeichnen sich dadurch aus, dass einzelne Spieler über private Informationen
+verfügen, die für andere nicht zugänglich sind. Eine weitere Variante sind
+teilweise beobachtbare Spiele, bei denen die Teilnehmer nur begrenzte
+Informationen über den aktuellen Stand erhalten, was die strategische
+Entscheidungsfindung zusätzlich erschwert.
 
-Diese Arbeit konzentriert sich auf perfekte Zwei-Akteur-Nullsummenspiele. Die
-im Folgenden vorgestellten Algorithmen sollten prinzipiell auch auf Szenarien
-mit mehr als zwei Akteuren skalierbar sein, jedoch werden in dieser Arbeit nur
-kurz angesprochen. Andere Spielklassen mit unvollständiger Information
-erfordern grundlegend andere Suchansätze und werden in dieser Arbeit daher
-nicht behandelt.
+Diese Arbeit konzentriert sich auf \textbf{Zwei-Akteur-Nullsummenspiele mit
+\linebreak vollständiger Information}. Anschauliche Beispiele für diese Art von Spielen
+sind Tic-Tac-Toe und Schach. Diese Einschränkung erlaubt es, die zentralen
+Konzepte und Algorithmen der adversarialen Suche klar zu analysieren und deren
+Funktionsweise nachvollziehbar darzustellen. Grundsätzlich sind viele der
+vorgestellten Verfahren auch auf Szenarien mit mehr als zwei Akteuren
+skalierbar, auf diese wird jedoch nur am Rande eingegangen. Andere Klassen von
+Spielen, insbesondere solche mit unvollständiger Information, erfordern
+grundlegend abweichende Ansätze und werden im Rahmen dieser Arbeit daher nicht
+behandelt.
