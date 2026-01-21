@@ -1,0 +1,26 @@
+\chapter{Spielbaum}
+
+Ein Spiel hat im Wesentlichen zwei grundlegende Komponenten: einen
+\textbf{Zustand} (oder auch \textbf{Position}) und durch die Regeln des
+jeweiligen Spiels definierte \textbf{Übergänge} (oder auch \textbf{Aktion})
+zwischen Zuständen. Eine Position muss sämtliche Informationen enthalten, die
+erforderlich sind, um alle möglichen Übergänge zu weiteren Positionen eindeutig
+zu erzeugen. Ein \textbf{Ply} bezeichnet dabei die Aktion eines einzelnen
+Spielers, die von einem bestimmten Zustand ausgeführt wird, im Gegensatz zum
+Begriff \textbf{Zug}, der in manchen Spielen die Aktionen beider Spieler
+zusammenfasst. Ein Zustand, von dem keine weiteren Übergänge möglich sind, wird
+üblicherweise als \textbf{terminaler Zustand} bezeichnet.
+
+In vielen Spielen ist es jedoch nicht möglich, den Spielbaum vollständig bis zu
+den terminalen Zuständen zu erzeugen, da die Anzahl der Zustände nach einigen
+Plys stark zunehmen kann. Aus diesem Grund werden häufig in der Praxis
+\textbf{Spielbäume mit begrenzter Tiefe} konstruiert. Als anschauliches
+Beispiel zeigt Abbildung~\ref{fig:gametree} einen 2-Ply-Spielbaum für
+Tic-Tac-Toe.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{Abbildungen/gametree.png}
+    \caption{Spielbaum für Tic-Tac-Toe mit einer Tiefe von 2}
+    \label{fig:gametree}
+\end{figure}
