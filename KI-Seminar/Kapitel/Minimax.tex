@@ -1,32 +1,77 @@
 \chapter{Minimax}
 
-\section{Grundidee}
+\section{Umgebung}
 
-Betrachten wir ein Zwei-Akteur-Nullsummenspiel mit vollständiger Information
-(siehe Abschnitt~\ref{sec:information-availability-in-games}). Die beiden
-Spieler werden als \textsc{max} und \textsc{min} bezeichnet, wobei \textsc{max}
-den Spielwert maximiert, während \textsc{min} ihn minimiert. Dabei kann ein
-\textbf{Spielwert} jeden sinnvollen Wert zur Bewertung einer Position in einem
-Nullsummenspiel darstellen, um ihre Vorteilhaftigkeit für beide Spieler
-auszudrücken.
+Betrachten wir ein Nullsummenspiel mit zwei Akteuren names \textsc{Max} und
+\textsc{Min}, deren Ziele einander widersprechen.
+
+Jedem Spielzustand $s \in S$ entspricht ein Spielwert $\text{\scshape eval}(s)
+\in [-1,1]$. Dabei erhalten terminale Zustände den Wert
+
+\begin{itemize}
+    \item $\text{\scshape eval}(s) = 1$, wenn \textsc{Max} gewinnt,
+    \item $\text{\scshape eval}(s) = -1$, wenn \textsc{Min} gewinnt,
+    \item oder $\textsc{\scshape eval}(s) = 0$ bei einem Unentschieden.
+\end{itemize}
+
+Für nicht-terminale Zustände liegt der Wert im offenen Intervall $(-1,1)$,
+wobei positive Werte \textsc{Max} und negative Werte \textsc{Min} begünstigen.
+
+\section{Optimale Entscheidungsfindung}
+
+Aus einem gegebenen Spielbaum lässt sich eine optimale Strategie ableiten,
+indem die sogenannten \textbf{Minimax-Werte} der Knoten berechnet werden.
+
+Blattknoten, die entweder terminale Zustände oder die Endpunkte eines auf eine
+bestimmte Tiefe begrenzten Spielbaums darstellen, übernehmen dabei einfach den
+Spielwert, den $\text{\scshape eval}(s)$ liefert. In nicht-terminalen Zuständen
+wählt \textsc{Max} den größten und \textsc{Min} den kleinsten Wert unter den
+Nachfolgern, wodurch die Werte der Blattknoten bis zur Wurzel des Baums
+zurückpropagiert werden. Formal lässt sich dies wie folgt ausdrücken:
+\begin{equation}
+    \text{\textsc{minimax}(s)} =
+    \begin{cases}
+        \text{\textsc{eval}}(s) & \text{falls} \; s \; \text{ein Blattknoten ist}, \\
+        \text{max}_{a \in A(s)} \text{\textsc{minimax}}(\text{\textsc{succ}}(s, a)) & \text{falls \textsc{to-move}}(s) = \text{\textsc{Max}}, \\
+        \text{min}_{a \in A(s)} \text{\textsc{minimax}}(\text{\textsc{succ}}(s, a)) & \text{falls \textsc{to-move}}(s) = \text{\textsc{Min}}.
+    \end{cases}
+    \label{eq:minimax}
+\end{equation}
+
+Der beste Zug ist stets derjenige Nachfolger, der für den Spieler den optimalen
+Minimax-Wert liefert.
+
+Der folgende 2-Ply-Spielbaum dient als Beispiel.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{Abbildungen/minimax-game-tree.png}
-    \caption{Ein 2-Ply-Spielbaum mit Zustandsbewertungen und den berechneten Minimax-Werten}
-    \label{fig:minimax-game-tree}
+    \includegraphics[width=1\textwidth]{Abbildungen/empty-minimax-game-tree.png}
+    \caption{Ein 2-Ply-Spielbaum mit Zustandsbewertungen}
+    % \label{fig:empty-minimax-game-tree}
 \end{figure}
 
-In der Abbildung~\ref{fig:minimax-game-tree} stehen $\diamond$ und $\circ$
-jeweils für \textsc{max}- und \textsc{min}-Knoten, an denen der entsprechende
-Spieler am Zug ist. Terminale Knoten, dargestellt durch $\square$, zeigen die
-Endbewertung des Spiels, während alle anderen Knoten die daraus berechneten
-Minimax-Werte enthalten.
+Die Symbole $\diamond$ und $\circ$ stehen für \textsc{Max}- bzw.
+\textsc{Min}-Knoten, an denen der jeweilige Spieler am Zug ist. Blattknoten,
+dargestellt durch $\square$, zeigen ihre Spielwerte.
 
-Beide Spieler durchsuchen die verfügbaren Züge und treffen die jeweils für sie
-vorteilhafteste Entscheidung. So verfügt der erste \textsc{min}-Knoten in
-Abbildung~\ref{fig:minimax-game-tree} über drei mögliche Aktionen, die zu Positionen
-mit den Spielwerten 7, 30 und 2 führen; sein Minimax-Wert beträgt daher 2. Die
-beiden weiteren \textsc{min}-Knoten erhalten entsprechend die Werte 5 und 13.
-Damit bestimmt sich der Wert des \textsc{max}-Knotens als Maximum der Werte
-seiner Nachfolger, in diesem Fall 13.
+Wendet man Definition~\ref{eq:minimax} an, ergeben sich folgende Minimax-Werte:
+
+\begin{itemize}
+    \item $\text{\scshape minimax}(\text{A}) = \text{min}\{0.9, 0.8, 0.7\} = 0.7$
+    \item $\text{\scshape minimax}(\text{B}) = \text{min}\{0.0, 1.0, 0.7\} = 0.0$
+    \item $\text{\scshape minimax}(\text{C}) = \text{min}\{-0.9, 0.3, 0.0\} = -0.9$
+    \item $\text{\scshape minimax}(\text{D}) = \text{max}\{0.7, 0.0, -0.9\} = 0.7$
+\end{itemize}
+
+Der so berechnete Spielbaum sieht dann wie in
+Abbildung~\ref{fig:filled-minimax-game-tree} aus.
+
+Die optimalste Zugfolge für beide Spieler verläuft dabei über die Knoten
+$\text{D} \rightarrow \text{A} \rightarrow 0.7$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{Abbildungen/filled-minimax-game-tree.png}
+    \caption{Ein 2-Ply-Spielbaum mit Zustandsbewertungen und mit den berechneten Minimax-Werten}
+    \label{fig:filled-minimax-game-tree}
+\end{figure}
