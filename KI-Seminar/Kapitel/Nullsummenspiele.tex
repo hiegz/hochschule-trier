@@ -3,35 +3,75 @@
 Im Kontext der adversarialen Suche werden in der Fachliteratur überwiegend
 sogenannte \textbf{Nullsummenspiele} betrachtet. Dabei handelt es sich um
 Entscheidungsszenarien, in denen der Vorteil eines Akteurs gleichzeitig einen
-gleich großen Nachteil für den Gegenspieler bedeutet. Das Grundprinzip besteht
-darin, dass der Gesamtnutzen aller Akteure für jedes mögliche Ergebnis konstant
-bleibt, was zu einem direkten Widerspruch der Interessen führt.  Die optimale
-Strategie bei solchen Spielen ergibt sich dabei nicht aus der Maximierung eines
-einzelnen Ergebnisses, sondern aus der Wahl einer Strategie, die den
-bestmöglichen Ausgang unter der Annahme eines optimal handelnden Gegners
-garantiert.
+gleich großen Nachteil für den Gegenspieler bedeutet.
 
-Zudem wird oft zwischen Spielen mit vollständiger und unvollständiger
-Information unterschieden. Bei \textbf{Spielen mit vollständiger Information}
-ist allen beteiligten Akteuren der aktuelle Zustand des Systems zu jedem
-Zeitpunkt bekannt. Jeder Spieler kann somit seine Entscheidungen unter
-Berücksichtigung des gesamten bisherigen Spielverlaufs treffen. So können die
-Spieler auch die möglichen Reaktionen des Gegenspieler analysieren, was die
-Wahl der Handlung unterstützt, die den bestmöglichen Ausgang für den eigenen
-Spieler verspricht. \textbf{Spiele mit unvollständiger Information} hingegen
-zeichnen sich dadurch aus, dass einzelne Spieler über private Informationen
-verfügen, die für andere nicht zugänglich sind. Eine weitere Variante sind
-teilweise beobachtbare Spiele, bei denen die Teilnehmer nur begrenzte
-Informationen über den aktuellen Stand erhalten, was die strategische
-Entscheidungsfindung zusätzlich erschwert.
+% Das Grundprinzip besteht darin, dass der Gesamtnutzen aller Akteure für jedes
+% mögliche Ergebnis konstant bleibt, was zu einem direkten Widerspruch der
+% Interessen führt.  Die optimale Strategie bei solchen Spielen ergibt sich dabei
+% nicht aus der Maximierung eines einzelnen Ergebnisses, sondern aus der Wahl
+% einer Strategie, die den bestmöglichen Ausgang unter der Annahme eines optimal
+% handelnden Gegners garantiert.
 
-Diese Arbeit konzentriert sich auf \textbf{Zwei-Akteur-Nullsummenspiele mit
-\linebreak vollständiger Information}. Anschauliche Beispiele für diese Art von Spielen
-sind Tic-Tac-Toe und Schach. Diese Einschränkung erlaubt es, die zentralen
-Konzepte und Algorithmen der adversarialen Suche klar zu analysieren und deren
-Funktionsweise nachvollziehbar darzustellen. Grundsätzlich sind viele der
-vorgestellten Verfahren auch auf Szenarien mit mehr als zwei Akteuren
-skalierbar, auf diese wird jedoch nur am Rande eingegangen. Andere Klassen von
-Spielen, insbesondere solche mit unvollständiger Information, erfordern
-grundlegend abweichende Ansätze und werden im Rahmen dieser Arbeit daher nicht
-behandelt.
+\section{Informationsverfügbarkeit in Spielen}
+\label{sec:information-availability-in-games}
+
+Eine weitere Eigenschaft solcher Spiele betrifft die Frage, welche
+Informationen den beteiligten Akteuren während des Spiels zur Verfügung stehen.
+Es wird oft zwischen Spielen mit vollständiger und unvollständiger Information
+unterschieden.
+
+Bei \textbf{Spielen mit vollständiger Information} ist allen
+beteiligten Akteuren der aktuelle Zustand des Systems zu jedem Zeitpunkt
+bekannt. Jeder Spieler kann somit seine Entscheidungen unter Berücksichtigung
+des gesamten bisherigen Spielverlaufs treffen. So können die Spieler auch die
+möglichen Reaktionen des Gegenspieler analysieren, was die Wahl der Handlung
+unterstützt, die den bestmöglichen Ausgang für den eigenen Spieler verspricht.
+
+\textbf{Spiele mit unvollständiger Information} hingegen zeichnen sich dadurch
+aus, dass einzelne Spieler über private Informationen verfügen, die für andere
+nicht zugänglich sind. Eine weitere Variante sind \textbf{teilweise
+beobachtbare Spiele}, bei denen die Teilnehmer nur begrenzte Informationen über
+den aktuellen Stand erhalten, was die strategische Entscheidungsfindung
+zusätzlich erschwert.
+
+\section{Formale Definition eines Spiels}
+
+Ein Spiel hat im Wesentlichen zwei grundlegende Komponenten: einen
+\textbf{Zustand} (oder auch \textbf{Position}) und durch die Regeln des
+jeweiligen Spiels definierte \textbf{Übergänge} (oder auch \textbf{Aktion})
+zwischen Zuständen. Eine Position muss sämtliche Informationen enthalten, die
+erforderlich sind, um alle möglichen Übergänge zu weiteren Positionen eindeutig
+zu erzeugen.
+
+Ein \textbf{Ply} bezeichnet die Aktion eines einzelnen Spielers, die von einem
+bestimmten Zustand ausgeführt wird. Dieser Begriff wird verwendet, um einzelne
+Spieleraktionen eindeutig zu beschreiben, da der Begriff \textbf{Zug} in
+manchen Spielen die Aktionen beider Spieler zusammenfasst.
+
+Ein Zustand, von dem keine weiteren Übergänge möglich sind, wird üblicherweise
+als \textbf{terminaler Zustand} bezeichnet. Terminale Zustände markieren das
+Ende eines Spiels und erlauben eine eindeutige Bewertung des Spielergebnisses,
+etwa als Gewinn, Verlust oder Unentschieden aus der Perspektive eines
+bestimmten Spielers.
+
+\section{Spielbäume}
+
+Werden von einem Ausgangszustand aus alle mögliche Aktione betrachtet,
+entstehen für jeden Zustand mehrere mögliche Folgezustände. Dieser Prozess
+wiederholt sich rekursiv, sodass sich eine Struktur ergibt, in der jeder
+Zustand als Knoten und jeder Übergang als gerichtete Kante interpretiert werden
+kann. Eine derartige Darstellung wird als \textbf{Spielbaum} bezeichnet.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{Abbildungen/gametree.png}
+    \caption{Spielbaum für Tic-Tac-Toe mit einer Tiefe von 2}
+    \label{fig:gametree}
+\end{figure}
+
+In vielen Spielen ist es nicht möglich, den Spielbaum vollständig bis zu den
+terminalen Zuständen zu erzeugen, da die Anzahl der Zustände nach einigen Plys
+stark zunehmen kann. Aus diesem Grund werden häufig in der Praxis
+\textbf{Spielbäume mit begrenzter Tiefe} konstruiert. Als anschauliches
+Beispiel zeigt Abbildung~\ref{fig:gametree} einen 2-Ply-Spielbaum für
+Tic-Tac-Toe.
