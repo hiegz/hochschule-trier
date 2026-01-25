@@ -1,9 +1,9 @@
 \chapter{Minimax}
 
-\section{Umgebung}
+\section{Definition der Umgebung}
 
-Betrachten wir ein Nullsummenspiel mit zwei Akteuren names \textsc{Max} und
-\textsc{Min}, deren Ziele einander widersprechen.
+Betrachten wir ein Nullsummenspiel mit zwei Akteuren $P = \{\text{\scshape
+Max}, \text{\scshape Min}\}$, deren Ziele einander widersprechen.
 
 Jedem Spielzustand $s \in S$ entspricht ein Spielwert $\text{\scshape eval}(s)
 \in [-1,1]$. Dabei erhalten terminale Zustände den Wert
@@ -32,8 +32,8 @@ zurückpropagiert werden. Formal lässt sich dies wie folgt ausdrücken:
     \text{\textsc{minimax}(s)} =
     \begin{cases}
         \text{\textsc{eval}}(s) & \text{falls} \; s \; \text{ein Blattknoten ist}, \\
-        \text{max}_{a \in A(s)} \text{\textsc{minimax}}(\text{\textsc{succ}}(s, a)) & \text{falls \textsc{to-move}}(s) = \text{\textsc{Max}}, \\
-        \text{min}_{a \in A(s)} \text{\textsc{minimax}}(\text{\textsc{succ}}(s, a)) & \text{falls \textsc{to-move}}(s) = \text{\textsc{Min}}.
+        \text{max}_{s' \in A(s)} \text{\textsc{minimax}}(s') & \text{falls \textsc{to-move}}(s) = \text{\textsc{Max}}, \\
+        \text{min}_{s' \in A(s)} \text{\textsc{minimax}}(s') & \text{falls \textsc{to-move}}(s) = \text{\textsc{Min}}.
     \end{cases}
     \label{eq:minimax}
 \end{equation}
