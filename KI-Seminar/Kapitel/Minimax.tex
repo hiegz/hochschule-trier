@@ -77,12 +77,12 @@ Die Abbildung oben illustriert anschaulich den Minimax-Algorithmus auf einem
 Zugfolge verläuft dabei über die Knoten $\text{D} \rightarrow \text{A}
 \rightarrow 0,7$.
 
-\section{Alpha-Beta Pruning}
+\section{Spielbaum-Pruning}
 
 Die Berechnung der Minimax-Werte erfordert im Worst-Case die vollständige
 Auswertung des Spielbaums bis zur gewählten Suchtiefe.
 
-\textbf{Alpha-Beta Pruning} ist eine Optimierung des Minimax-Verfahrens, bei
+\textbf{Alpha-Beta-Pruning} ist eine Optimierung des Minimax-Verfahrens, bei
 der Teile des Spielbaums verworfen werden, ohne das Ergebnis der Berechnung zu
 verändern. Die Grundidee besteht darin, Knoten nicht weiter zu untersuchen,
 wenn bereits feststeht, dass sie keinen Einfluss auf die endgültige
@@ -135,12 +135,9 @@ ganze Teilbäume abgeschnitten.
         \includegraphics[width=\linewidth]{Abbildungen/alpha-beta-f.png}
     \end{subfigure}
 
-    \caption{Alpha-Beta Pruning auf einem 2-Ply-Spielbaum}
+    \caption{Alpha-Beta-Pruning auf einem 2-Ply-Spielbaum}
     \label{fig:alpha-beta-on-a-2-ply-game-tree}
 \end{figure}
-
-\section{Forward Pruning}
-\label{sec:forward-pruning}
 
 Eine weitere Form des Prunings im Spielbaum ist das sogenannte \textbf{Forward
 Pruning}. Dabei werden Züge, die auf den ersten Blick wenig erfolgversprechend
@@ -162,13 +159,12 @@ durchgeführt werden.
 \section{Zugreihenfolge}
 
 Die Effektivität des Spielbaum-Pruning hängt stark von der Reihenfolge ab, in
-der die Zustände untersucht werden. Wie in Abschnitt~\ref{sec:forward-pruning}
-erläutert, kann eine ungünstige Zugreihenfolge dazu führen, dass
-Forward-Pruning-Verfahren auch gute Züge verwerfen und damit die Genauigkeit
-der Suche beeinträchtigen. Beim Alpha-Beta-Verfahren führt eine schlechte
-Zugordnung zwar nicht zu falschen Ergebnissen, kann die Suche jedoch deutlich
-verlangsamen, da ungünstige Züge früh untersucht werden können und dadurch
-weniger Möglichkeiten zum Abschneiden entstehen.
+der die Zustände untersucht werden. Eine ungünstige Zugreihenfolge kann dazu
+führen, dass Forward-Pruning-Verfahren auch gute Züge verwerfen und damit die
+Genauigkeit der Suche beeinträchtigen. Beim Alpha-Beta-Verfahren führt eine
+schlechte Zugordnung zwar nicht zu falschen Ergebnissen, kann die Suche jedoch
+deutlich verlangsamen, da ungünstige Züge früh untersucht werden können und
+dadurch weniger Möglichkeiten zum Abschneiden entstehen.
 
 Könnte die Zugreihenfolge perfekt bestimmt werden, müsste Alpha-Beta-Pruning
 zur Bestimmung des besten Zuges nur $O(b^{m/2})$ Knoten untersuchen, anstatt
