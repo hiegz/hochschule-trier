@@ -165,7 +165,9 @@ Könnte die Zugreihenfolge perfekt bestimmt werden, müsste Alpha-Beta-Pruning
 zur Bestimmung des besten Zuges nur $O(b^{m/2})$ Knoten untersuchen, anstatt
 $O(b^m)$ beim klassischen Minimax-Verfahren. Dies entspricht einem effektiven
 Verzweigungsfaktor von $\sqrt{b}$ statt $b$ — im Schach also etwa $6$ statt
-$35$.
+$35$. Anders ausgedrückt könnte Alpha-Beta-Pruning in diesem Fall bei gleicher
+Rechenzeit einen Spielbaum etwa doppelt so tief durchsuchen wie der klassische
+Minimax-Algorithmus.
 
 Aus naheliegenden Gründen ist eine perfekte Zugordnung in den meisten Spielen
 jedoch nicht erreichbar, da eine solche Ordnungsfunktion andernfalls direkt zur
