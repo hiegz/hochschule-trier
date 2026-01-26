@@ -138,3 +138,22 @@ ganze Teilbäume abgeschnitten.
     \caption{Alpha-Beta Pruning auf einem 2-Ply-Spielbaum}
     \label{fig:alpha-beta-on-a-2-ply-game-tree}
 \end{figure}
+
+\section{Forward Pruning}
+
+Eine weitere Form des Prunings im Spielbaum ist das sogenannte \textbf{Forward
+Pruning}. Dabei werden Züge, die auf den ersten Blick wenig erfolgversprechend
+erscheinen, vorzeitig abgeschnitten, um Rechenzeit zu sparen. Dies geschieht
+jedoch auf Kosten der Genauigkeit, da dadurch potenziell gute Züge übersehen
+werden können.
+
+Ein spezieller Ansatz des Forward Prunings ist die \textbf{Late Move
+Reduction}. Dabei wird angenommen, dass die Züge in sinnvoller Reihenfolge
+untersucht werden, sodass die später betrachteten Züge weniger wahrscheinlich
+gute Züge sind. Anstatt diese Züge komplett zu verwerfen, reduziert man
+lediglich die Tiefe, bis zu der sie untersucht werden, und spart dadurch
+Rechenzeit.
+
+Falls die verkürzte Suche jedoch einen Wert liefert, der über dem aktuellen
+$\alpha$-Wert liegt, kann die Suche für diesen Zug erneut mit voller Tiefe
+durchgeführt werden.
