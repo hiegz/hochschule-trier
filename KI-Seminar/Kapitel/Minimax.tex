@@ -83,25 +83,22 @@ Die Berechnung der Minimax-Werte erfordert im Worst-Case die vollständige
 Auswertung des Spielbaums bis zur gewählten Suchtiefe.
 
 \textbf{Alpha-Beta-Pruning} ist eine Optimierung des Minimax-Verfahrens, bei
-der Teile des Spielbaums verworfen werden, ohne das Ergebnis der Berechnung zu
-verändern. Die Grundidee besteht darin, Knoten nicht weiter zu untersuchen,
-wenn bereits feststeht, dass sie keinen Einfluss auf die endgültige
-Entscheidung haben können.
-
-Die Optimierung hat ihren Namen von den beiden Parametern, die sie einführt:
+der Teile des Spielbaums verworfen werden, wenn bereits feststeht, dass sie
+keinen Einfluss auf die endgültige Entscheidung haben können. Das
+Optimierungsverfahren hat ihren Namen von den beiden Parametern, die es
+einführt:
 
 \begin{itemize}
     \item Der Wert $\alpha$ der besten Entscheidung, die wir bisher an jedem
         Entscheidungspunkt entlang des Pfades für \textsc{Max} gefunden haben
-
     \item Der Wert $\beta$ der besten Entscheidung, die wir bisher an jedem
         Entscheidungspunkt entlang des Pfades für \textsc{Min} gefunden haben
 \end{itemize}
 
-Das Verfahren aktualisiert während der Baumdurchsuchung die Werte von $\alpha$
-und $\beta$ und schneidet die verbleibenden Zweige ab, sobald der Wert am
-aktuellen Knoten für \textsc{Max} bzw. \textsc{Min} schlechter ist als der
-jeweils aktuelle $\alpha$ bzw. $\beta$-Wert.
+Die Werte von $\alpha$ und $\beta$ werden während der Baumdurchsuchung
+aktualisiert, wobei die verbleibenden Zweige abgeschnitten werden, sobald der
+Wert am aktuellen Knoten für \textsc{Max} bzw. \textsc{Min} schlechter ist als
+der jeweils aktuelle $\alpha$ bzw. $\beta$-Wert.
 
 Die Abbildung~\ref{fig:alpha-beta-on-a-2-ply-game-tree} veranschaulicht die
 Vorgehensweise anhand eines Spielbaums aus dem vorherigen Abschnitt. In diesem
@@ -150,11 +147,9 @@ Reduction}. Dabei wird angenommen, dass die Züge in sinnvoller Reihenfolge
 untersucht werden, sodass die später betrachteten Züge weniger wahrscheinlich
 gute Züge sind. Anstatt diese Züge komplett zu verwerfen, reduziert man
 lediglich die Tiefe, bis zu der sie untersucht werden, und spart dadurch
-Rechenzeit.
-
-Falls die verkürzte Suche jedoch einen Wert liefert, der über dem aktuellen
-$\alpha$-Wert liegt, kann die Suche für diesen Zug erneut mit voller Tiefe
-durchgeführt werden.
+Rechenzeit. Falls die verkürzte Suche jedoch einen Wert liefert, der über dem
+aktuellen $\alpha$-Wert liegt, kann die Suche für diesen Zug erneut mit voller
+Tiefe durchgeführt werden.
 
 \section{Zugreihenfolge}
 
