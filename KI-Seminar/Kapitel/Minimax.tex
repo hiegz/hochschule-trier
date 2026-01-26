@@ -20,7 +20,8 @@ wobei positive Werte \textsc{Max} und negative Werte \textsc{Min} begünstigen.
 \section{Optimale Entscheidungsfindung}
 
 Aus einem gegebenen Spielbaum lässt sich eine optimale Strategie ableiten,
-indem die sogenannten \textbf{Minimax-Werte} der Knoten berechnet werden.
+indem die sogenannten \textbf{Minimax-Werte} der Knoten berechnet werden
+\cite{ai-modern-approach}.
 
 Blattknoten, die entweder terminale Zustände oder die Endpunkte eines auf eine
 bestimmte Tiefe begrenzten Spielbaums darstellen, übernehmen dabei einfach den
@@ -154,12 +155,14 @@ Tiefe durchgeführt werden.
 \section{Zugreihenfolge}
 
 Die Effektivität des Spielbaum-Pruning hängt stark von der Reihenfolge ab, in
-der die Zustände untersucht werden. Eine ungünstige Zugreihenfolge kann dazu
-führen, dass Forward-Pruning-Verfahren auch gute Züge verwerfen und damit die
-Genauigkeit der Suche beeinträchtigen. Beim Alpha-Beta-Verfahren führt eine
-schlechte Zugordnung zwar nicht zu falschen Ergebnissen, kann die Suche jedoch
-deutlich verlangsamen, da ungünstige Züge früh untersucht werden können und
-dadurch weniger Möglichkeiten zum Abschneiden entstehen.
+der die Zustände untersucht werden \cite{ai-modern-approach,
+a-review-of-game-tree-pruning, an-analysis-of-alpha-beta-pruning}. Eine
+ungünstige Zugreihenfolge kann dazu führen, dass Forward-Pruning-Verfahren auch
+gute Züge verwerfen und damit die Genauigkeit der Suche beeinträchtigen. Beim
+Alpha-Beta-Verfahren führt eine schlechte Zugordnung zwar nicht zu falschen
+Ergebnissen, kann die Suche jedoch deutlich verlangsamen, da ungünstige Züge
+früh untersucht werden können und dadurch weniger Möglichkeiten zum Abschneiden
+entstehen.
 
 Könnte die Zugreihenfolge perfekt bestimmt werden, müsste Alpha-Beta-Pruning
 zur Bestimmung des besten Zuges nur $O(b^{m/2})$ Knoten untersuchen, anstatt
@@ -167,7 +170,7 @@ $O(b^m)$ beim klassischen Minimax-Verfahren. Dies entspricht einem effektiven
 Verzweigungsfaktor von $\sqrt{b}$ statt $b$ — im Schach also etwa $6$ statt
 $35$. Anders ausgedrückt könnte Alpha-Beta-Pruning in diesem Fall bei gleicher
 Rechenzeit einen Spielbaum etwa doppelt so tief durchsuchen wie der klassische
-Minimax-Algorithmus.
+Minimax-Algorithmus \cite{ai-modern-approach}.
 
 Aus naheliegenden Gründen ist eine perfekte Zugordnung in den meisten Spielen
 jedoch nicht erreichbar, da eine solche Ordnungsfunktion andernfalls direkt zur
@@ -177,7 +180,7 @@ kann man der idealen Ordnung relativ nahekommen.
 Im Schach liefert bereits eine vergleichsweise einfache Zugordnungsheuristik,
 die zunächst Schlagzüge, anschließend Drohungen, danach Vor- und zuletzt
 Rückwärtszüge betrachtet, eine Annäherung an das Best-Case-Verhalten von
-$O(b^{m/2})$.
+$O(b^{m/2})$ \cite{ai-modern-approach}.
 
 Durch den Einsatz dynamischer Zugordnungsverfahren, etwa indem zuerst Züge
 untersucht werden, die sich in früheren Suchen als besonders gut erwiesen
@@ -194,16 +197,16 @@ maximale Suchtiefe hinausgeschoben wird. Dies wird als \textbf{Horizon-Effekt}
 bezeichnet.
 
 Eine 1-Ply-Suche aus dem Zustand, dargestellt in
-Abbildung~\ref{fig:chess-position-illustrating-horizon-effect} würde den Zug
-\texttt{Bxb3} finden, der nach Materialbewertung einen Bauern gewinnt. Aufgrund
-der begrenzten Tiefe erkennt das Verfahren jedoch nicht, dass anschließend eine
-Figur verloren geht, wodurch der anfängliche Materialvorteil wieder verloren
-ist.
+Abbildung~\ref{fig:chess-position-illustrating-horizon-effect}
+\cite{ai-modern-approach}, würde den Zug \texttt{Bxb3} finden, der nach
+Materialbewertung einen Bauern gewinnt. Aufgrund der begrenzten Tiefe erkennt
+das Verfahren jedoch nicht, dass anschließend eine Figur verloren geht, wodurch
+der anfängliche Materialvorteil wieder verloren ist.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{Abbildungen/chess-position-illustrating-horizon-effect.png}
-    \caption{Schachstellung zur Veranschaulichung des Horizon-Effekts (Schwarz am Zug)}
+    \caption{Schachstellung zur Veranschaulichung des Horizon-Effekts (Schwarz am Zug) \cite{ai-modern-approach}}
     \label{fig:chess-position-illustrating-horizon-effect}
 \end{figure}
 
