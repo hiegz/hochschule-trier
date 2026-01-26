@@ -1,0 +1,27 @@
+\chapter{Einschränkungen}
+
+In der Praxis werden die im vorherigen Kapitel eingeführten Konzepte und
+Algorithmen auf moderner Hardware bereits weitgehend in Spielprogrammen auf
+Expertenniveau wie Stockfish eingesetzt – Programme, die so stark sind, dass
+kein menschlicher Spieler sie besiegen kann.
+
+Dies bedeutet jedoch nicht, dass diese Algorithmen universell richtige oder
+unumstrittene Entscheidungen liefern. Programme wie Stockfish liefern
+Ergebnisse, die für eine gewählte Suchtiefe so genau wie möglich sind. Aufgrund
+des exponentiellen Wachstums von Spielbäumen hängt die Effektivität dieser
+Algorithmen stark von der spezifischen Struktur der Bäume und der Reihenfolge
+ab, in der Züge untersucht werden. Außerdem haben die in Abschnitt 3.5
+diskutierten Probleme, wie der Horizon-Effekt, keine formal anerkannte,
+universell anwendbare Lösung für jedes Spiel. Folglich ist die Genauigkeit der
+Suche grundsätzlich durch die Unsicherheit bei der Bewertung nicht-terminaler
+Zustände begrenzt. Eine größere Suchtiefe beim Minimax-Verfahren verbessert die
+Entscheidungsgenauigkeit nicht zwangsläufig und kann sogar Fehler verstärken,
+wenn die Bewertungsfunktion häufig irreführende Werte liefert.
+
+Eine weitere wesentliche Einschränkung adversarialer Suche liegt in den
+Entwicklungs- und Rechenkosten. In Spielen wie Schach, in denen die Menge der
+zulässigen Züge aus einem Zustand begrenzt ist, ist eine vollständige oder
+nahezu vollständige Suche noch machbar. In anderen adversarialen Szenarien, in
+denen die Menge möglicher Aktionen extrem groß oder praktisch unbegrenzt sein
+kann, werden traditionelle Suchverfahren jedoch schnell unpraktikabel, sodass
+alternative Ansätze erforderlich sein können.
