@@ -140,6 +140,7 @@ ganze Teilbäume abgeschnitten.
 \end{figure}
 
 \section{Forward Pruning}
+\label{sec:forward-pruning}
 
 Eine weitere Form des Prunings im Spielbaum ist das sogenannte \textbf{Forward
 Pruning}. Dabei werden Züge, die auf den ersten Blick wenig erfolgversprechend
@@ -157,3 +158,34 @@ Rechenzeit.
 Falls die verkürzte Suche jedoch einen Wert liefert, der über dem aktuellen
 $\alpha$-Wert liegt, kann die Suche für diesen Zug erneut mit voller Tiefe
 durchgeführt werden.
+
+\section{Zugreihenfolge}
+
+Die Effektivität des Spielbaum-Pruning hängt stark von der Reihenfolge ab, in
+der die Zustände untersucht werden. Wie in Abschnitt~\ref{sec:forward-pruning}
+erläutert, kann eine ungünstige Zugreihenfolge dazu führen, dass
+Forward-Pruning-Verfahren auch gute Züge verwerfen und damit die Genauigkeit
+der Suche beeinträchtigen. Beim Alpha-Beta-Verfahren führt eine schlechte
+Zugordnung zwar nicht zu falschen Ergebnissen, kann die Suche jedoch deutlich
+verlangsamen, da ungünstige Züge früh untersucht werden können und dadurch
+weniger Möglichkeiten zum Abschneiden entstehen.
+
+Könnte die Zugreihenfolge perfekt bestimmt werden, müsste Alpha-Beta-Pruning
+zur Bestimmung des besten Zuges nur $O(b^{m/2})$ Knoten untersuchen, anstatt
+$O(b^m)$ beim klassischen Minimax-Verfahren. Dies entspricht einem effektiven
+Verzweigungsfaktor von $\sqrt{b}$ statt $b$ — im Schach also etwa $6$ statt
+$35$.
+
+Aus naheliegenden Gründen ist eine perfekte Zugordnung in den meisten Spielen
+jedoch nicht erreichbar, da eine solche Ordnungsfunktion andernfalls direkt zur
+Bestimmung einer optimalen Spielstrategie verwendet werden könnte. Trotzdem
+kann man der idealen Ordnung relativ nahekommen.
+
+Im Schach liefert bereits eine vergleichsweise einfache Zugordnungsheuristik,
+die zunächst Schlagzüge, anschließend Drohungen, danach Vor- und zuletzt
+Rückwärtszüge betrachtet, eine Annäherung an das Best-Case-Verhalten von
+$O(b^{m/2})$.
+
+Durch den Einsatz dynamischer Zugordnungsverfahren, etwa indem zuerst Züge
+untersucht werden, die sich in früheren Suchen als besonders gut erwiesen
+haben, lässt sich die Leistung weiter steigern.
