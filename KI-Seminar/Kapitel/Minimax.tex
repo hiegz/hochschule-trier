@@ -189,3 +189,58 @@ $O(b^{m/2})$.
 Durch den Einsatz dynamischer Zugordnungsverfahren, etwa indem zuerst Züge
 untersucht werden, die sich in früheren Suchen als besonders gut erwiesen
 haben, lässt sich die Leistung weiter steigern.
+
+\section{Horizon-Effekt}
+
+In tiefenbegrenzten Spielbäumen endet die Suche in der Regel in Positionen, die
+noch eine Reihe „offener“ Züge enthalten, wie wie Schläge oder Umwandlungen im
+Schach, deren Ergebnis bei einer begrenzten Suchtiefe unvorhersehbar ist. Noch
+schlimmer ist der Effekt von verzögerten Zügen, die unnötig den Zustand
+schwächen, nur um die endgültige Niederlage hinauszuzögern, indem sie über die
+maximale Suchtiefe hinausgeschoben wird. Dies wird als \textbf{Horizon-Effekt}
+bezeichnet.
+
+Eine 1-Ply-Suche aus dem Zustand, dargestellt in
+Abbildung~\ref{fig:chess-position-illustrating-horizon-effect} würde den Zug
+\texttt{Bxb3} finden, der nach Materialbewertung einen Bauern gewinnt. Aufgrund
+der begrenzten Tiefe erkennt das Verfahren jedoch nicht, dass anschließend eine
+Figur verloren geht, wodurch der anfängliche Materialvorteil wieder verloren
+ist.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Abbildungen/chess-position-illustrating-horizon-effect.png}
+    \caption{Schachstellung zur Veranschaulichung des Horizon-Effekts (Schwarz am Zug)}
+    \label{fig:chess-position-illustrating-horizon-effect}
+\end{figure}
+
+Daher sollte \textsc{eval} nur auf {\glqq}ruhige{\grqq} Positionen angewendet
+werden, die keine {\glqq}offenen{\grqq} Züge mehr enthalten, die die Bewertung
+stark verändern würden. Dazu ist eine zusätzliche \textbf{Quiescence Search}
+erforderlich, um den Spielbaum so weit zu erweitern, bis eine solche Position
+erreicht ist. Diese Suche wird normalerweise darauf beschränkt, nur bestimmte
+Zugarten zu betrachten. Dies können die sämtlichen Antworten auf Schachzüge,
+Schläge oder Teile einer einzigen komplexen Schlagfolge sein. Das Ziel besteht
+stets darin, die Unsicherheiten in einem Zustand schnell aufzulösen, um eine
+genauere Bewertung zu ermöglichen.
+
+Leider kann der Läufer in dieser Stellung auf keine Weise gerettet werden.
+Schwarz könnte jedoch auch eine Zugfolge in Betracht ziehen, die damit beginnt,
+den König mit einem Bauern Schach zu bieten und den König dazu zu verleiten,
+den Bauern zu schlagen. Dasselbe kann Schwarz anschließend mit einem zweiten
+Bauern tun. Dadurch werden genügend Züge verbraucht, sodass der Verlust des
+Läufers im weiteren Verlauf der Suche von Schwarz nicht erkannt wird. Schwarz
+glaubt fälschlicherweise, dass der Läufer zu einem Preis von zwei Bauern
+gerettet wurde, während in Wirklichkeit nur Bauern verschwendet und der
+unvermeidliche Verlust des Läufers über die maximale Suchtiefe hinausgeschoben
+wurde.
+
+Eine Strategie zur Abschwächung dieses Problems sind \textbf{singuläre
+Erweiterungen}. Die Idee besteht darin, einen Zug mit verlängerter Suchtiefe
+erneut zu untersuchen, wenn dieser Zug deutlich besser zu sein scheint als alle
+anderen Alternativen. In unserem Beispiel sind die Züge des Turms, die auf den
+Läufer zielen, jeweils eindeutig bessere Züge. Selbst wenn also eine Folge von
+Bauernzügen den Suchprozess an den Horizont drängt, erhalten diese klar
+besseren Züge die Möglichkeit, die Suche zu verlängern. Wie genau
+{\glqq}deutlich besser{\grqq} bestimmt wird, bleibt der jeweiligen
+Implementierung überlassen.
