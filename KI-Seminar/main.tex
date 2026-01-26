@@ -1,10 +1,3 @@
-%------------------ vorlage.tex ------------------------------------------------
-%
-%
-%-------------------------------------------------------------------------------
-
-
-%------------------ Präambel ---------------------------------------------------
 \documentclass[envcountsame, envcountchap, deutsch, bibtotoc]{i-studis}
 \usepackage{parskip}
 \usepackage[utf8]{inputenc}
@@ -39,10 +32,10 @@
 
 % Zitierpakete
 \usepackage[style=apa,backend=biber,style=alphabetic, maxcitenames=2]{biblatex}
+\addbibresource{literatur.bib}
 % \DeclareLanguageMapping{german}{english}
 \usepackage[pdftex, plainpages=false, breaklinks=true]{hyperref}
 \usepackage[babel, german=quotes]{csquotes}
-\addbibresource{Literatur.bib}
 
 \usepackage{makeidx}
 \usepackage{multicol}
@@ -83,48 +76,35 @@
 
 \sloppy
 
-%------------------ Titelseite -------------------------------------------------
 \begin{document}
 \setcounter{secnumdepth}{2}
 \title{Adversarial Search}
 \project{Seminararbeit}
-% \degree{Bachelor of Science (B.Sc.)}                    % Nur bei Abschlussarbeit!
-\address{im Studiengang Künstliche Intelligenz und Data Science an der\\Hochschule Trier}
+\address{im Studiengang Künstliche Intelligenz und Data Science (B. Sc.) \\ an der Hochschule Trier}
 
 \author{Volodymyr But}
 \supervisorFirst{Prof. Dr. Claudia Schon}
 \matrikelnummer{982324}
 \fachbereich{Informatik}
-\studiengang{Künstliche Intelligenz und Data Science}
-\submitdate{26.02.2026}
+\studiengang{Künstliche Intelligenz und Data Science (B. Sc.)}
+\submitdate{26.01.2026}
 
 \mytitlepage
 
-%------------------ Vorwort, Kurzfassung, Verzeichnisse ------------------------
 \frontmatter
-\input{Kapitel/Vorwort}                                % Vorwort (optional)
-\input{Kapitel/Kurzfassung}    						% Kurzfassung/Abstract (nur bei Abschlussarbeiten)
-\tableofcontents										% Inhaltsverzeichnis
-\listoffigures                        % Abbildungsverzeichnis
-\listoftables                           % Tabellenverzeichnis
-%------------------ Kapitel ----------------------------------------------------
+\input{Kapitel/Kurzfassung}
+\tableofcontents
+
 \mainmatter
 \input{Kapitel/Einleitung.tex}
 \input{Kapitel/Nullsummenspiele.tex}
 \input{Kapitel/Minimax.tex}
 \input{Kapitel/Einschraenkungen.tex}
 \input{Kapitel/Schlussbetrachtung.tex}
-%------------------ Literaturverzeichnis & Index -------------------------------
-\backmatter
-\printbibliography
-\printindex												% Index (optional)
-%------------------ Anhänge ----------------------------------------------------
-\begin{appendix}
-	\input{Anhang/Glossar.tex}						% Glossar (optional)
-    \input{Anhang/01_Haeufige_Fehler.tex}
-    \input{Anhang/02_Wissenschaftliche_Methode.tex}
-\end{appendix}
-\input{Kapitel/Eidesstaatliche_Erklaerung}                  % Eidesstaatliche Erklärung
 
+\backmatter
+\nocite{*}
+\printbibliography
+\input{Kapitel/Eidesstaatliche_Erklaerung}
 
 \end{document}

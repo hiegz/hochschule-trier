@@ -10,13 +10,15 @@ unumstrittene Entscheidungen liefern. Programme wie Stockfish liefern
 Ergebnisse, die für eine gewählte Suchtiefe so genau wie möglich sind. Aufgrund
 des exponentiellen Wachstums von Spielbäumen hängt die Effektivität dieser
 Algorithmen stark von der spezifischen Struktur der Bäume und der Reihenfolge
-ab, in der Züge untersucht werden. Außerdem haben die in Abschnitt 3.5
-diskutierten Probleme, wie der Horizon-Effekt, keine formal anerkannte,
-universell anwendbare Lösung für jedes Spiel. Folglich ist die Genauigkeit der
-Suche grundsätzlich durch die Unsicherheit bei der Bewertung nicht-terminaler
-Zustände begrenzt. Eine größere Suchtiefe beim Minimax-Verfahren verbessert die
-Entscheidungsgenauigkeit nicht zwangsläufig und kann sogar Fehler verstärken,
-wenn die Bewertungsfunktion häufig irreführende Werte liefert.
+ab, in der Züge untersucht werden
+\cite{a-comparison-of-minimax-tree-search-algorithms}. Außerdem haben die in
+Abschnitt 3.5 diskutierten Probleme, wie der Horizon-Effekt, keine formal
+anerkannte, universell anwendbare Lösung für jedes Spiel. Folglich ist die
+Genauigkeit der Suche grundsätzlich durch die Unsicherheit bei der Bewertung
+nicht-terminaler Zustände begrenzt. Eine größere Suchtiefe beim
+Minimax-Verfahren verbessert die Entscheidungsgenauigkeit nicht zwangsläufig
+und kann sogar Fehler verstärken, wenn die Bewertungsfunktion häufig
+irreführende Werte liefert. \cite{the-nature-of-minimax}
 
 Eine weitere wesentliche Einschränkung adversarialer Suche liegt in den
 Entwicklungs- und Rechenkosten. In Spielen wie Schach, in denen die Menge der
