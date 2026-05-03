@@ -1,0 +1,4 @@
+-- select v.vorlnr, v.titel, count(h.matrnr) as anzahl_studenten from vorlesungen v join hoeren h on h.vorlnr = v.vorlnr group by v.vorlnr, v.titel;
+-- select v.vorlnr, v.titel, count(h.matrnr) as anzahl_studenten from vorlesungen v left join hoeren h on h.vorlnr = v.vorlnr group by v.vorlnr, v.titel;
+-- select v.vorlnr, v.titel, count(h.matrnr) as anzahl_studenten from vorlesungen v left join hoeren h on h.vorlnr = v.vorlnr group by v.vorlnr, v.titel order by anzahl_studenten desc;
+-- select v.vorlnr, v.titel, count(h.matrnr) as anzahl_studenten from vorlesungen v left join hoeren h on h.vorlnr = v.vorlnr group by v.vorlnr, v.titel order by anzahl_studenten desc fetch first 1 rows only;
