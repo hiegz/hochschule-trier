@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+// @formatter:off
+
 public class RandomExams {
     public static void main(String[] args) throws SQLException {
         String jdbcUrl = "jdbc:h2:mem:;INIT=RUNSCRIPT FROM 'src/main/resources/init.sql'";
@@ -54,26 +56,22 @@ public class RandomExams {
         }
     }
 
-    private static void hoerenAuflisten(Connection conn, Map<Integer, String> vorl, Map<Integer, String> stud)
-            throws SQLException {
-        try (var statement = conn.createStatement()) {
-            var result = statement.executeQuery("select matrnr, vorlnr from hoeren");
-
+    private static void hoerenAuflisten(Connection conn, Map<Integer, String> vorl, Map<Integer, String> stud) throws SQLException {
+        try (var statement = conn.createStatement();
+             var result    = statement.executeQuery("select matrnr, vorlnr from hoeren"))
+        {
             while (result.next()) {
                 System.err.println(stud.get(result.getInt(1)) + " hoert " + vorl.get(result.getInt(2)));
             }
         }
     }
 
-    private static void zufaelligeNoten(Connection conn, Map<Integer, String> vorl, Map<Integer, String> stud,
-            Map<Integer, Integer> gelesenVon) throws SQLException {
+    private static void zufaelligeNoten(Connection conn, Map<Integer, String> vorl, Map<Integer, String> stud, Map<Integer, Integer> gelesenVon) throws SQLException {
         Random rnd = new Random();
 
-        Collection<Double> noten = Set.of(1.0, 1.3, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.7, 4.0, 5.0);
-        Collection<Integer> studenten = stud.keySet();
+        Collection<Double>  noten       = Set.of(1.0, 1.3, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.7, 4.0, 5.0);
+        Collection<Integer> studenten   = stud.keySet();
         Collection<Integer> vorlesungen = vorl.keySet();
-
-        // @formatter:off
 
         final String insertSQL = "insert into pruefen (matrnr, vorlnr, persnr, note) values (?, ?, ?, ?)";
         final String checkSQL  = "select 1 from pruefen where matrnr = ? and vorlnr = ?";
@@ -81,7 +79,8 @@ public class RandomExams {
         try (var insertStatement = conn.prepareStatement(insertSQL);
              var checkStatement  = conn.prepareStatement(checkSQL))
         {
-            for (int trial = 0; trial < 20; trial++) {
+            for (int trial = 0; trial < 20; trial++)
+            {
                 Integer matrnr = randomElement(rnd, studenten);
                 Integer vorlnr = randomElement(rnd, vorlesungen);
                 Integer persnr = gelesenVon.get(vorlnr);
@@ -91,9 +90,12 @@ public class RandomExams {
                 checkStatement.setInt(1, matrnr);
                 checkStatement.setInt(2, vorlnr);
 
-                if (checkStatement.executeQuery().next()) {
-                    trial--;
-                    continue;
+                try (var result = checkStatement.executeQuery())
+                {
+                    if (result.next()) {
+                        trial--;
+                        continue;
+                    }
                 }
 
                 insertStatement.setInt(1, matrnr);
@@ -102,10 +104,9 @@ public class RandomExams {
                 insertStatement.setDouble(4, randomElement(rnd, noten));
 
                 insertStatement.executeUpdate();
+                insertStatement.close();
             }
         }
-
-        // @formatter:on
     }
 
     /**
@@ -127,9 +128,8 @@ public class RandomExams {
     private static Map<Integer, String> readTable(Connection conn, String tab, String id, String label)
             throws SQLException {
         Map<Integer, String> map = new HashMap<>();
-        try (var statement = conn.createStatement()) {
-            var result = statement.executeQuery("select " + id + ", " + label + " from " + tab);
-
+        try (var statement = conn.createStatement();
+                var result = statement.executeQuery("select " + id + ", " + label + " from " + tab)) {
             while (result.next()) {
                 map.put(result.getInt(1), result.getString(2));
             }
@@ -139,9 +139,9 @@ public class RandomExams {
 
     private static Map<Integer, Integer> readVorl(Connection conn) throws SQLException {
         Map<Integer, Integer> map = new HashMap<>();
-        try (var statement = conn.createStatement()) {
-            var result = statement.executeQuery("select vorlnr, gelesenVon from vorlesungen");
-
+        try (var statement = conn.createStatement();
+             var result    = statement.executeQuery("select vorlnr, gelesenVon from vorlesungen")) 
+        {
             while (result.next()) {
                 map.put(result.getInt(1), result.getInt(2));
             }
